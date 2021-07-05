@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'gender_no',
+        'gender',
         'birthdate',
         'contact_no',
         'age_range',
@@ -47,4 +47,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeFindByFacebookId($query, $id)
+    {
+        return $query->where('facebook_id', $id);
+    }
 }
