@@ -8,6 +8,9 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
 
 class RegisterController extends Controller
 {
@@ -51,8 +54,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required'],
+            'birthdate' => ['required', 'date'],
+            'contact_no' => ['required', 'min:11'],
+            'age_range' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'address' => ['required'],
+            'landmark' => ['required'],
+            't&c' => ['required'],
         ]);
     }
 
@@ -66,8 +75,38 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'gender' => $data['gender'],
+            'birthdate' => date('Y-m-d', strtotime($data['birthdate'])),
+            'contact_no' => $data['contact_no'],
+            'age_range' => $data['age_range'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'address' => $data['address'],
+            'landmark' => $data['landmark'],
+            'city_id' => $data['city_id'],
+            'facebook_id' => $data['facebook_id'],
         ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect('/users/registration-notice');
     }
 }
