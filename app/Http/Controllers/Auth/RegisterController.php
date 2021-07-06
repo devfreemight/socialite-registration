@@ -99,7 +99,7 @@ class RegisterController extends Controller
 
         event(new Registered($user = $this->create($request->all())));
 
-        // $this->guard()->login($user);
+        $this->guard()->login($user);
 
         if ($response = $this->registered($request, $user)) {
             return $response;
@@ -107,6 +107,6 @@ class RegisterController extends Controller
 
         return $request->wantsJson()
                     ? new JsonResponse([], 201)
-                    : redirect('/users/registration-notice');
+                    : redirect()->route('verification.notice');
     }
 }
