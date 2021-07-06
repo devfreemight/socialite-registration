@@ -34,7 +34,7 @@ class SocialRegistrationController extends Controller
                 config()->has("services.{$provider}");
     }
 
-    public function redirectProvider($provider, $city)
+    public function redirectProvider($provider, $city = null)
     {
         if ($this->isProviderAllowed($provider)) {
             session(['city_id' => $city]);
