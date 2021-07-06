@@ -13,9 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/select-city');
+Route::get('/select-city', 'CitySelectionController@index');
+Route::post('/user/registration', 'UserRegistrationController@showRegistrationForm')->name('user.registration');
+Route::get('/user/registration', 'UserRegistrationController@setRegistrationForm');
+Route::view('/users/registration-notice', 'registration.notice');
+
+Route::get('/socialite/redirect/{provider}/{city}', 'SocialRegistrationController@redirectProvider');
+Route::get('/socialite/callback/{provider}', 'SocialRegistrationController@registerWithProvider');
 
 Auth::routes();
 
