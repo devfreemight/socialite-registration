@@ -61,12 +61,9 @@ class SocialRegistrationController extends Controller
             $user = \App\User::findByFacebookId($providerUser->id)->first();
 
             if ($user) {
-                if ($provider == 'facebook') {
-                    $user->facebook_id = $providerUser->id;
-                    $user->save();
-                }
+                \Auth::login($user);
 
-                return redirect()->route('login');
+                return redirect(\App\Providers\RouteServiceProvider::HOME);
             } else {
                 $route = '/user/registration?';
                 $route .= 'facebook_id=' . $providerUser->getId();

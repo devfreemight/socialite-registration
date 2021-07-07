@@ -18,7 +18,7 @@ Route::get('/select-city', 'CitySelectionController@index');
 Route::post('/user/registration', 'UserRegistrationController@showRegistrationForm')->name('user.registration');
 Route::get('/user/registration', 'UserRegistrationController@setRegistrationForm');
 
-Route::get('/socialite/redirect/{provider}/{city}', 'SocialRegistrationController@redirectProvider');
+Route::get('/socialite/redirect/{provider}/{city?}', 'SocialRegistrationController@redirectProvider');
 Route::get('/socialite/callback/{provider}', 'SocialRegistrationController@registerWithProvider');
 
 Auth::routes(['verify' => true]);
