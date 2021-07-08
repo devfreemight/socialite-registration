@@ -11,7 +11,7 @@
 
                     <div class="form-group row">
                         <div class="col-md-6 offset-md-4">
-                            <a class="btn" href="/socialite/redirect/facebook/{{ $city_id }}" style="background: #3B5499; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
+                            <a class="btn" href="/socialite/redirect/facebook/{{ isset($city_id) ? $city_id : old('city_id') }}" style="background: #3B5499; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
                                 <b>Continue with Facebook</b>
                             </a>
                         </div>
@@ -39,11 +39,11 @@
 
                             <div class="col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="maleRadio" value="0" {{ isset($gender) && $gender == 'male' ? 'checked' : '' }} required>
+                                    <input class="form-check-input" type="radio" name="gender" id="maleRadio" value="0" {{ isset($gender) || old('gender') == '0' ? 'checked' : '' }} required>
                                     <label class="form-check-label col-form-label" for="maleRadio">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="femaleRadio" value="1" {{ isset($gender) && $gender == 'female' ? 'checked' : '' }} required>
+                                    <input class="form-check-input" type="radio" name="gender" id="femaleRadio" value="1" {{ isset($gender) || old('gender') == '1' ? 'checked' : '' }} required>
                                     <label class="form-check-label col-form-label" for="femaleRadio">Female</label>
                                 </div>
                             </div>
@@ -123,7 +123,13 @@
                             <label for="landmark" class="col-md-4 col-form-label text-md-right">{{ __('Landmark') }}</label>
 
                             <div class="col-md-6">
-                                <textarea id="landmark" autofocus class="form-control" rows="3" name="landmark" required></textarea>
+                                <textarea id="landmark" autofocus class="form-control @error('landmark') is-invalid @enderror" rows="3" name="landmark" required>{{ old('landmark') }}</textarea>
+
+                                @error('landmark')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
@@ -152,7 +158,7 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="city_id" value="{{ $city_id }}">
+                        <input type="hidden" name="city_id" value="{{ isset($city_id) ? $city_id : old('city_id') }}">
                         <input type="hidden" name="facebook_id" value="{{ isset($facebook_id) ? $facebook_id : '' }}">
                     </form>
                 </div>
