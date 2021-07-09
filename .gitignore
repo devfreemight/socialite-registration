@@ -10,7 +10,7 @@
 /public/.htaccess
 /public/vendor
 /storage/*.key
-/storage/framework
+/storage/framework/**/*
 /vendor
 .env
 .env.backup
