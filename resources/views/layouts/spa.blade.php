@@ -18,7 +18,11 @@
 </head>
 <body>
     <div id="app" v-cloak></div>
-    <script src="{{ mix('/js/manifest.js') }}"></script>
+    @if(config('app.env') === 'production')
+        <script src="{{ mix('/dist/manifest.js') }}"></script>
+    @else
+        <script src="{{ mix('/js/manifest.js') }}"></script>
+    @endif
     <script src="{{ mix('/js/vendor.js') }}"></script>
     @yield('content')
 </body>
