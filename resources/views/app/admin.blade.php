@@ -6,8 +6,9 @@
 
 @section('content')
     @if(config('app.env') === 'production')
-        <script src="{{ mix('/js/ProdAdminApp.js') }}"></script>
+        <script src="{{ mix('/dist/ProdAdminApp.js') }}"></script>
     @else
         <script src="{{ mix('/js/AdminApp.js') }}"></script>
+    @endif
 @endsection
 
