@@ -61,15 +61,16 @@ const config = {
 ];
 
 mix.webpackConfig(config)
-    .js('resources/js/AdminApp/app.js','public/js/AdminApp.js')
-    .js('resources/js/GuestApp/app.js','public/js/GuestApp.js')
     .extract(vendors,'js/vendor')
     .sass('resources/sass/app.scss', 'public/css')
-    .sass('resources/sass/admin-app.scss', 'public/css')
+    .sass('resources/sass/admin-app.scss', 'public/css');
 
 mix.disableNotifications();
 if (mix.inProduction()) {
-    mix.js('resources/js/AdminApp/app.js','public/js/ProdAdminApp.js')
-        .js('resources/js/GuestApp/app.js','public/js/ProdGuestApp.js')
+    mix.js('resources/js/AdminApp/app.js','public/dist/ProdAdminApp.js')
+        .js('resources/js/GuestApp/app.js','public/dist/ProdGuestApp.js')
         .version();
+}else{
+    mix.js('resources/js/AdminApp/app.js','public/js/AdminApp.js')
+    .js('resources/js/GuestApp/app.js','public/js/GuestApp.js');
 }
