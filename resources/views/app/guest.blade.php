@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
-    <script src="{{ mix('/js/GuestApp.js') }}"></script>
+    @if(config('app.env') === 'production')
+        <script src="{{ mix('/js/ProdGuestApp.js') }}"></script>
+    @else
+        <script src="{{ mix('/js/GuestApp.js') }}"></script>
 @endsection
 
