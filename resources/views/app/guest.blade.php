@@ -1,14 +1,18 @@
 @extends('layouts.spa')
 
 @section('head')
-        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    @if(config('app.env') === 'production')
+        <link rel="stylesheet" href="{{ asset('/dist/app.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    @endif
 @endsection
 
 @section('content')
     @if(config('app.env') === 'production')
-        <script src="{{ mix('/dist/ProdGuestApp.js') }}"></script>
+        <script src="{{ asset('/dist/ProdGuestApp.js') }}"></script>
     @else
-        <script src="{{ mix('/js/GuestApp.js') }}"></script>
+        <script src="{{ asset('/js/GuestApp.js') }}"></script>
     @endif
 @endsection
 
