@@ -13,20 +13,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/select-city');
-Route::get('/select-city', 'CitySelectionController@index');
-Route::get('/user/registration/{city_id}', 'UserRegistrationController@showRegistrationForm')->name('user.registration');
+Route::get('/admin/{vue?}', function () {
+    return view('app.admin');
+})->where('vue', '[\/\w\W\.-]*');
 
+// Route::get('/{vue?}', \App\Http\Controllers\App\EmployeeAppController::class)->where('vue', '[\/\w\W\.-]*');
 
+// Route::redirect('/', '/select-city');
+// Route::get('/select-city', 'CitySelectionController@index');
+// Route::get('/user/registration/{city_id}', 'UserRegistrationController@showRegistrationForm')->name('user.registration');
 
+// // Route::post('/user/registration', 'UserRegistrationController@showRegistrationForm')->name('user.registration');
+// // Route::get('/user/registration', 'UserRegistrationController@setRegistrationForm');
 
+// // Route::get('/socialite/redirect/{provider}/{city?}', 'SocialRegistrationController@redirectProvider');
+// // Route::get('/socialite/callback/{provider}', 'SocialRegistrationController@registerWithProvider');
 
-// Route::post('/user/registration', 'UserRegistrationController@showRegistrationForm')->name('user.registration');
-// Route::get('/user/registration', 'UserRegistrationController@setRegistrationForm');
+// Auth::routes(['verify' => true]);
 
-// Route::get('/socialite/redirect/{provider}/{city?}', 'SocialRegistrationController@redirectProvider');
-// Route::get('/socialite/callback/{provider}', 'SocialRegistrationController@registerWithProvider');
-
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
