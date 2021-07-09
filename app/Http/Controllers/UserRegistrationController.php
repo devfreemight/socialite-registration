@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class UserRegistrationController extends Controller
 {
-    public function showRegistrationForm(Request $request)
+    public function showRegistrationForm($city_id)
     {
-        return view('registration.form')->with('city_id', $request->input('city_id'));
+        $city_name = \App\City::find($city_id)->name;
+        return view('registration.form', compact('city_id', 'city_name'));
     }
 
     public function setRegistrationForm(Request $request)

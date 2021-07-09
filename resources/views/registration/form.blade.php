@@ -3,157 +3,133 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
 
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-4">
-                            <a class="btn" href="/socialite/redirect/facebook/{{ $city_id }}" style="background: #3B5499; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
-                                <b>Continue with Facebook</b>
-                            </a>
-                        </div>
-                    </div>
+                    <h3 class="text-center font-weight-bold mb-5 mt-3">Sign Up Here</h1>
 
-                    <form method="POST" action="{{ route('register') }}">
+                    <form class="px-4" method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <div class="form-group">
+                            <label for="name" class="font-weight-bold">{{ __('Full Name') }}</label>
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ isset($name) ? $name : old('name') }}" required autocomplete="name" autofocus placeholder="Juan Dela Cruz">
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ isset($name) ? $name : old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                        <div class="form-group">
+                            <label for="gender" class="font-weight-bold">{{ __('Gender') }}</label>
+                            <select class="form-control @error('gender') is-invalid @enderror" name="gender" id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="0" {{ old('gender') == '0' ? 'selected' : '' }}>Male</option>
+                                <option value="1" {{ old('gender') == '1' ? 'selected' : '' }}>Female</option>
+                            </select>
 
-                            <div class="col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="maleRadio" value="0" {{ isset($gender) && $gender == 'male' ? 'checked' : '' }} required>
-                                    <label class="form-check-label col-form-label" for="maleRadio">Male</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="femaleRadio" value="1" {{ isset($gender) && $gender == 'female' ? 'checked' : '' }} required>
-                                    <label class="form-check-label col-form-label" for="femaleRadio">Female</label>
-                                </div>
-                            </div>
+                            @error('gender')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="birthdate" class="col-md-4 col-form-label text-md-right">{{ __('Birthdate') }}</label>
+                        <div class="form-group">
+                            <label for="birthday" class="font-weight-bold">{{ __('Birthday') }}</label>
+                            <input id="birthday" type="text" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ isset($birthday) ? $birthday : old('birthday') }}" required placeholder="mm/dd/YYYY">
 
-                            <div class="col-md-6">
-                                <input id="birthdate" type="text" class="form-control @error('birthdate') is-invalid @enderror" name="birthdate" value="{{ isset($birthday) ? $birthday : old('birthdate') }}" required placeholder="mm/dd/YYYY">
-
-                                @error('birthdate')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('birthday')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="contact_no" class="col-md-4 col-form-label text-md-right">{{ __('Contact #') }}</label>
+                        <div class="form-group">
+                            <label for="contact_no" class="font-weight-bold">{{ __('Contact No.') }}</label>
+                            <input id="contact_no" type="text" class="form-control @error('contact_no') is-invalid @enderror" name="contact_no" value="{{ old('contact_no') }}" required placeholder="09123456789">
 
-                            <div class="col-md-6">
-                                <input id="contact_no" type="text" class="form-control @error('contact_no') is-invalid @enderror" name="contact_no" value="{{ old('contact_no') }}" required placeholder="09123456789">
-
-                                @error('contact_no')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('contact_no')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="age_range" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
+                        <div class="form-group">
+                            <label for="age" class="font-weight-bold">{{ __('Age') }}</label>
+                            <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ old('age') }}" required placeholder="18-30">
 
-                            <div class="col-md-6">
-                                <input id="age_range" type="text" class="form-control @error('age_range') is-invalid @enderror" name="age_range" value="{{ old('age_range') }}" required placeholder="18-30">
-
-                                @error('age_range')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('age')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <div class="form-group">
+                            <label for="address" class="font-weight-bold">{{ __('Address') }}</label>
+                            <input id="address" type="text" class="form-control @error('street') is-invalid @enderror" name="street" value="{{ old('street') }}" required placeholder="Street">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ isset($email) ? $email : old('email') }}" required autocomplete="email" placeholder="sample@example.com">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('street')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                        <div class="form-group">
+                            <select class="form-control @error('barangay') is-invalid @enderror" name="barangay" id="barangay" required>
+                                <option value="">Barangay</option>
+                            </select>
 
-                            <div class="col-md-6">
-                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required placeholder="Street/Sitio">
-
-                                @error('address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('barangay')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row">
-                            <label for="landmark" class="col-md-4 col-form-label text-md-right">{{ __('Landmark') }}</label>
-
-                            <div class="col-md-6">
-                                <textarea id="landmark" autofocus class="form-control" rows="3" name="landmark" required></textarea>
-                            </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="city_name" value="{{ isset($city_name) ? $city_name : old('city_name') }}" disabled>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="t&c" name="t&c" required>
-                                    <label for="t&c" class="form-check-label">
-                                        I agree to the <ins>Terms of Service</ins> and <ins>Privacy Policy</ins>
-                                    </label>
+                        <div class="form-group">
+                            <label for="landmark" class="font-weight-bold">{{ __('Landmark') }}</label>
+                            <textarea id="landmark" autofocus class="form-control @error('landmark') is-invalid @enderror" rows="3" name="landmark" required>{{ old('landmark') }}</textarea>
 
-                                    @error('t&c')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
+                            @error('landmark')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" value="1" id="t&c" name="t&c" required>
+                            <label for="t&c" class="form-check-label">
+                                I agree to the <ins>Terms of Service</ins> and <ins>Privacy Policy</ins>
+                            </label>
+
+                            @error('t&c')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <input type="hidden" name="city_id" value="{{ $city_id }}">
-                        <input type="hidden" name="facebook_id" value="{{ isset($facebook_id) ? $facebook_id : '' }}">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Submit') }}
+                            </button>
+                        </div>
+
+                        <input type="hidden" name="city_id" value="{{ isset($city_id) ? $city_id : old('city_id') }}">
                     </form>
                 </div>
             </div>

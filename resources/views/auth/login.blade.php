@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="form-group row">
                         <div class="col-md-6 offset-md-4">
-                            <a class="btn" href="/socialite/redirect/facebook/" style="background: #3B5499; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
+                            <a class="btn" href="/socialite/redirect/facebook" style="background: #3B5499; color: #ffffff; padding: 10px; width: 100%; text-align: center; display: block; border-radius:3px;">
                                 <b>Continue with Facebook</b>
                             </a>
                         </div>
