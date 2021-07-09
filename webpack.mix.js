@@ -69,7 +69,7 @@ if (mix.inProduction()) {
         .js('resources/js/GuestApp/app.js','public/dist/ProdGuestApp.js')
         .sass('resources/sass/app.scss', 'public/dist')
         .sass('resources/sass/admin-app.scss', 'public/dist')
-        .extract(vendors,'dist/vendor');
+        .extract(vendors,'dist/vendor')
         .version();
 }else{
     mix.js('resources/js/AdminApp/app.js','public/js/AdminApp.js')
