@@ -1,0 +1,1262 @@
+[
+  {
+    "brgy_id": "063022137",
+    "name": "Rizal Estanzuela",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022125",
+    "name": "Rizal Palapala I",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022126",
+    "name": "Rizal Palapala II",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022127",
+    "name": "PHHC Block 17",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022128",
+    "name": "PHHC Block 22 NHA",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022129",
+    "name": "Poblacion Molo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022131",
+    "name": "President Roxas",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022132",
+    "name": "Progreso-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022133",
+    "name": "Punong-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022134",
+    "name": "Quezon",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022135",
+    "name": "Quintin Salas",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022136",
+    "name": "Rima-Rizal",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022124",
+    "name": "Our Lady Of Lourdes",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022138",
+    "name": "Rizal Ibarra",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022139",
+    "name": "Railway",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022140",
+    "name": "Roxas Village",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022144",
+    "name": "Sambag",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022146",
+    "name": "Sampaguita",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022148",
+    "name": "San Agustin",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022149",
+    "name": "San Antonio",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022150",
+    "name": "San Felix",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022151",
+    "name": "San Isidro (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022152",
+    "name": "Hibao-an Norte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022113",
+    "name": "Muelle Loney-Montes",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022102",
+    "name": "Magsaysay",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022103",
+    "name": "Magsaysay Village",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022104",
+    "name": "Malipayon-Delgado",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022105",
+    "name": "Mansaya-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022106",
+    "name": "Marcelo H. del Pilar",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022107",
+    "name": "Maria Clara",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022108",
+    "name": "Maria Cristina",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022109",
+    "name": "Mohon",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022110",
+    "name": "Molo Boulevard",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022112",
+    "name": "Montinola",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022154",
+    "name": "San Jose (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022114",
+    "name": "Nabitasan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022115",
+    "name": "Navais",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022116",
+    "name": "Nonoy",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022117",
+    "name": "North Fundidor",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022118",
+    "name": "North Baluarte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022119",
+    "name": "North San Jose",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022120",
+    "name": "Oñate de Leon",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022121",
+    "name": "Obrero-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022122",
+    "name": "Ortiz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022123",
+    "name": "Osmeña",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022192",
+    "name": "West Timawa",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022178",
+    "name": "Abeto Mirasol Taft South (Quirino Abeto)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022179",
+    "name": "Tagbac",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022181",
+    "name": "Tap-oc",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022182",
+    "name": "Taytay Zone II",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022183",
+    "name": "Ticud (La Paz)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022185",
+    "name": "Timawa Tanza I",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022186",
+    "name": "Timawa Tanza II",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022187",
+    "name": "Ungka",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022188",
+    "name": "Veterans Village",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022189",
+    "name": "Villa Anita",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022191",
+    "name": "West Habog-habog",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022177",
+    "name": "Tacas",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022193",
+    "name": "Yulo-Arroyo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022194",
+    "name": "Yulo Drive",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022195",
+    "name": "Zamora-Melliza",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022196",
+    "name": "Pale Benedicto Rizal (Mandurriao)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022197",
+    "name": "Kahirupan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022198",
+    "name": "Luna (La Paz)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022199",
+    "name": "San Isidro (La Paz)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022200",
+    "name": "San Jose (City Proper)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022201",
+    "name": "Tabuc Suba (La Paz)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022202",
+    "name": "Rizal (La Paz)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022166",
+    "name": "Santo Domingo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022155",
+    "name": "San Jose (Arevalo)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022156",
+    "name": "San Juan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022157",
+    "name": "San Nicolas",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022158",
+    "name": "San Pedro (Molo)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022159",
+    "name": "San Pedro (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022160",
+    "name": "San Rafael",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022161",
+    "name": "San Roque",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022163",
+    "name": "San Vicente",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022164",
+    "name": "Santa Filomena",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022165",
+    "name": "Santa Rosa",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022101",
+    "name": "Magdalo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022167",
+    "name": "Santo Niño Norte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022168",
+    "name": "Santo Niño Sur",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022169",
+    "name": "Santo Rosario-Duran",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022170",
+    "name": "Simon Ledesma",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022171",
+    "name": "So-oc",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022172",
+    "name": "South Baluarte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022173",
+    "name": "South San Jose",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022174",
+    "name": "Taal",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022175",
+    "name": "Tabuc Suba (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022176",
+    "name": "Tabucan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022040",
+    "name": "Cuartero",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022026",
+    "name": "Buntatala",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022028",
+    "name": "Seminario (Burgos Jalandoni)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022029",
+    "name": "Caingin",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022030",
+    "name": "Calahunan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022031",
+    "name": "Calaparan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022032",
+    "name": "Calumpang",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022033",
+    "name": "Camalig",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022034",
+    "name": "El 98 Castilla (Claudio Lopez)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022035",
+    "name": "Cochero",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022036",
+    "name": "Compania",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022038",
+    "name": "Concepcion-Montes",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022025",
+    "name": "Buhang Taft North",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022041",
+    "name": "Cubay",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022042",
+    "name": "Danao",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022043",
+    "name": "Mabolo-Delgado",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022044",
+    "name": "Democracia",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022045",
+    "name": "Desamparados",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022046",
+    "name": "Divinagracia",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022047",
+    "name": "Don Esteban-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022048",
+    "name": "Dulonan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022049",
+    "name": "Dungon",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022050",
+    "name": "Dungon A",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022014",
+    "name": "Sinikway (Bangkerohan Lapuz)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022003",
+    "name": "Aguinaldo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022004",
+    "name": "Airport (Tabucan Airport)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022005",
+    "name": "Alalasan Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022006",
+    "name": "Arguelles",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022007",
+    "name": "Arsenal Aduana",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022008",
+    "name": "North Avanceña",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022009",
+    "name": "Bakhaw",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022010",
+    "name": "Balabago",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022011",
+    "name": "Balantang",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022012",
+    "name": "Baldoza",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022051",
+    "name": "Dungon B",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022015",
+    "name": "Bantud",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022016",
+    "name": "Banuyao",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022017",
+    "name": "Baybay Tanza",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022018",
+    "name": "Benedicto (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022019",
+    "name": "Bito-on",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022020",
+    "name": "Monica Blumentritt",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022021",
+    "name": "Bolilao",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022022",
+    "name": "Bonifacio Tanza",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022023",
+    "name": "Bonifacio (Arevalo)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022024",
+    "name": "Buhang",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022090",
+    "name": "Liberation",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022077",
+    "name": "Jereos",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022078",
+    "name": "Calubihan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022079",
+    "name": "Kasingkasing",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022080",
+    "name": "Katilingban",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022081",
+    "name": "Kauswagan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022084",
+    "name": "Our Lady Of Fatima",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022085",
+    "name": "Laguda",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022086",
+    "name": "Lanit",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022087",
+    "name": "Lapuz Norte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022088",
+    "name": "Lapuz Sur",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022089",
+    "name": "Legaspi dela Rama",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022076",
+    "name": "Javellana",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022091",
+    "name": "Libertad, Santa Isabel",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022092",
+    "name": "Libertad-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022093",
+    "name": "Lopez Jaena (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022094",
+    "name": "Loboc-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022095",
+    "name": "Lopez Jaena Norte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022096",
+    "name": "Lopez Jaena Sur",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022097",
+    "name": "Luna (Jaro)",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022098",
+    "name": "M. V. Hechanova",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022099",
+    "name": "Burgos-Mabini-Plaza",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022100",
+    "name": "Macarthur",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022064",
+    "name": "Guzman-Jesena",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022052",
+    "name": "East Baluarte",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022053",
+    "name": "East Timawa",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022054",
+    "name": "Edganzon",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022055",
+    "name": "Tanza-Esperanza",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022056",
+    "name": "Fajardo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022057",
+    "name": "Flores",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022060",
+    "name": "South Fundidor",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022061",
+    "name": "General Hughes-Montes",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022062",
+    "name": "Gloria",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022063",
+    "name": "Gustilo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022001",
+    "name": "Santa Cruz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022065",
+    "name": "Habog-habog Salvacion",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022067",
+    "name": "Hibao-an Sur",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022068",
+    "name": "Hinactacan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022069",
+    "name": "Hipodromo",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022070",
+    "name": "Inday",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022071",
+    "name": "Infante",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022072",
+    "name": "Ingore",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022073",
+    "name": "Jalandoni Estate-Lapuz",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022074",
+    "name": "Jalandoni-Wilson",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  },
+  {
+    "brgy_id": "063022075",
+    "name": "Delgado-Jalandoni-Bagumbayan",
+    "region_code": "06",
+    "province_code": "0630",
+    "city_id": "063022"
+  }
+]

@@ -1,0 +1,562 @@
+[
+  {
+    "brgy_id": "072217056",
+    "name": "Pasil",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217067",
+    "name": "San Jose",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217066",
+    "name": "San Antonio (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217065",
+    "name": "Sambag II (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217064",
+    "name": "Sambag I (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217063",
+    "name": "Quiot Pardo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217062",
+    "name": "Punta Princesa",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217060",
+    "name": "Pung-ol-Sibugay",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217059",
+    "name": "Pulangbato",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217057",
+    "name": "Pit-os",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217068",
+    "name": "San Nicolas Central",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217055",
+    "name": "Paril",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217054",
+    "name": "Pari-an",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217053",
+    "name": "Pardo (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217052",
+    "name": "Pamutan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217051",
+    "name": "Pahina San Nicolas",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217050",
+    "name": "Pahina Central (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217049",
+    "name": "Mambaling",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217048",
+    "name": "Malubog",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217046",
+    "name": "Mabolo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217079",
+    "name": "Tabunan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217088",
+    "name": "Sudlon II",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217087",
+    "name": "Zapatera",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217086",
+    "name": "To-ong Pardo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217085",
+    "name": "Tisa",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217084",
+    "name": "Tinago",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217083",
+    "name": "Tejero (Villa Gonzalo)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217082",
+    "name": "Taptap",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217081",
+    "name": "Talamban",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217080",
+    "name": "Tagbao",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217045",
+    "name": "Mabini",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217078",
+    "name": "T. Padilla",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217077",
+    "name": "Sapangdaku",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217076",
+    "name": "Sudlon I",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217075",
+    "name": "Suba Pob. (Suba San Nicolas)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217074",
+    "name": "Sirao",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217073",
+    "name": "Sinsin",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217071",
+    "name": "Sawang Calero (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217070",
+    "name": "Santa Cruz (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217069",
+    "name": "San Roque (Ciudad)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217013",
+    "name": "Budla-an (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217022",
+    "name": "Central (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217021",
+    "name": "Carreta",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217020",
+    "name": "Capitol Site (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217019",
+    "name": "Cambinocot",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217018",
+    "name": "Calamba",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217017",
+    "name": "Busay (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217016",
+    "name": "Buot-Taup Pardo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217015",
+    "name": "Bulacao",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217014",
+    "name": "Buhisan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217023",
+    "name": "Cogon Ramos (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217011",
+    "name": "Bonbon",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217010",
+    "name": "Binaliw",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217008",
+    "name": "Basak San Nicolas",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217007",
+    "name": "Banilad",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217006",
+    "name": "Bacayan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217005",
+    "name": "Basak Pardo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217004",
+    "name": "Babag",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217003",
+    "name": "Apas",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217002",
+    "name": "Agsungot",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217034",
+    "name": "Kalunasan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217044",
+    "name": "Luz",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217043",
+    "name": "Lusaran",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217042",
+    "name": "Lorega (Lorega San Miguel)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217041",
+    "name": "Lahug (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217040",
+    "name": "Labangon",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217038",
+    "name": "Kinasang-an Pardo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217037",
+    "name": "Kasambagan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217036",
+    "name": "Camputhaw (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217035",
+    "name": "Kamagayan (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217001",
+    "name": "Adlaon",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217033",
+    "name": "Kalubihan (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217032",
+    "name": "Inayawan",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217031",
+    "name": "Hippodromo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217030",
+    "name": "Guba",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217029",
+    "name": "Guadalupe",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217028",
+    "name": "Ermita (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217027",
+    "name": "Duljo (Pob.)",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217025",
+    "name": "Day-as",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  },
+  {
+    "brgy_id": "072217024",
+    "name": "Cogon Pardo",
+    "region_code": "07",
+    "province_code": "0722",
+    "city_id": "072217"
+  }
+]

@@ -1,0 +1,772 @@
+[
+  {
+    "brgy_id": "083738072",
+    "name": "Nasunogan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738086",
+    "name": "San Vicente",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738084",
+    "name": "San Juan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738083",
+    "name": "San Jose",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738082",
+    "name": "San Isidro",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738081",
+    "name": "San Antonio",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738080",
+    "name": "Salvacion",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738079",
+    "name": "Sabang Bao",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738078",
+    "name": "Rufina M. Tan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738077",
+    "name": "Quezon, Jr.",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738076",
+    "name": "Punta",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738075",
+    "name": "Patag",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738074",
+    "name": "Nueva Vista",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738073",
+    "name": "Naungan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738087",
+    "name": "Santo Niño",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738071",
+    "name": "Monterico",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738070",
+    "name": "Milagro",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738069",
+    "name": "Matica-a",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738068",
+    "name": "Mas-in",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738067",
+    "name": "Margen",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738066",
+    "name": "Manlilinao",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738065",
+    "name": "Mahayahay",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738064",
+    "name": "Mahayag",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738063",
+    "name": "Magaswi",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738062",
+    "name": "Macabug",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738061",
+    "name": "Mabini",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738060",
+    "name": "Linao",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738059",
+    "name": "Liloan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738100",
+    "name": "Nueva Sociedad",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738114",
+    "name": "Mabato",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738113",
+    "name": "Luna",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738112",
+    "name": "Juaton",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738111",
+    "name": "Doña Feliza Z. Mejia",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738110",
+    "name": "Bayog",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738109",
+    "name": "Bagong Buhay",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738108",
+    "name": "Alta Vista",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738107",
+    "name": "Danhug",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738106",
+    "name": "Guintigui-an",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738105",
+    "name": "Kadaohan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738104",
+    "name": "Don Potenciano Larrazabal",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738102",
+    "name": "Tongonan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738101",
+    "name": "Tambulilid",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738058",
+    "name": "Libertad",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738099",
+    "name": "Leondoni",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738098",
+    "name": "Liberty",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738097",
+    "name": "Licuma",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738096",
+    "name": "Green Valley",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738095",
+    "name": "Gaas",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738094",
+    "name": "Camp Downes",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738093",
+    "name": "Cabintan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738092",
+    "name": "Airport",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738091",
+    "name": "Barangay 29 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738090",
+    "name": "Valencia",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738089",
+    "name": "Sumangga",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738088",
+    "name": "San Pablo (Simangan)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738017",
+    "name": "Concepcion",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738030",
+    "name": "Barangay 18 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738029",
+    "name": "Barangay 17 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738028",
+    "name": "Barangay 16 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738027",
+    "name": "Barangay 15 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738026",
+    "name": "Barangay 14 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738025",
+    "name": "Barangay 13 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738024",
+    "name": "Barangay 12 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738023",
+    "name": "Barangay 11 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738022",
+    "name": "Barangay 10 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738021",
+    "name": "Barangay 1 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738020",
+    "name": "Dayhagan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738019",
+    "name": "Danao",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738018",
+    "name": "Curva",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738031",
+    "name": "Barangay 19 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738016",
+    "name": "Cogon Combado",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738015",
+    "name": "Catmon",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738013",
+    "name": "Can-untog",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738012",
+    "name": "Can-adieng",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738011",
+    "name": "Cagbuhangin",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738010",
+    "name": "Cabulihan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738009",
+    "name": "Cabaon-an",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738007",
+    "name": "Borok",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738006",
+    "name": "Biliboy",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738005",
+    "name": "Batuan",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738004",
+    "name": "Bantigue",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738003",
+    "name": "Labrador (Balion)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738002",
+    "name": "Bagong",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738044",
+    "name": "Barangay 5 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738057",
+    "name": "Lao",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738056",
+    "name": "Ipil",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738055",
+    "name": "Hugpa",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738054",
+    "name": "Hibunawon",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738053",
+    "name": "Esperanza",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738052",
+    "name": "Donghol",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738051",
+    "name": "Don Felipe Larrazabal",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738050",
+    "name": "Domonar",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738049",
+    "name": "Dolores",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738048",
+    "name": "Barangay 9 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738047",
+    "name": "Barangay 8 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738046",
+    "name": "Barangay 7 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738045",
+    "name": "Barangay 6 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738001",
+    "name": "Alegria",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738043",
+    "name": "Barangay 4 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738042",
+    "name": "Barangay 3 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738041",
+    "name": "Barangay 28 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738040",
+    "name": "Barangay 27 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738039",
+    "name": "Barangay 26 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738038",
+    "name": "Barangay 25 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738037",
+    "name": "Barangay 24 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738036",
+    "name": "Barangay 23 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738035",
+    "name": "Barangay 22 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738034",
+    "name": "Barangay 21 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738033",
+    "name": "Barangay 20 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  },
+  {
+    "brgy_id": "083738032",
+    "name": "Barangay 2 (Pob.)",
+    "region_code": "08",
+    "province_code": "0837",
+    "city_id": "083738"
+  }
+]
