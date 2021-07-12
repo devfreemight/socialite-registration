@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             $this->call(RegistrantSeeder::class);
         }
 
-        $this->call(CitySeeder::class);
+        $this->call([CitySeeder::class, BarangaySeeder::class]);
     }
 
     protected function isLocalEnvironment() {
