@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @if( !empty($app_token) )
+        <meta name="x-app-name" content="{{ $app_name }}"/>
+        <meta name="x-app-token" content="{{ $app_token }}"/>
+    @endif
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

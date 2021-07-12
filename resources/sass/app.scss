@@ -7,6 +7,33 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    -webkit-overflow-scrolling: touch !important;
+}
+html {
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto !important;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+    height: 100% !important;
+}
+
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 [v-cloak] {
     display: none;
 }

@@ -8,19 +8,20 @@ import dependencies from './dependencies';
 import config from './config';
 Vue.use(dependencies);
 
-const base_url = "/admin";
+const base_url = "/guest";
 
 const app = BaseEntry({
     el:'#app',
     render: h => h(App),
-},{
+}, {
     dependencies,
     config,
     vuex: { modules, persistLocal, persistSession },
-    router:{
-        routes, 
-        base:base_url,
+    router: {
+        routes,
+        base: base_url,
     },
 })
 
 export default app;
+
