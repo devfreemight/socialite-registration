@@ -29,7 +29,7 @@
         "freedom-js-support": "^1.0.38",
         "freedom-vue-framework": "^1.0.102",
         "js-cookie": "^2.2.1",
-        "moment": "^2.29.1",
+        "moment": "^2.27.0",
         "nprogress": "^0.2.0",
         "vee-validate": "^3.4.10",
         "vue-axios": "^3.2.4",

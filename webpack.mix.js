@@ -61,7 +61,6 @@ const config = {
 ];
 
 mix.webpackConfig(config)
-    .extract(vendors,'js/vendor')
 
 mix.disableNotifications();
 if (mix.inProduction()) {
