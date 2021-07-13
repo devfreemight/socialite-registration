@@ -25,7 +25,7 @@ export default [
 		},
         children: [
             {
-                path: '',
+                path: '/',
                 name: PAGE_HOME,
                 redirect: { name: 'select:city'}
             },
@@ -35,7 +35,7 @@ export default [
                 component: SELECT_CITY
             },
             {
-                path: 'register/:id',
+                path: 'register/:city_id/:name',
                 name: 'guest.register',
                 props: true,
                 component: REGISTER_FORM
