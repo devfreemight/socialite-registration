@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.3",
         "@popperjs/core": "^2.9.2",
         "aj-vue-ui": "^0.2.44",
         "freedom-js-support": "^1.0.38",
