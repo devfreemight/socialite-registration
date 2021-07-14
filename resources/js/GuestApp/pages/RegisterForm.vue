@@ -5,7 +5,6 @@
                 <div class="card">
 
                     <div class="card-body px-5">
-
                         <h3 class="text-center font-weight-bold mb-5 mt-3">Sign Up Here</h3>
 
                         <form @submit.prevent="submitRegistration">
@@ -60,16 +59,18 @@
                             </div>
 
                             <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" value="1" v-model="term_and_cond" id="t&c" name="t&c" required>
+                                <input class="form-check-input" type="checkbox" value="1" v-model="term_and_cond" id="t&c">
                                 <label for="t&c" class="form-check-label">
                                     I agree to the <ins>Terms of Service</ins> and <ins>Privacy Policy</ins>
                                 </label>
                             </div>
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary px-5">
+                                <!-- <button type="submit" class="btn btn-primary px-5">
                                     Submit
-                                </button>
+                                </button> -->
+
+                                <ui-button class="px-5" :loading="submitLoading">Submit</ui-button>
                             </div>
                         </form>
 
@@ -105,6 +106,7 @@ export default {
                 landmark: '',
             },
             term_and_cond: true,
+            submitLoading: false,
         }
     },
     computed: {
@@ -116,9 +118,28 @@ export default {
         getBarangays() {
             this.$store.dispatch('Barangays/index', { city_id: this.city_id });
         },
-        submitRegistration() {
-            console.log(this.form);
-        }
+        async submitRegistration() {
+            if(!this.term_and_cond) {
+                this.$toast.error('Please accept Terms of Service and Privacy Policy agreement.');
+                return;
+            }
+
+            this.submitLoading = true;
+            await this.submit(this.form);
+        },
+        submit() {
+            return new Promise(async(resolve,reject) => {
+                try {
+                    await this.$store.dispatch('Guests/add', this.form);
+                    this.$router.push({ name: 'registration.success' });
+                } catch (error) {
+                    reject(error);
+                } finally {
+                    this.submitLoading = false;
+                    resolve();
+                }
+            });
+        },
     },
     mounted() {
         this.getBarangays();
@@ -126,6 +147,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+ins {
+    color: #06deb5
+}
 </style>

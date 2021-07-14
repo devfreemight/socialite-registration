@@ -7,7 +7,7 @@
                         <h3 class="text-center font-weight-bold mb-5 mt-3">Select City</h3>
 
                         <div class="mb-4 px-3">
-                            <a v-for="city in cities" :key="city.city_id" class="btn btn-outline-primary btn-lg btn-block" v-bind:href="`/register/${city.city_id}/${city.name}`" role="button">{{ city.name }}</a>
+                            <a v-for="city in cities" :key="city.city_id" class="btn btn-outline-custom btn-lg btn-block" v-bind:href="`/register/${city.city_id}/${city.name}`" role="button">{{ city.name }}</a>
                         </div>
                     </div>
                 </div>
