@@ -25,3 +25,7 @@ Route::group(['prefix' => 'cities', 'namespace' => 'Api'], function () {
 Route::group(['prefix' => 'barangay', 'namespace' => 'Api'], function () {
     Route::get('', 'BarangayController@getList');
 });
+
+Route::group(['namespace' => 'Api'], function () {
+    Route::apiResource('guest', 'GuestController');
+});
