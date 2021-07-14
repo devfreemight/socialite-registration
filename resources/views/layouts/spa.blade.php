@@ -24,10 +24,11 @@
     <div id="app" v-cloak></div>
     @if(config('app.env') === 'production')
         <script src="{{ mix('/dist/manifest.js') }}"></script>
+        <script src="{{ mix('/dist/vendor.js') }}"></script>
     @else
         <script src="{{ mix('/js/manifest.js') }}"></script>
+        <script src="{{ mix('/js/vendor.js') }}"></script>
     @endif
-    <script src="{{ mix('/js/vendor.js') }}"></script>
     @yield('content')
 </body>
 </html>
