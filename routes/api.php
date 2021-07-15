@@ -29,3 +29,7 @@ Route::group(['prefix' => 'barangay', 'namespace' => 'Api'], function () {
 Route::group(['namespace' => 'Api'], function () {
     Route::apiResource('guest', 'GuestController');
 });
+
+Route::group(['prefix' => 'user', 'middleware' => 'guest', 'namespace' => 'Auth'], function() {
+    Route::post('/login', 'LoginController@login');
+});
