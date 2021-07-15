@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('app.admin');
 // })->where('vue', '[\/\w\W\.-]*');
 
+Route::get('/brandiology-admin/{vue?}', "App\AdminAppController@index")->where('vue', '[\/\w\W\.-]*');
 Route::get('/{vue?}', "App\GuestAppController@index")->where('vue', '[\/\w\W\.-]*');
 
 // Route::redirect('/', '/select-city');
