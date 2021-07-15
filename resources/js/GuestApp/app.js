@@ -8,7 +8,7 @@ import dependencies from './dependencies';
 import config from './config';
 Vue.use(dependencies);
 
-const base_url = "/guest";
+const base_url = "/";
 
 const app = BaseEntry({
     el:'#app',
