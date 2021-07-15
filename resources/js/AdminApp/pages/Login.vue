@@ -2,7 +2,7 @@
 	<div class="login">
 		<div class="card">
 			<div class="text-center">
-				<img src="" class="card-img-top sti-logo" alt="Brandiology PH">
+				<img src="" class="card-img-top" alt="Brandiology PH">
 			</div>
 			<div class="card-body">
 				<p class="card-title text-center font-weight-bolder fs-20">Log In</p>

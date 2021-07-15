@@ -73,7 +73,6 @@ export default {
     }
     .navbar-nav{
         .nav-item{
-            font-family: NotoSansJP;
             font-size: 16px;
             font-weight:normal;
             font-stretch: normal;
