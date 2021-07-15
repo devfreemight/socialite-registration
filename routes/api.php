@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::group(['prefix' => 'cities', 'namespace' => 'Api'], function () {
+    Route::get('', 'CitiesController@index');
+});
+
+Route::group(['prefix' => 'barangay', 'namespace' => 'Api'], function () {
+    Route::get('', 'BarangayController@getList');
+});
+
+Route::group(['namespace' => 'Api'], function () {
+    Route::apiResource('guest', 'GuestController');
+});

@@ -4,6 +4,7 @@ import LAYOUT_FOOTER from '@guest/components/LayoutFooter'
 
 import SELECT_CITY from './SelectCity';
 import REGISTER_FORM from './RegisterForm';
+import REGISTRATION_COMPLETED from './RegistrationCompleted'
 
 import GuestOnly from '@middlewares/GuestOnly';
 import Error404 from '@common/components/Error404';
@@ -25,20 +26,20 @@ export default [
 		},
         children: [
             {
-                path: '',
-                name: PAGE_HOME,
-                redirect: { name: 'select:city'}
-            },
-            {
-                path: '/select-city',
+                path: '/',
                 name: 'select:city',
                 component: SELECT_CITY
             },
             {
-                path: 'register/:id',
+                path: 'register/:city_id/:name',
                 name: 'guest.register',
                 props: true,
                 component: REGISTER_FORM
+            },
+            {
+                path: 'registration',
+                name: 'registration.success',
+                component: REGISTRATION_COMPLETED
             },
         ]
     },

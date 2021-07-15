@@ -12,4 +12,11 @@ class City extends Model
      * @var array
      */
     protected $fillable = ['city_id', 'name', 'region_code', 'province_code'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = ['created_at', 'updated_at'];
 }
