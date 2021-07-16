@@ -15,8 +15,8 @@ export default {
 
 <style lang="scss">
 .layout-body {
-    margin: 81px auto 80px auto;
-    width:100%;
+    margin: auto;
+    width: 100%;
     flex-grow: 1;
     max-width: 1200px;
     border-radius: 10px;

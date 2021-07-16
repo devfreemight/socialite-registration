@@ -17,6 +17,7 @@ import "vue-toast-notification/dist/theme-default.css";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import "@fortawesome/fontawesome-free/js/all";
+import Filters from './filters';
 
 const dependencies = {
     Field,
@@ -30,6 +31,7 @@ const dependencies = {
     Input,
     Block,
     NProgress,
+    Filters,
 }
 
 dependencies.install = (Vue) => {
