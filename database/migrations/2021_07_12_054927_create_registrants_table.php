@@ -21,8 +21,8 @@ class CreateRegistrantsTable extends Migration
             $table->string('contact_no')->nullable();
             $table->string('age')->nullable();
             $table->string('street')->nullable();
-            $table->integer('barangay_id')->unsigned()->nullable();
-            $table->integer('city_id')->unsigned()->nullable();
+            $table->string('barangay_id')->nullable();
+            $table->string('city_id')->nullable();
             $table->string('landmark')->nullable();
             $table->timestamps();
         });
