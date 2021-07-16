@@ -22,4 +22,31 @@ class Registrant extends Model
         'city_id',
         'landmark',
     ];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'brgy_id' => 'string',
+        'city_id' => 'string',
+    ];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['barangay', 'city'];
+
+    public function barangay()
+    {
+        return $this->hasOne('App\Barangay', 'brgy_id', 'barangay_id');
+    }
+
+    public function city()
+    {
+        return $this->hasOne('App\City', 'city_id', 'city_id');
+    }
 }

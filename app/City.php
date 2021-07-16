@@ -19,4 +19,13 @@ class City extends Model
      * @var array
      */
     protected $hidden = ['created_at', 'updated_at'];
+
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'city_id' => 'string',
+    ];
 }
