@@ -4,7 +4,7 @@
             <div class="col-md-6">
                 <div class="card">
 
-                    <div class="card-body px-5">
+                    <div class="card-body px-md-5">
                         <h3 class="text-center font-weight-bold mb-5 mt-3">Sign Up Here</h3>
 
                         <form @submit.prevent="submitRegistration">
@@ -66,11 +66,7 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <button type="submit" class="btn btn-primary px-5">
-                                    Submit
-                                </button> -->
-
-                                <ui-button class="px-5" :loading="submitLoading">Submit</ui-button>
+                                <ui-button class="btn btn-primary px-5" :loading="submitLoading">Submit</ui-button>
                             </div>
                         </form>
 

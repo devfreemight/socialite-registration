@@ -10,7 +10,7 @@
             <input type="password" v-model="form.password" id="password" class="form-control">
         </div>
         <div class="form-group">
-            <ui-button class="px-5 float-right">Submit</ui-button>
+            <button class="btn btn-primary px-5 float-right">Submit</button>
         </div>
     </slot>
 </form>

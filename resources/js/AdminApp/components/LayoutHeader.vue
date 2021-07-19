@@ -10,7 +10,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-10 d-flex justify-content-center flex-column align-center"> <span class="user-name" >{{ user.name }}</span> </li>
-                    <li class="nav-item"> <ui-button class="logout-button" @click="prompt">Logout</ui-button></li>
+                    <li class="nav-item"> <ui-button class="btn btn-primary logout-button" @click="prompt">Logout</ui-button></li>
                 </ul>
             </div>
         </nav>
