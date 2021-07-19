@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('/barangay', 'BarangayController@getList');
     Route::apiResource('/guest', 'GuestController');
     Route::apiResource('/registrants', 'RegistrantController')->middleware(['auth:api']);
+    Route::post('/registrants/export-csv', 'RegistrantController@exportCSV')->middleware(['auth:api']);
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'Auth'], function() {
