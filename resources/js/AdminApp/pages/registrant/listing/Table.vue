@@ -2,7 +2,7 @@
     <div class="d-flex flex-column">
         <h5>
             Search Results
-            <ui-button :handler="exportCSV" class="btn btn-primary float-right" :loading="exportLoading">Export (CSV)</ui-button>
+            <ui-button :handler="prompt" class="btn btn-primary float-right" :loading="exportLoading">Export (CSV)</ui-button>
         </h5>
 
         <table class="table">
@@ -47,24 +47,36 @@
                     <td>{{ datum | getProperty('landmark', '') }}</td>
                     <td>
                         <div class="btn-group" role="group">
-                            <router-link :to="{name: 'edit', params: { id: datum.id }}" class="btn btn-primary">Edit</router-link>
-                            <button class="btn btn-danger" @click="deleteBook(datum.id)">Delete</button>
+                            <router-link :to="{name: 'registrant:edit', params: { id: datum.id }}" class="btn btn-primary">Edit</router-link>
+                            <button class="btn btn-danger" @click="">Delete</button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <modal v-if="showModal">
+            <h5 slot="header">CSV Exporting</h5>
+            <p slot="body" class="text-center">Please select at least one record?</p>
+            <button slot="footer" class="btn btn-secondary" @click="showModal = false">Close</button>
+        </modal>
     </div>
 </template>
 
 <script>
+import Modal from '@admin/components/Modal';
+
 export default {
     name: "RegistrantsListingPageTable",
+    components: {
+        Modal
+    },
     data() {
         return {
             isCheckedAll: false,
             selected : [],
             exportLoading: false,
+            showModal: false,
         }
     },
     computed: {
@@ -84,9 +96,16 @@ export default {
                 }
             }
         },
+        prompt() {
+            if (this.selected.length == 0) {
+                this.showModal = true;
+            } else {
+                this.exportCSV();
+            }
+        },
         async exportCSV() {
             try {
-                let response = await this.$api.registrants.exportCSV(this.form, {responseType: 'blob'});
+                let response = await this.$api.registrants.exportCSV(this.selected, {responseType: 'blob'});
                 const url = URL.createObjectURL(new Blob([response.data], {
                     type: 'text/csv'
                 }))

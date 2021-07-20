@@ -1,9 +1,12 @@
 import ROUTER_VIEW from '@common/components/RouterView';
 import LISTING_PAGE from './listing'
+import EDIT_PAGE from './Edit'
 
 import {
-    PAGE_REGISTRANTS_LISTING,
-    TITLE_REGISTRANTS_LISTING
+    PAGE_REGISTRANT_LISTING,
+    PAGE_REGISTRANT_EDITING,
+    TITLE_REGISTRANT_LISTING,
+    TITLE_REGISTRANT_EDIT
 } from '@common/pages'
 
 export default [
@@ -16,25 +19,25 @@ export default [
         children:[
             {
                 path: '/',
-                redirect: { name: PAGE_REGISTRANTS_LISTING },
+                redirect: { name: PAGE_REGISTRANT_LISTING },
             },
             {
                 path: 'listing',
-                name: PAGE_REGISTRANTS_LISTING,
+                name: PAGE_REGISTRANT_LISTING,
                 component: LISTING_PAGE,
                 meta:{
-                    title: TITLE_REGISTRANTS_LISTING,
+                    title: TITLE_REGISTRANT_LISTING,
                 }
             },
-            // {
-            //     path:'edit/:id',
-            //     name: PAGE_COMPANY_EDIT,
-            //     component:EDITING_PAGE,
-            //     props:true,
-            //     meta:{
-            //         title: TITLE_COMPANY_EDIT
-            //     }
-            // },
+            {
+                path:'edit/:id',
+                name: PAGE_REGISTRANT_EDITING,
+                component: EDIT_PAGE,
+                props:true,
+                meta:{
+                    title: TITLE_REGISTRANT_EDIT
+                }
+            },
         ],
     },
 ];
