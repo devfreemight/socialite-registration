@@ -8,7 +8,7 @@ import dependencies from './dependencies';
 import config from './config';
 Vue.use(dependencies);
 
-const base_url = "/admin";
+const base_url = "/brandiology-admin";
 
 const app = BaseEntry({
     el:'#app',
@@ -18,7 +18,7 @@ const app = BaseEntry({
     config,
     vuex: { modules, persistLocal, persistSession },
     router:{
-        routes, 
+        routes,
         base:base_url,
     },
 })

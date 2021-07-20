@@ -18,14 +18,19 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::group(['prefix' => 'cities', 'namespace' => 'Api'], function () {
-    Route::get('', 'CitiesController@index');
-});
-
-Route::group(['prefix' => 'barangay', 'namespace' => 'Api'], function () {
-    Route::get('', 'BarangayController@getList');
-});
-
 Route::group(['namespace' => 'Api'], function () {
-    Route::apiResource('guest', 'GuestController');
+    Route::get('/cities', 'CitiesController@index');
+    Route::get('/barangay', 'BarangayController@getList');
+    Route::apiResource('/guest', 'GuestController');
+    Route::apiResource('/registrants', 'RegistrantController')->middleware(['auth:api']);
+    Route::post('/registrants/export-csv', 'RegistrantController@exportCSV')->middleware(['auth:api']);
+});
+
+Route::group(['prefix' => 'user', 'namespace' => 'Auth'], function() {
+    Route::post('/login', 'LoginController@login')->middleware('guest');
+
+    Route::middleware(['auth:api'])->group(function () {
+        Route::get('/check-token', 'LoginController@checkToken');
+        Route::post('/logout', 'LoginController@logout');
+    });
 });

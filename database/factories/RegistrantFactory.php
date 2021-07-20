@@ -25,8 +25,8 @@ $factory->define(Registrant::class, function (Faker $faker) {
         'contact_no' => $this->faker->phoneNumber,
         'age' => \Arr::random(range(10, 100)),
         'street' => $this->faker->address,
-        'barangay_id' => \Arr::random(range(1, 20)),
-        'city_id' => \Arr::random(range(1, 4)),
+        'barangay_id' => App\Barangay::pluck('brgy_id')->random(),
+        'city_id' => App\City::pluck('city_id')->random(),
         'landmark' => \Str::random(10),
     ];
 });

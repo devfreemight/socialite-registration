@@ -2,14 +2,16 @@
 <form @submit.prevent="submit" autocomplete="on">
     <slot v-bind:form="form">
         <div class="form-group mt-4">
-            <label class="fs-14" for="email">Email</label>
+            <label class="fs-16" for="email">Email</label>
             <input type="email" v-model="form.email" id="email" class="form-control">
         </div>
         <div class="form-group mb-40">
-            <label class="fs-14" for="password">Password</label>
+            <label class="fs-16" for="password">Password</label>
             <input type="password" v-model="form.password" id="password" class="form-control">
         </div>
-        <button  type="submit" class="btn btn-primary btn-block">Submit</button>
+        <div class="form-group">
+            <button class="btn btn-primary px-5 float-right">Submit</button>
+        </div>
     </slot>
 </form>
 </template>
@@ -28,9 +30,9 @@ export default {
         submit(){
             return this.login(this.form);
         },
-        login(form=this.form) {
+        login(form) {
             this.validate(async ()=>{
-                let res = await this.$store.dispatch('Auth/login', this.form)
+                let res = await this.$store.dispatch('Auth/login', form)
             })
         },
         async validate(closure) {
