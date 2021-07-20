@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="form-group">
-                                <ui-button class="btn btn-primary px-5" :loading="submitLoading">Submit</ui-button>
+                                <ui-button class="btn btn-primary px-5" :loading="submitLoading" :disabled="!term_and_cond">Submit</ui-button>
                             </div>
                         </form>
 
@@ -101,7 +101,7 @@ export default {
                 city_id: this.city_id,
                 landmark: '',
             },
-            term_and_cond: true,
+            term_and_cond: false,
             submitLoading: false,
         }
     },
@@ -144,7 +144,5 @@ export default {
 </script>
 
 <style scoped>
-ins {
-    color: #06deb5
-}
+
 </style>
