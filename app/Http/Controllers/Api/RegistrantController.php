@@ -45,9 +45,9 @@ class RegistrantController extends Controller
         return response()->json(['data' => $registrants]);
     }
 
-    public function exportCSV()
+    public function exportCSV(Request $request)
     {
-        return Excel::download(new \App\Exports\RegistrantExport, 'registrants.csv');
+        return Excel::download(new \App\Exports\RegistrantExport($request->input()), 'registrants.csv');
     }
 
     /**
@@ -69,7 +69,8 @@ class RegistrantController extends Controller
      */
     public function show($id)
     {
-        //
+        $registrant = Registrant::firstWhere('id', $id);
+        return response()->json(['data' => $registrant]);
     }
 
     /**
