@@ -48,7 +48,7 @@
                         <label for="barangay" class="font-weight-bold">Barangay</label>
                         <select class="form-control" name="barangay" id="barangay" v-model="form.barangay_id">
                             <option value="" disabled>Barangay</option>
-                            <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id" :selected="brgy.brgy_id == form.barangay_id">{{ brgy.name }}</option>
+                            <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
                         </select>
                     </div>
 
@@ -66,19 +66,31 @@
                     </div>
 
                     <div class="form-group">
-                        <ui-button class="btn btn-primary float-right px-5" :loading="searchLoading" @click="">Search</ui-button>
+                        <ui-button class="btn btn-primary float-right px-5" :loading="submitLoading" @click="showModal = true">Update</ui-button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <modal v-if="showModal">
+            <h5 slot="header">Update</h5>
+            <p slot="body" class="text-center">Are you sure do you want to update this record?</p>
+            <button slot="footer" class="btn btn-primary" @click="update">Proceed</button>
+            <button slot="footer" class="btn btn-secondary" @click="showModal = false">Cancel</button>
+        </modal>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import moment from 'moment';
+import Modal from '@admin/components/Modal';
 
 export default {
     name : 'RegistrantEdit',
+    components: {
+        Modal
+    },
     props: {
         id: {
             required: true,
@@ -96,8 +108,10 @@ export default {
                 barangay_id: '',
                 city_id: '',
                 landmark: '',
+                id: this.id,
             },
-            searchLoading: false,
+            submitLoading: false,
+            showModal: false,
         }
     },
     computed: {
@@ -121,17 +135,28 @@ export default {
             try {
                 let response = await this.$store.dispatch('Registrants/get', { id: this.id, })
                 this.form = Object.assign({}, this.$_Arr.getProperty(response, 'data', this.form));
-                this.loadBarangays(this.form.city_id);
-            } catch(error) {
-                console.log(error);
-            }
-        }
+            } catch(error) { }
+        },
+        update(){
+            return new Promise(async (resolve,reject)=>{
+                try{
+                    let response = await this.$store.dispatch('Registrants/update', this.form);
+                    this.$router.push({name: 'registrant:listing'});
+                }catch(error){
+                    console.error(error);
+                }
+                this.showModal = false;
+                resolve();
+            });
+        },
     },
     created() {
         this.initialize();
     },
     mounted() {
         this.loadCities();
+        this.loadBarangays(this.form.city_id);
+        this.form.birthday = moment(this.form.birthday).format('MM/DD/Y');
     },
 }
 </script>
