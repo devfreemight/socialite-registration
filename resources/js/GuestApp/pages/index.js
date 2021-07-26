@@ -5,6 +5,7 @@ import LAYOUT_FOOTER from '@guest/components/LayoutFooter'
 import SELECT_CITY from './SelectCity';
 import REGISTER_FORM from './RegisterForm';
 import REGISTRATION_COMPLETED from './RegistrationCompleted'
+import TERM_OF_SERVICE from './TermsOfService'
 
 import GuestOnly from '@middlewares/GuestOnly';
 import Error404 from '@common/components/Error404';
@@ -41,6 +42,11 @@ export default [
                 name: 'registration.success',
                 component: REGISTRATION_COMPLETED
             },
+            {
+                path: 'terms-of-service',
+                name: 'termsofservice',
+                component: TERM_OF_SERVICE,
+            }
         ]
     },
 	{
