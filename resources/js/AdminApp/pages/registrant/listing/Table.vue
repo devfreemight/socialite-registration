@@ -2,7 +2,7 @@
     <div class="d-flex flex-column">
         <h5>
             Search Results
-            <ui-button :handler="prompt" class="btn btn-primary float-right" :loading="exportLoading">Export (CSV)</ui-button>
+            <ui-button :handler="exportPrompt" class="btn btn-primary float-right" :loading="exportLoading">Export (CSV)</ui-button>
         </h5>
 
         <table class="table">
@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-show="data.length == 0">
+                <tr v-show="data && data.length == 0">
                     <td colspan="12" class="text-center">
                         No data available.
                     </td>
@@ -35,7 +35,7 @@
                     <td>
                         <input type="checkbox" v-model="selected" @click="toggleSelect" :value="datum.id">
                     </td>
-                    <th scope="row">{{ rowNum + 1}}</th>
+                    <th scope="row">{{ rowNum | getTableNumber(currentPage, perPage) }}</th>
                     <td>{{ datum | getProperty('name', '') }} </td>
                     <td>{{ datum | getProperty('gender', '') | getProperGender() }} </td>
                     <td>{{ datum | getProperty('birthday', '') | format('date',{format:'MM/DD/YYYY'}) }}</td>
@@ -48,23 +48,43 @@
                     <td>
                         <div class="btn-group" role="group">
                             <router-link :to="{name: 'registrant:edit', params: { id: datum.id }}" class="btn btn-primary">Edit</router-link>
-                            <button class="btn btn-danger" @click="">Delete</button>
+                            <button class="btn btn-danger" @click="deletePrompt(datum.id)">Delete</button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <modal v-if="showModal">
+        <div class="row py-5">
+            <div class="col-sm-4">
+                <span>Showing <b>{{ from || 0 }}~{{ to || 0 }}</b> of <b>{{ total || 0 }}</b> results</span>
+            </div>
+            <div class="col-sm-8">
+                <ui-pagination v-show="lastPage > 1" :total="lastPage" v-model="currentPage">
+                    <span slot="prev-page-button">Previous</span>
+                    <span slot="next-page-button">Next</span>
+                </ui-pagination >
+            </div>
+        </div>
+
+        <modal v-if="csvModal">
             <h5 slot="header">CSV Exporting</h5>
             <p slot="body" class="text-center">Please select at least one record?</p>
-            <button slot="footer" class="btn btn-secondary" @click="showModal = false">Close</button>
+            <button slot="footer" class="btn btn-secondary" @click="csvModal = false">Close</button>
+        </modal>
+
+        <modal v-if="deleteModal">
+            <h5 slot="header">Delete</h5>
+            <p slot="body" class="text-center">Are you sure to delete this record?</p>
+            <button slot="footer" class="btn btn-primary" @click="deleteRecord">Proceed</button>
+            <button slot="footer" class="btn btn-secondary" @click="deleteModal = false">Cancel</button>
         </modal>
     </div>
 </template>
 
 <script>
 import Modal from '@admin/components/Modal';
+import { mapState } from 'vuex';
 
 export default {
     name: "RegistrantsListingPageTable",
@@ -76,13 +96,40 @@ export default {
             isCheckedAll: false,
             selected : [],
             exportLoading: false,
-            showModal: false,
+            csvModal: false,
+            deleteModal: false,
+            idToDelete: '',
         }
     },
     computed: {
+        ...mapState('Registrants', ['registrants' , 'params']),
         data() {
-            return this.$store.getters['Registrants/all'];
+            return this.registrants.data;
         },
+        currentPage: {
+            get(){
+                return this.registrants.current_page
+            },
+            set(value){
+                let params = Object.assign(this.params, {page: value});
+                this.$store.dispatch('Registrants/index', params);
+            }
+        },
+        perPage() {
+            return this.registrants.per_page;
+        },
+        lastPage() {
+            return this.registrants.last_page;
+        },
+        from() {
+            return this.registrants.from;
+        },
+        to() {
+            return this.registrants.to;
+        },
+        total() {
+            return this.registrants.total;
+        }
     },
     methods: {
         toggleSelect(datum) {
@@ -96,9 +143,9 @@ export default {
                 }
             }
         },
-        prompt() {
+        exportPrompt() {
             if (this.selected.length == 0) {
-                this.showModal = true;
+                this.csvModal = true;
             } else {
                 this.exportCSV();
             }
@@ -120,10 +167,20 @@ export default {
                 this.exportLoading = false;
             }
         },
+        deletePrompt(id) {
+            this.deleteModal = true;
+            this.idToDelete = id;
+        },
+        deleteRecord() {
+            return new Promise( async (resolve,reject) => {
+                try{
+                    await this.$store.dispatch('Registrants/remove', this.idToDelete)
+                }catch(error){ }
+                this.deleteModal = false;
+                resolve();
+            })
+        },
     },
-    mounted() {
-
-    }
 };
 </script>
 

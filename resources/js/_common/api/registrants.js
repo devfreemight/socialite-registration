@@ -8,5 +8,8 @@ export default build ({
     },
     update(id, payload, headers) {
         return this.getHttp().put('/api/registrants/' + id, payload, headers);
-    }
+    },
+    destroy(id, params="", config={}){
+        return this.getHttp().delete('/api/registrants/' + id, config);
+    },
 }, config)
