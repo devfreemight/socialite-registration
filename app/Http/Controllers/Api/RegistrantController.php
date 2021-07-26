@@ -41,9 +41,9 @@ class RegistrantController extends Controller
             ->where('registrants.city_id', 'like', $request->input('city_id') . '%')
             ->where('landmark', 'like', $request->input('landmark') . '%')
             ->orderBy('registrants.name', 'asc')
-            ->get();
+            ->paginate(15);
 
-        return response()->json(['data' => $registrants]);
+        return response()->json($registrants);
     }
 
     public function exportCSV(Request $request)
@@ -131,6 +131,18 @@ class RegistrantController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registrant = Registrant::find($id);
+
+        if ($registrant->delete()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Record deleted successfully.'
+            ], 201);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Record failed to delete!'
+            ], 400);
+        }
     }
 }
