@@ -18,28 +18,30 @@ class RegistrantController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'name' => 'string|max:255|unique:registrants',
+            'name' => 'string|max:255',
             'gender' => 'in:0,1',
-            'birthday' => 'date',
-            'contact_no' => 'min:11|unique:registrants',
+            'birthday' => 'date|date_format:m/d/Y',
+            'contact_no' => 'max:11',
             'age' => 'numeric|between:18,30',
             'street' => 'max:255',
             'landmark' => 'max:255',
         ]);
 
+        $birthday = $request->filled('birthday') ? date('Y-m-d', strtotime($request->input('birthday'))) : '';
+
         $registrants = DB::table('registrants')
             ->join('cities', 'registrants.city_id', '=', 'cities.city_id')
             ->join('barangays', 'registrants.barangay_id', '=', 'barangays.brgy_id')
             ->select('registrants.*', 'cities.name AS city_name', 'barangays.name AS barangay_name')
-            ->where('registrants.name', 'like', $request->input('name') . '%')
+            ->where('registrants.name', 'like', '%' . $request->input('name') . '%')
             ->where('gender', 'like', $request->input('gender') . '%')
-            ->where('birthday', 'like', $request->input('birthday') . '%')
-            ->where('contact_no', 'like', $request->input('contact_no') . '%')
+            ->where('birthday', 'like', '%' . $birthday . '%')
+            ->where('contact_no', 'like', '%' . $request->input('contact_no') . '%')
             ->where('age', 'like', $request->input('age') . '%')
-            ->where('street', 'like', $request->input('street') . '%')
+            ->where('street', 'like', '%' . $request->input('street') . '%')
             ->where('registrants.barangay_id', 'like', $request->input('barangay_id') . '%')
-            ->where('registrants.city_id', 'like', $request->input('city_id') . '%')
-            ->where('landmark', 'like', $request->input('landmark') . '%')
+            ->where('registrants.city_id', $request->input('city_id'))
+            ->where('landmark', 'like', '%' . $request->input('landmark') . '%')
             ->orderBy('registrants.name', 'asc')
             ->paginate(15);
 
