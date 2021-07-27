@@ -1,4 +1,5 @@
 import build from 'freedom-vue-framework/src/store-builder'
+import helper from 'freedom-vue-framework/src/store-builder/helper'
 import Arr from 'freedom-js-support/src/utilities/arr'
 import api from '@api/registrants';
 
@@ -27,6 +28,14 @@ export default build ({
             Object.keys(value).forEach((field)=>{
                 Vue.set(state.params,field,value[field])
             });
+        },
+        remove(state, id) {
+            if (id) {
+                var o_id = id.id ? id.id : id;
+                var ids = Array.isArray(o_id) ? o_id : [o_id];
+
+                helper.remove(state.registrants.data, ids);
+            }
         },
     },
     actions: {

@@ -19,14 +19,13 @@
                     <th scope="col">Age</th>
                     <th scope="col">Street</th>
                     <th scope="col">Barangay</th>
-                    <th scope="col">City</th>
                     <th scope="col">Landmark</th>
                     <th scope="col" class="text-center">Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-show="data && data.length == 0">
-                    <td colspan="12" class="text-center">
+                    <td colspan="11" class="text-center">
                         No data available.
                     </td>
                 </tr>
@@ -43,7 +42,6 @@
                     <td>{{ datum | getProperty('age') }}</td>
                     <td>{{ datum | getProperty('street') }}</td>
                     <td>{{ datum | getProperty('barangay_name') }}</td>
-                    <td>{{ datum | getProperty('city_name') }}</td>
                     <td>{{ datum | getProperty('landmark', '') }}</td>
                     <td>
                         <div class="btn-group" role="group">
