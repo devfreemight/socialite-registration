@@ -6,7 +6,7 @@
             </router-link>
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav m-auto page-menu">
-                    <li class="nav-item" :class="{ 'active': activeTab == 'registrants' }"> <router-link class="nav-link" :to="{name:'registrants'}"> Registrants </router-link> </li>
+                    <li class="nav-item" :class="{ 'active': activeTab == 'registrants' }"> <router-link class="nav-link" :to="{name:'registrant:listing'}"> Registrants </router-link> </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mr-10 d-flex justify-content-center flex-column align-center"> <span class="user-name" >{{ user.name }}</span> </li>

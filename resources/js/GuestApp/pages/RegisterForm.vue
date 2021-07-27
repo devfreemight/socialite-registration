@@ -61,12 +61,15 @@
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="checkbox" value="1" v-model="term_and_cond" id="t&c">
                                 <label for="t&c" class="form-check-label">
-                                    I agree to the <ins>Terms of Service</ins> and <ins>Privacy Policy</ins>
+                                    I agree to the
+                                    <router-link :to="{ name: 'termsofservice' }"><u>Terms of Service</u></router-link>
+                                    and
+                                    <router-link to=""><u>Privacy Policy</u></router-link>
                                 </label>
                             </div>
 
                             <div class="form-group">
-                                <ui-button class="btn btn-primary px-5" :loading="submitLoading">Submit</ui-button>
+                                <ui-button class="btn btn-primary px-5" :loading="submitLoading" :disabled="!term_and_cond">Submit</ui-button>
                             </div>
                         </form>
 
@@ -101,7 +104,7 @@ export default {
                 city_id: this.city_id,
                 landmark: '',
             },
-            term_and_cond: true,
+            term_and_cond: false,
             submitLoading: false,
         }
     },
@@ -144,7 +147,5 @@ export default {
 </script>
 
 <style scoped>
-ins {
-    color: #06deb5
-}
+
 </style>

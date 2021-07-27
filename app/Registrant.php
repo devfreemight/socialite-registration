@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Subsystem\Registrants\Traits\HasGender;
 
 class Registrant extends Model
 {
+    use HasGender;
+
     /**
      * The attributes that are mass assignable.
      *
