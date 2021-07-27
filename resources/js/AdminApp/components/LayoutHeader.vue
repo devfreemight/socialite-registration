@@ -2,7 +2,7 @@
     <div class="layout-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <router-link class="navbar-brand" :to="{ name:'home' }">
-                <img src="" class="card-img-top" alt="Brandiology PH" id="">
+                <img src="/images/brandiology-logo.png" class="card-img-top img-fluid" alt="Brandiology PH" id="brandiology-logo" title="Brandiology PH">
             </router-link>
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav m-auto page-menu">
@@ -112,7 +112,7 @@ export default {
         font-weight: 500;
         color: #9c9c9c;
     }
-    #sti-logo{
+    #brandiology-logo{
         height: 54px;
         width: auto;
     }
