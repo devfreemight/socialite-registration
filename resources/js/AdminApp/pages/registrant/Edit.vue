@@ -54,10 +54,7 @@
 
                     <div class="form-group">
                         <label for="city" class="font-weight-bold">City</label>
-                        <select class="form-control" name="city" id="city" v-model="form.city_id" @change="loadBarangays($event.target.value)">
-                            <option value="" disabled>City</option>
-                            <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
-                        </select>
+                        <input id="city" type="text" class="form-control" name="city" :value="this.city_name" readonly>
                     </div>
 
                     <div class="form-group">
@@ -82,6 +79,7 @@
 </template>
 
 <script>
+import { CITY_NAME, CITY_ID } from '@constants/address';
 import { mapGetters } from 'vuex';
 import moment from 'moment';
 import Modal from '@admin/components/Modal';
@@ -106,43 +104,36 @@ export default {
                 age: '',
                 street: '',
                 barangay_id: '',
-                city_id: '',
+                city_id: CITY_ID,
                 landmark: '',
                 id: this.id,
             },
             submitLoading: false,
             showModal: false,
+            city_name: CITY_NAME,
         }
     },
     computed: {
-        ...mapGetters({
-            cities: 'Cities/all',
-            barangays: 'Barangays/all',
-        }),
+        ...mapGetters({ barangays: 'Barangays/all' }),
         original(){
             return this.$store.getters['Registrants/find'](this.id)
         },
     },
     methods: {
-        loadCities() {
-            this.$store.dispatch('Cities/index');
-        },
-        loadBarangays(city_id) {
-            this.$store.dispatch('Barangays/index', { city_id: city_id });
-        },
         async initialize(){
             this.form = Object.assign({}, this.original);
             try {
                 let response = await this.$store.dispatch('Registrants/get', { id: this.id, })
                 this.form = Object.assign({}, this.$_Arr.getProperty(response, 'data', this.form));
-            } catch(error) { }
+                this.form.birthday = moment(this.form.birthday).format('MM/DD/Y');
+            } catch(error) {}
         },
         update(){
             return new Promise(async (resolve,reject)=>{
                 try{
                     let response = await this.$store.dispatch('Registrants/update', this.form);
                     this.$router.push({name: 'registrant:listing'});
-                }catch(error){
+                } catch(error) {
                     console.error(error);
                 }
                 this.showModal = false;
@@ -152,11 +143,6 @@ export default {
     },
     created() {
         this.initialize();
-    },
-    mounted() {
-        this.loadCities();
-        this.loadBarangays(this.form.city_id);
-        this.form.birthday = moment(this.form.birthday).format('MM/DD/Y');
     },
 }
 </script>

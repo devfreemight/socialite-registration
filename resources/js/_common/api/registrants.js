@@ -12,4 +12,7 @@ export default build ({
     destroy(id, params="", config={}){
         return this.getHttp().delete('/api/registrants/' + id, config);
     },
+    show(id, params="", config={}){
+        return this.getHttp().get('/api/registrants/' + id, config);
+    },
 }, config)
