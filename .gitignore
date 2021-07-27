@@ -19,3 +19,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+/mysql-data
+/docker/nginx_conf/localhost-key.pem
+/docker/nginx_conf/localhost.pem
+
