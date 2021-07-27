@@ -41,7 +41,7 @@ class Registrant extends Model
      *
      * @var array
      */
-    protected $with = ['barangay', 'city'];
+    protected $with = ['barangay'];
 
     public function barangay()
     {
