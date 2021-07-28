@@ -1,0 +1,60 @@
+@import "app";
+@import "components/imports";
+
+.form-control {
+    border-radius: 2rem !important;
+    &.form-control-lg {
+        font-size: 1rem !important;
+    }
+}
+
+.form-group {
+    margin-bottom: 2rem !important;
+}
+
+a.red-link {
+    color: #ff5e75 !important;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #ff5e75 !important;
+    border-color: #ff5e75 !important;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(219, 136, 136, 0.25);
+}
+
+.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
+    border-color: rgba(219, 136, 136, 0.25);
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0rem;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+.custom-fa-select, .fa-chevron-down {
+    float: right;
+    margin-top: -30px;
+    margin-right: 10px;
+    pointer-events: none;
+    background-color: #fff;
+    padding-right: 5px;
+    font-size: 1.25rem !important;
+}
+
+.svg-inline--fa {
+    color: rgb(202, 0, 17, 1);
+}
+
+.form-control:focus {
+    border-color: #ff5e75;
+    box-shadow: 0 0 0 0.2rem rgba(219, 136, 136, 0.25);;
+}
