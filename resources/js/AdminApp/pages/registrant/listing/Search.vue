@@ -42,17 +42,14 @@
                 <div class="form-group">
                     <label for="barangay" class="font-weight-bold">Barangay</label>
                     <select class="form-control" name="barangay" id="barangay" v-model="form.barangay_id">
-                        <option value="" disabled>Barangay</option>
+                        <option value="">Barangay</option>
                         <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="city" class="font-weight-bold">City</label>
-                    <select class="form-control" name="city" id="city" v-model="form.city_id" @change="getBarangays($event)">
-                        <option value="" disabled>City</option>
-                        <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
-                    </select>
+                    <input id="city" type="text" class="form-control" name="city" :value="this.city_name" readonly>
                 </div>
 
                 <div class="form-group">
@@ -69,6 +66,7 @@
 </template>
 
 <script>
+import { CITY_NAME, CITY_ID } from '@constants/address';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -83,31 +81,28 @@ export default {
                 age: '',
                 street: '',
                 barangay_id: '',
-                city_id: '',
+                city_id: CITY_ID,
                 landmark: '',
             },
             searchLoading: false,
+            city_name: CITY_NAME,
         }
     },
     computed: {
-        ...mapGetters({
-            cities: 'Cities/all',
-            barangays: 'Barangays/all',
-        }),
+        ...mapGetters({ barangays: 'Barangays/all' }),
     },
     methods: {
-        getCities() {
-            this.$store.dispatch('Cities/index');
-        },
-        getBarangays(event) {
-            this.$store.dispatch('Barangays/index', { city_id: event.target.value });
-        },
-        searchHandler() {
-            return this.$store.dispatch('Registrants/index', this.form);
+        async searchHandler() {
+            this.searchLoading = true;
+            try {
+                let response = await this.$store.dispatch('Registrants/index', this.form);
+            } catch (error) {
+                console.log(error);
+            }
+            this.searchLoading = false;
         },
     },
     mounted() {
-        this.getCities();
         this.searchHandler();
     },
 }
