@@ -26,8 +26,8 @@ class StoreRegistration extends FormRequest
         return [
             'name' => 'required|string|max:255|unique:registrants',
             'gender' => 'required|in:0,1',
-            'birthday' => 'required|date',
-            'contact_no' => 'required|min:11|unique:registrants',
+            'birthday' => 'required|date|date_format:m/d/Y',
+            'contact_no' => 'required|digits:11|unique:registrants',
             'age' => 'required|numeric|between:18,30',
             'street' => 'required|max:255',
             'landmark' => 'required|max:255',
