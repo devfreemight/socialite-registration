@@ -13,6 +13,9 @@ import Error404 from '@common/components/Error404';
 import {
 	PAGE_ERROR_404,
 	PAGE_HOME,
+    PAGE_GUEST_REGISTRATION,
+    PAGE_GUEST_REGISTRATION_SUCCESS,
+    PAGE_GUEST_TOS
 } from '@common/pages'
 
 export default [
@@ -28,23 +31,22 @@ export default [
         children: [
             {
                 path: '/',
-                name: 'select:city',
-                component: SELECT_CITY
+                name: PAGE_HOME,
+                redirect: { name: PAGE_GUEST_REGISTRATION }
             },
             {
-                path: 'register/:city_id/:name',
-                name: 'guest.register',
-                props: true,
-                component: REGISTER_FORM
+                path: 'sign-up',
+                name: PAGE_GUEST_REGISTRATION,
+                component: REGISTER_FORM,
             },
             {
                 path: 'registration',
-                name: 'registration.success',
+                name: PAGE_GUEST_REGISTRATION_SUCCESS,
                 component: REGISTRATION_COMPLETED
             },
             {
                 path: 'terms-of-service',
-                name: 'termsofservice',
+                name: PAGE_GUEST_TOS,
                 component: TERM_OF_SERVICE,
             }
         ]
