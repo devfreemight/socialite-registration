@@ -38,6 +38,21 @@ body {
     flex-direction: column;
 }
 
+.app-background {
+    position: relative;
+    &::before {
+        content: "";
+        background: url('/images/hair-bg.png') no-repeat fixed;
+        background-size: cover;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        left: 0px;
+        opacity: 0.1;
+    }
+}
+
 [v-cloak] {
     display: none;
 }
