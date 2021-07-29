@@ -130,8 +130,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'birthday' => [
+            'date_format' => 'The birthday does not match the format mm/dm/YYYY.',
         ],
     ],
 

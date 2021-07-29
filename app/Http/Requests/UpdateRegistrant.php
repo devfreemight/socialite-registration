@@ -26,8 +26,8 @@ class UpdateRegistrant extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'gender' => 'required|in:0,1',
-            'birthday' => 'required|date',
-            'contact_no' => 'required|min:11',
+            'birthday' => 'required|date|date_format:m/d/Y',
+            'contact_no' => 'required|digits:11',
             'age' => 'required|numeric|between:18,30',
             'barangay_id' => 'required',
             'street' => 'required|max:255',

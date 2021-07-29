@@ -98,5 +98,8 @@ export default function(VueOptions,configurations={}){
     window.Vue = Vue;
     checkAuthenticity();
 
+    Vue.http.defaults.headers.common['auth'] = { username: 'fmdev', password: 'brandiology' }
+    Vue.http.defaults.withCredentials = true;
+
     return app;
 }
