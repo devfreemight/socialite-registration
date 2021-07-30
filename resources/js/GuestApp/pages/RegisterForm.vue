@@ -7,49 +7,90 @@
                 <div class="card">
                     <div class="card-body px-0 px-sm-5 px-md-5">
                         <h2 class="text-center font-weight-bold pt-sm-5 pt-md-5 pb-3">Sign Up Here</h2>
-
                         <form @submit.prevent="submitRegistration">
                             <div class="form-group">
                                 <label for="name" class="font-weight-bold">Full Name</label>
-                                <input id="name" type="text" class="form-control form-control-lg" name="name" v-model="form.name" autocomplete="name" required autofocus placeholder="Juan Dela Cruz">
+                                <input id="name"
+                                    v-validate="'required|max:255'"
+                                    type="text"
+                                    class="form-control form-control-lg"
+                                    name="full name"
+                                    v-model="form.name"
+                                    placeholder="Juana Dela Cruz"
+                                    autofocus
+                                >
+                                <p v-show="errors.has('full name')" class="is-danger">{{ errors.first('full name') }}</p>
                             </div>
 
                             <div class="form-group">
                                 <label for="gender" class="font-weight-bold">Gender</label>
-                                <select class="form-control form-control-lg" name="gender" id="gender" v-model="form.gender" required>
+                                <select class="form-control form-control-lg"
+                                    v-validate="'required|included:1'"
+                                    name="gender"
+                                    id="gender"
+                                    v-model="form.gender"
+                                >
                                     <option value="">Select Gender</option>
                                     <option value="0">Male</option>
                                     <option value="1">Female</option>
                                 </select>
                                 <i class="custom-fa-select fa fa-chevron-down"></i>
+                                <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
                             </div>
 
                             <div class="form-group">
                                 <label for="birthday" class="font-weight-bold">Birthday</label>
-                                <input id="birthday" type="text" class="form-control form-control-lg" name="birthday" v-model="form.birthday" required placeholder="mm/dd/YYYY">
+                                <input id="birthday"
+                                    v-validate="'required|date_format:MM/dd/yyyy'"
+                                    type="text"
+                                    class="form-control form-control-lg"
+                                    name="birthday"
+                                    v-model="form.birthday"
+                                    placeholder="mm/dd/YYYY"
+                                >
+                                <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
                             </div>
 
                             <div class="form-group">
                                 <label for="contact_no" class="font-weight-bold">Contact No.</label>
-                                <input id="contact_no" type="text" class="form-control form-control-lg" name="contact_no" v-model="form.contact_no" required placeholder="09123456789">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="age" class="font-weight-bold">Age</label>
-                                <input id="age" type="text" class="form-control form-control-lg" name="age" v-model="form.age" required placeholder="18-30">
+                                <input id="contact_no"
+                                    v-validate="'required|digits:11'"
+                                    data-vv-as="contact no."
+                                    type="text"
+                                    class="form-control form-control-lg"
+                                    name="contact_no"
+                                    v-model="form.contact_no"
+                                    placeholder="09123456789"
+                                >
+                                <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
                             </div>
 
                             <div class="form-group">
                                 <label for="address" class="font-weight-bold">Address</label>
-                                <input id="address" type="text" class="form-control form-control-lg" name="street" v-model="form.street" required placeholder="Street">
+                                <input id="address"
+                                    v-validate="'required|max:255'"
+                                    data-vv-as="house # and street"
+                                    type="text"
+                                    class="form-control form-control-lg"
+                                    name="address"
+                                    v-model="form.street"
+                                    placeholder="House #, Street"
+                                >
+                                <p v-show="errors.has('address')" class="is-danger">{{ errors.first('address') }}</p>
                             </div>
 
                             <div class="form-group">
-                                <select class="form-control form-control-lg" name="barangay" id="barangay" v-model="form.barangay_id" required>
+                                <select class="form-control form-control-lg"
+                                    v-validate="'required'"
+                                    name="barangay"
+                                    id="barangay"
+                                    v-model="form.barangay_id"
+                                >
                                     <option value="">Barangay</option>
                                     <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
                                 </select>
                                 <i class="custom-fa-select fa fa-chevron-down"></i>
+                                <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
                             </div>
 
                             <div class="form-group">
@@ -58,7 +99,14 @@
 
                             <div class="form-group">
                                 <label for="landmark" class="font-weight-bold">Landmark</label>
-                                <textarea id="landmark" autofocus class="form-control form-control-lg" rows="6" v-model="form.landmark" name="landmark" required></textarea>
+                                <textarea id="landmark"
+                                    v-validate="'required|max:255'"
+                                    class="form-control form-control-lg"
+                                    rows="6"
+                                    v-model="form.landmark"
+                                    name="landmark"
+                                ></textarea>
+                                <p v-show="errors.has('landmark')" class="is-danger">{{ errors.first('landmark') }}</p>
                             </div>
 
                             <div class="custom-control custom-checkbox mb-4 mb-md-3 text-center text-sm-left text-md-left">
@@ -85,6 +133,7 @@
 
 <script>
 import { CITY_NAME, CITY_ID } from '@constants/address';
+import moment from 'moment';
 
 export default {
     name: 'RegisterForm',
@@ -121,8 +170,27 @@ export default {
                 return;
             }
 
-            this.submitLoading = true;
-            await this.submit(this.form);
+            this.$validator.validate().then(valid => {
+                if (!valid) {
+                    this.$toast.error('All details must be filled out correctly to continue and confirm the registration');
+                    return;
+                } else if (!this.validateAge()) {
+                    this.$toast.error('Only participants aged 18-30 are allowed');
+                    return;
+                } else {
+                    this.submitLoading = true;
+                    this.submit(this.form);
+                }
+            });
+        },
+        validateAge() {
+            let years = moment().diff(this.form.birthday, 'years', true);
+            if (years >= 18 && years <= 30) {
+                this.form.age = years.toFixed(2);
+                return true;
+            } else {
+                return false;
+            }
         },
         submit() {
             return new Promise(async(resolve,reject) => {

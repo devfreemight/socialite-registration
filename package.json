@@ -32,7 +32,7 @@
         "js-cookie": "^2.2.1",
         "moment": "^2.27.0",
         "nprogress": "^0.2.0",
-        "vee-validate": "^3.4.10",
+        "vee-validate": "^2.2.15",
         "vue-axios": "^3.2.4",
         "vue-bus": "^1.2.1",
         "vue-resource": "^1.5.3",
