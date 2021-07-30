@@ -2,17 +2,17 @@
     <div class="container">
 
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-sm-10 col-md-10 col-lg-6">
                 <img src="/images/brandiology-banner.png" class="img-fluid my-4 my-md-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
             </div>
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-sm-12 col-md-10 col-lg-9">
                 <div class="card">
-                    <div class="card-body px-0 px-md-5">
+                    <div class="card-body px-0 px-sm-5 px-md-5">
                         <section>
-                            <h2 class="text-center font-weight-bold pt-md-5 pb-3">Terms and Conditions</h2>
+                            <h2 class="text-center font-weight-bold pt-sm-5 pt-md-5 pb-3">Terms and Conditions</h2>
                             <p>This Agreement is binding between you and Brandiology Digital Inc. Brandiolgy Digital Inc. has developed freeshampoo.ph, an online platform for you to register and get a free a sample to be given to the details you will be providing. </p>
                             <p>It is understood that upon opt-in to the Service, you agree to be bound by the Terms and Conditions set forth below. If you do not wish to be bound by these Terms and Conditions, you may not access or use the Service. Brandiology Digital Inc. may, at any time, modify this Agreement, and such modifications shall be effective immediately upon posting of the modified Agreement. You agree to review the Agreement periodically, and your continued access or use of the Service shall be deemed your conclusive acceptance of the modified Agreement.</p>
                         </section>
@@ -74,7 +74,7 @@
                             </ol>
                         </section>
 
-                        <section class="mb-md-3">
+                        <section class="mb-md-3 mb-lg-5">
                             <h6 class="font-weight-bold">7. GOVERNING LAW AND GENERAL PROVISIONS</h6>
                             <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the Philippines.</p>
                             <p>If any provision of these Terms and Conditions shall be deemed unlawful, void, or unenforceable under the law, then that provision shall be deemed severable from the rest of the Terms and Conditions, and shall not affect the validity and enforceability of any remaining provisions.</p>

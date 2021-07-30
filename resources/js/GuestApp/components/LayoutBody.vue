@@ -24,6 +24,10 @@ export default {
     .layout-body {
         margin: auto auto 1rem auto;
     }
+    .card {
+        background-color: transparent;
+        border: none;
+    }
 }
 
 </style>
