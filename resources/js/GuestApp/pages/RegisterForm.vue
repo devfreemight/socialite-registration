@@ -1,14 +1,12 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-
-                <img src="/images/brandiology-banner.png" class="img-fluid my-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
+            <div class="col-sm-12 col-md-10 col-lg-6">
+                <img src="/images/brandiology-banner.png" class="img-fluid my-4 my-md-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
 
                 <div class="card">
-                    <div class="card-body px-0 px-md-5">
-                        <h3 class="text-center font-weight-bold m-5">Sign Up Here</h3>
-
+                    <div class="card-body px-0 px-sm-5 px-md-5">
+                        <h2 class="text-center font-weight-bold pt-sm-5 pt-md-5 pb-3">Sign Up Here</h2>
                         <form @submit.prevent="submitRegistration">
                             <div class="form-group">
                                 <label for="name" class="font-weight-bold">Full Name</label>
@@ -111,7 +109,7 @@
                                 <p v-show="errors.has('landmark')" class="is-danger">{{ errors.first('landmark') }}</p>
                             </div>
 
-                            <div class="custom-control custom-checkbox mb-3">
+                            <div class="custom-control custom-checkbox mb-4 mb-md-3 text-center text-sm-left text-md-left">
                                 <input class="custom-control-input" type="checkbox" value="1" v-model="term_and_cond" id="t&c">
                                 <label for="t&c" class="custom-control-label">
                                     I agree to the
@@ -121,7 +119,7 @@
                                 </label>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group text-center text-sm-left text-md-left">
                                 <ui-button class="btn btn-danger btn-lg px-5" :loading="submitLoading" :disabled="!term_and_cond">Submit</ui-button>
                             </div>
                         </form>
@@ -214,6 +212,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@media (max-width: 575.98px) {
+    .custom-control-label {
+        font-size: 11px;
+        padding-top: 3px;
+    }
+}
 </style>
