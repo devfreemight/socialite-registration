@@ -2,15 +2,11 @@
     <div class="layout-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <router-link class="navbar-brand" :to="{ name:'home' }">
-                <img src="/images/brandiology-logo.png" class="card-img-top img-fluid" alt="Brandiology PH" id="brandiology-logo" title="Brandiology PH">
+                <img src="/images/brandiology-banner.png" class="" alt="Brandiology PH" id="brandiology-logo" title="Brandiology PH">
             </router-link>
             <div class="navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav m-auto page-menu">
-                    <li class="nav-item" :class="{ 'active': activeTab == 'registrants' }"> <router-link class="nav-link" :to="{name:'registrant:listing'}"> Registrants </router-link> </li>
-                </ul>
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-10 d-flex justify-content-center flex-column align-center"> <span class="user-name" >{{ user.name }}</span> </li>
-                    <li class="nav-item"> <ui-button class="btn btn-primary logout-button" @click="prompt">Logout</ui-button></li>
+                    <li class="nav-item"> <ui-button class="btn btn-primary rounded-pill logout-button" @click="prompt">Logout</ui-button></li>
                 </ul>
             </div>
         </nav>
@@ -36,20 +32,6 @@ export default {
             showModal: false,
         }
     },
-    computed:{
-        user() {
-            return this.$store.getters['Auth/profile'];
-        },
-        activeTab() {
-            let match;
-            this.$route.matched.forEach((route)=>{
-                if (route.meta.hasOwnProperty('tab')) {
-                    match = route.meta.tab;
-                }
-            });
-            return match;
-        }
-    },
     methods:{
         prompt() {
             this.showModal = true;
@@ -70,9 +52,10 @@ export default {
     flex-grow: 1;
     max-height: 94px;
     width: 100%;
-    padding: 20px 60px;
+    padding: 0px 120px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.03);
     background-color: #ffffff;
+    z-index: 9998;
     nav.navbar{
         max-width: 1440px;
         margin: 0 auto;
@@ -108,13 +91,9 @@ export default {
             }
         }
     }
-    .user-name{
-        font-weight: 500;
-        color: #9c9c9c;
-    }
     #brandiology-logo{
-        height: 54px;
-        width: auto;
+        height: auto;
+        width: 228px;
     }
 }
 </style>

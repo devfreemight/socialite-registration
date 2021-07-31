@@ -7,20 +7,25 @@
 <script>
 export default {
     name:'LayoutBody',
-    components:{
-
-    }
 }
 </script>
 
 <style lang="scss">
 .layout-body {
-    margin: auto;
-    width: 100%;
+    margin: 54px auto 80px auto;
+    width:100%;
     flex-grow: 1;
     max-width: 1200px;
-    border-radius: 10px;
-    box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.03);
-    background-color: #ffffff;
+    background-color: inherit;
+}
+
+@media (max-width: 575.98px) {
+    .layout-body {
+        margin: auto auto 1rem auto;
+    }
+    .card {
+        background-color: transparent;
+        border: none;
+    }
 }
 </style>
