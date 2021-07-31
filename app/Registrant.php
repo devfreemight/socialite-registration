@@ -24,6 +24,7 @@ class Registrant extends Model
         'barangay_id',
         'city_id',
         'landmark',
+        'export_status',
     ];
 
     /**

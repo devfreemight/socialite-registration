@@ -22,9 +22,8 @@ class RegistrantController extends Controller
             'gender' => 'in:0,1',
             'birthday' => 'date|date_format:m/d/Y',
             'contact_no' => 'max:11',
-            'age' => 'numeric|between:18,30',
-            'street' => 'max:255',
-            'landmark' => 'max:255',
+            'age' => 'numeric',
+            'export_status' => 'in:0,1',
         ]);
 
         $birthday = $request->filled('birthday') ? date('Y-m-d', strtotime($request->input('birthday'))) : '';
@@ -38,10 +37,9 @@ class RegistrantController extends Controller
             ->where('birthday', 'like', '%' . $birthday . '%')
             ->where('contact_no', 'like', '%' . $request->input('contact_no') . '%')
             ->where('age', 'like', $request->input('age') . '%')
-            ->where('street', 'like', '%' . $request->input('street') . '%')
             ->where('registrants.barangay_id', 'like', $request->input('barangay_id') . '%')
             ->where('registrants.city_id', $request->input('city_id'))
-            ->where('landmark', 'like', '%' . $request->input('landmark') . '%')
+            ->where('export_status', $request->input('export_status'))
             ->orderBy('registrants.name', 'asc')
             ->paginate(15);
 

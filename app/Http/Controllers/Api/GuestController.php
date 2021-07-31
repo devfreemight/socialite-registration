@@ -18,16 +18,18 @@ class GuestController extends Controller
      */
     protected function create(array $data)
     {
+        $defaultCity = '072217';
         return Registrant::create([
-            "name"        => $data['name'],
-            "gender"      => $data['gender'],
-            "birthday"    => date('Y-m-d', strtotime($data['birthday'])),
-            "contact_no"  => $data['contact_no'],
-            "age"         => $data['age'],
-            "street"      => $data['street'],
-            "barangay_id" => $data['barangay_id'],
-            "city_id"     => $data['city_id'],
-            "landmark"    => $data['landmark']
+            "name"          => $data['name'],
+            "gender"        => $data['gender'],
+            "birthday"      => date('Y-m-d', strtotime($data['birthday'])),
+            "contact_no"    => $data['contact_no'],
+            "age"           => $data['age'],
+            "street"        => $data['street'],
+            "barangay_id"   => $data['barangay_id'],
+            "city_id"       => $defaultCity,
+            "landmark"      => $data['landmark'],
+            "export_status" => false,
         ]);
     }
 
