@@ -42,9 +42,9 @@ body {
     position: relative;
     &::before {
         content: "";
-        background: url('/images/hair-bg.png') no-repeat fixed;
-        background-size: cover;
-        position: absolute;
+        background: url('/images/hair-bg.jpg') no-repeat fixed;
+        background-size: 100% 140%;
+        position: fixed;
         top: 0px;
         right: 0px;
         bottom: 0px;
