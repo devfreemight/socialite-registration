@@ -1,67 +1,75 @@
 <template>
-    <div class="d-flex flex-column">
-        <h5>
-            Search Results
-            <ui-button :handler="exportPrompt" class="btn btn-primary float-right" :loading="exportLoading">Export (CSV)</ui-button>
-        </h5>
+    <div class="container mw-100 m-0 p-3">
+        <h5 class="mb-4">Search Results</h5>
 
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">
-                        <input type="checkbox" v-model="isCheckedAll" @click="selectAll">
-                    </th>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Birthday</th>
-                    <th scope="col">Contact No.</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Street</th>
-                    <th scope="col">Barangay</th>
-                    <th scope="col">Landmark</th>
-                    <th scope="col" class="text-center">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-show="data && data.length == 0">
-                    <td colspan="11" class="text-center">
-                        No data available.
-                    </td>
-                </tr>
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">
+                                <input type="checkbox" v-model="isCheckedAll" @click="selectAll">
+                            </th>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Birthday</th>
+                            <th scope="col">Contact No.</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Street</th>
+                            <th scope="col">Barangay</th>
+                            <th scope="col">Landmark</th>
+                            <th scope="col">Status</th>
+                            <th scope="col" class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-show="data && data.length == 0">
+                            <td colspan="12" class="text-center">
+                                No data available.
+                            </td>
+                        </tr>
 
-                <tr v-show="data" :key="rowNum" v-for="(datum, rowNum) in data">
-                    <td>
-                        <input type="checkbox" v-model="selected" @click="toggleSelect" :value="datum.id">
-                    </td>
-                    <th scope="row">{{ rowNum | getTableNumber(currentPage, perPage) }}</th>
-                    <td>{{ datum | getProperty('name', '') }} </td>
-                    <td>{{ datum | getProperty('gender', '') | getProperGender() }} </td>
-                    <td>{{ datum | getProperty('birthday', '') | format('date',{format:'MM/DD/YYYY'}) }}</td>
-                    <td>{{ datum | getProperty('contact_no') }}</td>
-                    <td>{{ datum | getProperty('age') }}</td>
-                    <td>{{ datum | getProperty('street') }}</td>
-                    <td>{{ datum | getProperty('barangay_name') }}</td>
-                    <td>{{ datum | getProperty('landmark', '') }}</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <router-link :to="{name: 'registrant:edit', params: { id: datum.id }}" class="btn btn-primary">Edit</router-link>
-                            <button class="btn btn-danger" @click="deletePrompt(datum.id)">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <div class="row py-5">
-            <div class="col-sm-4">
-                <span>Showing <b>{{ from || 0 }}~{{ to || 0 }}</b> of <b>{{ total || 0 }}</b> results</span>
+                        <tr v-show="data" :key="rowNum" v-for="(datum, rowNum) in data">
+                            <td>
+                                <input type="checkbox" v-model="selected" @click="toggleSelect" :value="datum.id">
+                            </td>
+                            <th scope="row">{{ rowNum | getTableNumber(currentPage, perPage) }}</th>
+                            <td>{{ datum | getProperty('name', '') }} </td>
+                            <td>{{ datum | getProperty('gender', '') | getProperGender() }} </td>
+                            <td>{{ datum | getProperty('birthday', '') | format('date',{format:'MM/DD/YYYY'}) }}</td>
+                            <td>{{ datum | getProperty('contact_no') }}</td>
+                            <td>{{ datum | getProperty('age') }}</td>
+                            <td>{{ datum | getProperty('street') }}</td>
+                            <td>{{ datum | getProperty('barangay_name') }}</td>
+                            <td>{{ datum | getProperty('landmark', '') }}</td>
+                            <td>{{ datum | getProperty('export_status', '') | getExportStatus() }}</td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <router-link :to="{name: 'registrant:edit', params: { id: datum.id }}" class="btn btn-primary rounded-pill mr-1">Edit</router-link>
+                                    <button class="btn btn-danger rounded-pill" @click="deletePrompt(datum.id)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-sm-8">
-                <ui-pagination v-show="lastPage > 1" :total="lastPage" v-model="currentPage">
-                    <span slot="prev-page-button">Previous</span>
-                    <span slot="next-page-button">Next</span>
+        </div>
+
+        <div v-show="data" class="row py-5">
+            <div class="col-sm-7">
+                <ui-button :handler="exportPrompt" class="btn btn-primary rounded-pill px-4" :loading="exportLoading">Export (CSV)</ui-button>
+            </div>
+            <div class="col-sm-5">
+                <ui-pagination class="text-right" v-show="lastPage > 1" :total="lastPage" v-model="currentPage">
+                    <span slot="prev-page-button">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span slot="next-page-button">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
                 </ui-pagination >
+                <span class="pl-5">Showing <b>{{ from || 0 }}~{{ to || 0 }}</b> of <b>{{ total || 0 }}</b> results</span>
             </div>
         </div>
 
