@@ -23,10 +23,11 @@ $factory->define(Registrant::class, function (Faker $faker) {
         'gender' => \Arr::random([0,1]),
         'birthday' => $this->faker->date(),
         'contact_no' => $this->faker->phoneNumber,
-        'age' => \Arr::random(range(10, 100)),
+        'age' => \Arr::random(range(18, 30)),
         'street' => $this->faker->address,
         'barangay_id' => App\Barangay::pluck('brgy_id')->random(),
         'city_id' => App\City::pluck('city_id')->random(),
         'landmark' => \Str::random(10),
+        'export_status' => \Arr::random([0,1]),
     ];
 });
