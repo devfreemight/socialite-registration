@@ -25,11 +25,12 @@ class StoreRegistration extends FormRequest
     {
         return [
             'name' => 'required|string|max:255|unique:registrants',
-            'gender' => 'required|in:0,1',
+            'gender' => 'required|in:1',
             'birthday' => 'required|date|date_format:m/d/Y',
             'contact_no' => 'required|digits:11|unique:registrants',
             'age' => 'required|numeric|between:18,30',
             'street' => 'required|max:255',
+            'barangay_id' => 'required|string|max:10',
             'landmark' => 'required|max:255',
         ];
     }
