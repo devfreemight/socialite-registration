@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-sm-12 col-md-10 col-lg-6">
-                <img src="/images/brandiology-banner.png" class="img-fluid my-4 my-md-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
+                <img :src="$_assets('/images/brandiology-banner.png')" class="img-fluid my-4 my-md-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
 
                 <div class="card">
                     <div class="card-body px-0 px-sm-5 px-md-5">
@@ -184,13 +184,8 @@ export default {
             });
         },
         validateAge() {
-            let years = moment().diff(this.form.birthday, 'years', true);
-            if (years >= 18 && years <= 30) {
-                this.form.age = years.toFixed(2);
-                return true;
-            } else {
-                return false;
-            }
+            this.form.age = moment().diff(this.form.birthday, 'years');
+            return (this.form.age >= 18 && this.form.age <= 30) ? true : false;
         },
         submit() {
             return new Promise(async(resolve,reject) => {

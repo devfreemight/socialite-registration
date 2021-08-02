@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ReseedDatabase extends Migration
+class AddPassportInstallation extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,6 @@ class ReseedDatabase extends Migration
      */
     public function up()
     {
-        \Artisan::call('db:seed', ['--force' => true]);
         \Artisan::call('passport:install');
     }
 

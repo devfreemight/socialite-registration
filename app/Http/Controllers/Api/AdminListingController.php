@@ -30,7 +30,7 @@ class AdminListingController extends Controller
         $request->validate([
             'name'          => 'string|max:255',
             'gender'        => 'in:1',
-            'contact_no'    => 'numeric|max:11',
+            'contact_no'    => 'string|max:11',
             'age'           => 'numeric',
             'export_status' => 'in:0,1',
             'barangay_id'   => 'string',
