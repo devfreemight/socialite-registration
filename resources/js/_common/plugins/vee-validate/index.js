@@ -7,6 +7,9 @@ const registration = {
         },
         birthday: {
             date_format: "The birthday must be in the format mm/dd/YYYY"
+        },
+        age: {
+            between: "Only participants aged 18-30 are allowed"
         }
     }
 }

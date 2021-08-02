@@ -3,14 +3,16 @@
     <slot v-bind:form="form">
         <div class="form-group mt-4">
             <label class="fs-16" for="email">Email</label>
-            <input type="email" v-model="form.email" id="email" class="form-control">
+            <input type="email" v-validate="'required|email'" name="email" v-model="form.email" id="email" class="form-control form-control-lg">
+            <p v-show="errors.has('email')" class="is-danger">{{ errors.first('email') }}</p>
         </div>
         <div class="form-group mb-40">
             <label class="fs-16" for="password">Password</label>
-            <input type="password" v-model="form.password" id="password" class="form-control">
+            <input type="password" v-validate="'required'" name="password" v-model="form.password" id="password" class="form-control form-control-lg">
+            <p v-show="errors.has('password')" class="is-danger">{{ errors.first('password') }}</p>
         </div>
-        <div class="form-group">
-            <button class="btn btn-primary px-5 float-right">Submit</button>
+        <div class="form-group text-center">
+            <ui-button class="btn btn-danger btn-lg rounded-pill px-5">Submit</ui-button>
         </div>
     </slot>
 </form>
@@ -36,7 +38,14 @@ export default {
             })
         },
         async validate(closure) {
-            return closure();
+            this.$validator.validate().then(valid => {
+                if (!valid) {
+                    this.$toast.error('All details must be filled out correctly to continue and confirm the login.');
+                    return;
+                } else {
+                    return closure();
+                }
+            });
         }
     }
 }

@@ -120,7 +120,7 @@
                             </div>
 
                             <div class="form-group text-center text-sm-left text-md-left">
-                                <ui-button class="btn btn-danger btn-lg px-5" :loading="submitLoading" :disabled="!term_and_cond">Submit</ui-button>
+                                <ui-button class="btn btn-danger btn-lg rounded-pill px-5" :loading="submitLoading" :disabled="!term_and_cond">Submit</ui-button>
                             </div>
                         </form>
 
@@ -179,7 +179,7 @@ export default {
                     return;
                 } else {
                     this.submitLoading = true;
-                    this.submit(this.form);
+                    this.submit();
                 }
             });
         },

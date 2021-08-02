@@ -1,11 +1,13 @@
 <template>
     <div class="registrants-listing-page">
         <div class="d-flex position-relative mb-3">
-            <h5 class="">{{ $route | getProperty('meta.title','') }} </h5>
+            <h2 class="font-weight-bold">{{ $route | getProperty('meta.title','') }} </h2>
         </div>
-        <search-form> </search-form>
-        <hr>
-        <listing-table></listing-table>
+
+        <div id="container">
+            <search-form></search-form>
+            <listing-table></listing-table>
+        </div>
     </div>
 </template>
 <script>
@@ -30,9 +32,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-hr {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border-top-color: #a8a8a8;
+#container {
+    background-color: #fff;
+}
+h2 {
+    font-size: 33px !important;
 }
 </style>

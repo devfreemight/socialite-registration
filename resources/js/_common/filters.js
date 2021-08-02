@@ -1,3 +1,5 @@
+import { VALUES as EXPORT_VALUES } from '@constants/export';
+
 const filters = {
 
 }
@@ -15,6 +17,9 @@ filters.install = ( Vue ) => {
         return value == 0 ? 'Male' : 'Female';
     });
 
+    Vue.filter('getExportStatus',(value) =>{
+        return EXPORT_VALUES[Number(value)];
+    });
 }
 
 export default filters;

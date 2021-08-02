@@ -1,10 +1,10 @@
 .ui-button {
     @extend .btn;
-    @extend .btn-danger;
-    background-color: unset;
-    background-image: linear-gradient(to right,rgb(202, 0, 17, 1), rgb(255, 94, 117, 0.8)) !important;
-    border-radius: 2rem !important;
-    border: none;
+    &.btn-danger {
+        background-color: unset;
+        background-image: linear-gradient(to right,rgb(202, 0, 17, 1), rgb(255, 94, 117, 0.8)) !important;
+        border: none;
+    }
     &:disabled {
         background-color: unset;
         border-color: unset;

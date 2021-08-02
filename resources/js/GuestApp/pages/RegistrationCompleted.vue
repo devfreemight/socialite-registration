@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style scoped>
-h2 {
+.svg-inline--fa, h2 {
     color: #ff5e75;
 }
 .card {

@@ -13,9 +13,6 @@ export default [
     {
         path: '/registrants',
         component: ROUTER_VIEW,
-        meta: {
-            tab: 'registrants',
-        },
         children:[
             {
                 path: '/',

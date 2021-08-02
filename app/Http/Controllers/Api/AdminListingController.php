@@ -7,9 +7,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UpdateRegistrant;
 use App\Registrant;
+use App\Services\RegistrantService;
 use Excel;
-class RegistrantController extends Controller
+use Exception;
+
+class AdminListingController extends Controller
 {
+    protected $registrantService;
+
+    public function __construct(RegistrantService $registrantService)
+    {
+        $this->registrantService = $registrantService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -18,38 +28,31 @@ class RegistrantController extends Controller
     public function index(Request $request)
     {
         $request->validate([
-            'name' => 'string|max:255',
-            'gender' => 'in:0,1',
-            'birthday' => 'date|date_format:m/d/Y',
-            'contact_no' => 'max:11',
-            'age' => 'numeric|between:18,30',
-            'street' => 'max:255',
-            'landmark' => 'max:255',
+            'name'          => 'string|max:255',
+            'gender'        => 'in:1',
+            'contact_no'    => 'numeric|max:11',
+            'age'           => 'numeric',
+            'export_status' => 'in:0,1',
+            'barangay_id'   => 'string',
         ]);
 
-        $birthday = $request->filled('birthday') ? date('Y-m-d', strtotime($request->input('birthday'))) : '';
+        $result = ['status' => 200];
 
-        $registrants = DB::table('registrants')
-            ->join('cities', 'registrants.city_id', '=', 'cities.city_id')
-            ->join('barangays', 'registrants.barangay_id', '=', 'barangays.brgy_id')
-            ->select('registrants.*', 'cities.name AS city_name', 'barangays.name AS barangay_name')
-            ->where('registrants.name', 'like', '%' . $request->input('name') . '%')
-            ->where('gender', 'like', $request->input('gender') . '%')
-            ->where('birthday', 'like', '%' . $birthday . '%')
-            ->where('contact_no', 'like', '%' . $request->input('contact_no') . '%')
-            ->where('age', 'like', $request->input('age') . '%')
-            ->where('street', 'like', '%' . $request->input('street') . '%')
-            ->where('registrants.barangay_id', 'like', $request->input('barangay_id') . '%')
-            ->where('registrants.city_id', $request->input('city_id'))
-            ->where('landmark', 'like', '%' . $request->input('landmark') . '%')
-            ->orderBy('registrants.name', 'asc')
-            ->paginate(15);
+        try {
+            $result['data'] = $this->registrantService->getAll($request->input());
+        } catch (Exception $e) {
+            $result = [
+                'status' => 500,
+                'error' => $e->getMessage()
+            ];
+        }
 
-        return response()->json($registrants);
+        return response()->json($result, $result['status']);
     }
 
     public function exportCSV(Request $request)
     {
+        $this->registrantService->updateExportStatus($request->input());
         return Excel::download(new \App\Exports\RegistrantExport($request->input()), 'registrants.csv');
     }
 
