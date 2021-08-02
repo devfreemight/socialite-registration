@@ -22,8 +22,11 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('/cities', 'CitiesController@index');
     Route::get('/barangay', 'BarangayController@getList');
     Route::apiResource('/guest', 'GuestController');
-    Route::apiResource('/registrants', 'RegistrantController')->middleware(['auth:api']);
-    Route::post('/registrants/export-csv', 'RegistrantController@exportCSV')->middleware(['auth:api']);
+
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
+        Route::resource('/listing', 'AdminListingController');
+        Route::post('/listing/export-csv', 'AdminListingController@exportCSV');
+    });
 });
 
 Route::group(['prefix' => 'user', 'namespace' => 'Auth'], function() {
