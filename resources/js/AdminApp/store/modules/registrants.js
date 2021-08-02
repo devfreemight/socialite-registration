@@ -47,7 +47,7 @@ export default build ({
             return new Promise(async (resolve, reject) => {
                 try{
                     let response = await api.index(params)
-                    context.commit('setRegistrants', response.data);
+                    context.commit('setRegistrants', response.data.data);
                     context.commit('setParams', params);
                     resolve(response.data);
                 }catch(response){

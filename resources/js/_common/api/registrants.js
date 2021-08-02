@@ -1,18 +1,18 @@
 import build from 'freedom-vue-framework/src/api-builder'
 const config = {
-    resource: 'registrants'
+    resource: 'admin/listing'
 }
 export default build ({
-    exportCSV(payload, headers){
+    exportCSV(payload, headers) {
         return this.getHttp().post(this.makeUrl('export-csv'), payload, headers);
     },
     update(id, payload, headers) {
-        return this.getHttp().put('/api/registrants/' + id, payload, headers);
+        return this.getHttp().put(config.resource + id, payload, headers);
     },
-    destroy(id, params="", config={}){
-        return this.getHttp().delete('/api/registrants/' + id, config);
+    destroy(id, params="", config={}) {
+        return this.getHttp().delete(config.resource + id, config);
     },
-    show(id, params="", config={}){
-        return this.getHttp().get('/api/registrants/' + id, config);
+    show(id, params="", config={}) {
+        return this.getHttp().get(config.resource + id, config);
     },
 }, config)

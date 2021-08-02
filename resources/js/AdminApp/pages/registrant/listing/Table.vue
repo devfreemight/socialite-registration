@@ -41,7 +41,7 @@
                             <td>{{ datum | getProperty('contact_no') }}</td>
                             <td>{{ datum | getProperty('age') }}</td>
                             <td>{{ datum | getProperty('street') }}</td>
-                            <td>{{ datum | getProperty('barangay_name') }}</td>
+                            <td>{{ datum | getProperty('barangay.name') }}</td>
                             <td>{{ datum | getProperty('landmark', '') }}</td>
                             <td>{{ datum | getProperty('export_status', '') | getExportStatus() }}</td>
                             <td>

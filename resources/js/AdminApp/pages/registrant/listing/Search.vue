@@ -16,26 +16,49 @@
                             <div class="col-sm-12 col-md-10 col-lg-6">
                                 <div class="form-group">
                                     <label for="name" class="font-weight-bold">Full Name</label>
-                                    <input id="name" type="text" class="form-control" name="name" v-model="form.name" autocomplete="name" autofocus placeholder="Juana Dela Cruz">
+                                    <input id="name"
+                                        v-validate="'max:255'"
+                                        type="text"
+                                        class="form-control"
+                                        name="full name"
+                                        v-model="form.name"
+                                        autofocus
+                                        placeholder="Juana Dela Cruz"
+                                    >
+                                    <p v-show="errors.has('full name')" class="is-danger">{{ errors.first('full name') }}</p>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="gender" class="font-weight-bold">Gender</label>
-                                            <select class="form-control" name="gender" id="gender" v-model="form.gender">
+                                            <select class="form-control"
+                                                v-validate="'included:1'"
+                                                name="gender"
+                                                id="gender"
+                                                v-model="form.gender"
+                                            >
                                                 <option value="">Select Gender</option>
                                                 <option value="0">Male</option>
                                                 <option value="1">Female</option>
                                             </select>
                                             <i class="custom-fa-select fa fa-chevron-down"></i>
+                                            <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
                                         </div>
                                     </div>
 
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="age" class="font-weight-bold">Age</label>
-                                            <input id="age" type="text" class="form-control" name="age" v-model="form.age" placeholder="18-30">
+                                            <input id="age"
+                                                v-validate="'between:18,30'"
+                                                type="text"
+                                                class="form-control"
+                                                name="age"
+                                                v-model="form.age"
+                                                placeholder="18-30"
+                                            >
+                                            <p v-show="errors.has('age')" class="is-danger">{{ errors.first('age') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +67,16 @@
                             <div class="col-sm-12 col-md-10 col-lg-6">
                                 <div class="form-group">
                                     <label for="contact_no" class="font-weight-bold">Contact No.</label>
-                                    <input id="contact_no" type="text" class="form-control" name="contact_no" v-model="form.contact_no" placeholder="09123456789">
+                                    <input id="contact_no"
+                                        v-validate="'numeric'"
+                                        data-vv-as="contact no."
+                                        type="text"
+                                        class="form-control"
+                                        name="contact_no"
+                                        v-model="form.contact_no"
+                                        placeholder="09123456789"
+                                    >
+                                    <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
                                 </div>
 
                                 <div class="form-group">
@@ -82,7 +114,6 @@
 <script>
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { VALUES as EXPORT_VALUES, DEFAULT_STATUS } from '@constants/export';
-import { CITY_ID } from '@constants/address';
 import { mapGetters } from 'vuex';
 
 export default {
@@ -91,11 +122,10 @@ export default {
         return {
             form: {
                 name: '',
-                gender: '',
+                gender: '1',
                 contact_no: '',
                 age: '',
                 barangay_id: '',
-                city_id: CITY_ID,
                 export_status: DEFAULT_STATUS,
             },
             searchLoading: false,
@@ -109,13 +139,27 @@ export default {
     },
     methods: {
         async searchHandler() {
-            this.searchLoading = true;
-            try {
-                let response = await this.$store.dispatch('Registrants/index', this.form);
-            } catch (error) {
-                console.log(error);
-            }
-            this.searchLoading = false;
+            this.$validator.validate().then(valid => {
+                if (!valid) {
+                    this.$toast.error('All details must be filled out correctly to continue.');
+                    return;
+                }  else {
+                    this.searchLoading = true;
+                    this.submit();
+                }
+            });
+        },
+        submit() {
+            return new Promise(async(resolve,reject) => {
+                try {
+                    await this.$store.dispatch('Registrants/index', this.form);
+                } catch (error) {
+                    console.log(error);
+                } finally {
+                    this.searchLoading = false;
+                    resolve();
+                }
+            });
         },
         toggleChevron() {
             this.chevyDown = !this.chevyDown;

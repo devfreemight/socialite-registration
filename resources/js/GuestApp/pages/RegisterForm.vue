@@ -179,7 +179,7 @@ export default {
                     return;
                 } else {
                     this.submitLoading = true;
-                    this.submit(this.form);
+                    this.submit();
                 }
             });
         },
