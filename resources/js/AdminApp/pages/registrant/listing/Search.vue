@@ -38,7 +38,6 @@
                                                 id="gender"
                                                 v-model="form.gender"
                                             >
-                                                <option value="">Select Gender</option>
                                                 <option value="0">Male</option>
                                                 <option value="1">Female</option>
                                             </select>
@@ -68,7 +67,7 @@
                                 <div class="form-group">
                                     <label for="contact_no" class="font-weight-bold">Contact No.</label>
                                     <input id="contact_no"
-                                        v-validate="'numeric'"
+                                        v-validate="'numeric|max:11'"
                                         data-vv-as="contact no."
                                         type="text"
                                         class="form-control"
