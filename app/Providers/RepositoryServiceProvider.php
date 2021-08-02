@@ -23,6 +23,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(\App\Repositories\RegistrantRepository::class, \App\Repositories\RegistrantRepositoryInterface::class);
+        $this->app->bind(\App\Repositories\RegistrantRepositoryInterface::class, \App\Repositories\RegistrantRepository::class);
     }
 }
