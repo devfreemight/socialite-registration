@@ -3,15 +3,15 @@
         <div class="modal-mask">
             <div class="modal-wrapper">
                 <div class="modal-container">
-                    <div class="modal-header">
+                    <div class="modal-header px-0 pb-2">
                         <slot name="header"></slot>
                     </div>
 
-                    <div class="">
+                    <div class="pt-3">
                         <slot name="body"></slot>
                     </div>
 
-                    <div class="modal-footer">
+                    <div class="modal-footer p-0 text-center">
                         <slot name="footer"></slot>
                     </div>
                 </div>
@@ -45,22 +45,23 @@ export default {
 }
 
 .modal-container {
-    width: 400px;
+    width: 600px;
     margin: 0px auto;
     padding: 20px 30px;
     background-color: #fff;
-    border-radius: 2px;
+    border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
     transition: all 0.3s ease;
 }
 
 .modal-header {
     margin-top: 0;
-    color: #42b983;
-    border-bottom: none !important;
+    color: #212529;
+    border-bottom: solid 1px #ededed !important;
 }
 
 .modal-footer {
+    display: block !important;
     border-top: none !important;
 }
 
