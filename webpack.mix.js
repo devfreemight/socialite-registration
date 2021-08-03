@@ -19,7 +19,19 @@ const config = {
                 }, ],
                 include: [ /node_modules\/freedom-vue-framework/,/node_modules\/aj-vue-ui/,/node_modules\/freedom-js-support/],
             },
-         ]
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    'resolve-url-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            prependData: '$assets_url: "' + process.env.MIX_ASSETS_URL + '";',
+                        },
+                    },
+                ],
+            }
+        ]
     },
     resolve:{
         alias:{

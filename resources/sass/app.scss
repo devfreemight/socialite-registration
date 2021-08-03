@@ -36,13 +36,11 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-.app-background {
     position: relative;
     &::before {
         content: "";
-        background: url('/images/hair-bg.jpg') no-repeat fixed;
+        // background: url(#{$assets_url}+"/images/hair-bg.jpg") no-repeat fixed;
+        background: url("/images/hair-bg.jpg") no-repeat fixed;
         background-size: 100% 140%;
         position: fixed;
         top: 0px;
