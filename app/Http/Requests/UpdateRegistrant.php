@@ -24,10 +24,10 @@ class UpdateRegistrant extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'gender' => 'required|in:0,1',
+            'name' => "required|string|max:255|unique:registrants,name,{$this->id}",
+            'gender' => 'required|in:1',
             'birthday' => 'required|date|date_format:m/d/Y',
-            'contact_no' => 'required|digits:11',
+            'contact_no' => "required|digits:11|unique:registrants,contact_no,{$this->id}",
             'age' => 'required|numeric|between:18,30',
             'barangay_id' => 'required',
             'street' => 'required|max:255',

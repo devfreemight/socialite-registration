@@ -74,16 +74,16 @@
         </div>
 
         <modal v-if="csvModal">
-            <h5 slot="header">CSV Exporting</h5>
-            <p slot="body" class="text-center">Please select at least one record?</p>
-            <button slot="footer" class="btn btn-secondary" @click="csvModal = false">Close</button>
+            <h2 slot="header" class="font-weight-bold">CSV Exporting</h2>
+            <p slot="body">Please select at least one record?</p>
+            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="csvModal = false">Close</button>
         </modal>
 
         <modal v-if="deleteModal">
-            <h5 slot="header">Delete</h5>
-            <p slot="body" class="text-center">Are you sure to delete this record?</p>
-            <button slot="footer" class="btn btn-primary" @click="deleteRecord">Proceed</button>
-            <button slot="footer" class="btn btn-secondary" @click="deleteModal = false">Cancel</button>
+            <h2 slot="header" class="font-weight-bold">Delete</h2>
+            <p slot="body">Are you sure to delete this record?</p>
+            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="deleteRecord">Proceed</button>
+            <button slot="footer" class="btn btn-danger rounded-pill px-5" @click="deleteModal = false">Cancel</button>
         </modal>
     </div>
 </template>

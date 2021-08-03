@@ -14,60 +14,128 @@
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="name" class="font-weight-bold">Full Name</label>
-                                            <input id="name" type="text" class="form-control" name="name" v-model="form.name" autocomplete="name" autofocus placeholder="Juan Dela Cruz">
+                                            <input id="name"
+                                                v-validate="'max:255'"
+                                                type="text"
+                                                class="form-control"
+                                                name="full name"
+                                                v-model="form.name"
+                                                placeholder="Juana Dela Cruz"
+                                                autofocus
+                                            >
+                                            <p v-show="errors.has('full name')" class="is-danger">{{ errors.first('full name') }}</p>
                                         </div>
 
-                                        <div class="form-group">
-                                            <label for="gender" class="font-weight-bold">Gender</label>
-                                            <select class="form-control" name="gender" id="gender" v-model="form.gender">
-                                                <option value="">Select Gender</option>
-                                                <option value="0">Male</option>
-                                                <option value="1">Female</option>
-                                            </select>
+                                        <div class="form-row">
+                                            <div class="form-group col-sm">
+                                                <label for="gender" class="font-weight-bold">Gender</label>
+                                                <select class="form-control"
+                                                    v-validate="'included:1'"
+                                                    name="gender"
+                                                    id="gender"
+                                                    v-model="form.gender"
+                                                >
+                                                    <option value="0">Male</option>
+                                                    <option value="1">Female</option>
+                                                </select>
+                                                <i class="custom-fa-select fa fa-chevron-down"></i>
+                                                <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
+                                            </div>
+
+                                            <div class="form-group col-sm">
+                                                <label for="age" class="font-weight-bold">Age</label>
+                                                <input id="age"
+                                                    v-validate="'between:18,30'"
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="age"
+                                                    v-model="form.age"
+                                                    placeholder="18-30"
+                                                >
+                                                <p v-show="errors.has('age')" class="is-danger">{{ errors.first('age') }}</p>
+                                            </div>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="birthday" class="font-weight-bold">Birthday</label>
-                                            <input id="birthday" type="text" class="form-control" name="birthday" v-model="form.birthday" placeholder="mm/dd/YYYY">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="contact_no" class="font-weight-bold">Contact No.</label>
-                                            <input id="contact_no" type="text" class="form-control" name="contact_no" v-model="form.contact_no" placeholder="09123456789">
+                                            <input id="birthday"
+                                                v-validate="'date_format:MM/dd/yyyy'"
+                                                type="text"
+                                                class="form-control"
+                                                name="birthday"
+                                                v-model="form.birthday"
+                                                placeholder="mm/dd/YYYY"
+                                            >
+                                            <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
                                         </div>
                                     </div>
 
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="age" class="font-weight-bold">Age</label>
-                                            <input id="age" type="text" class="form-control" name="age" v-model="form.age" placeholder="18-30">
+                                            <label for="contact_no" class="font-weight-bold">Contact No.</label>
+                                            <input id="contact_no"
+                                                v-validate="'digits:11'"
+                                                data-vv-as="contact no."
+                                                type="text"
+                                                class="form-control"
+                                                name="contact_no"
+                                                v-model="form.contact_no"
+                                                placeholder="09123456789"
+                                            >
+                                            <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="address" class="font-weight-bold">Street Address</label>
-                                            <input id="address" type="text" class="form-control" name="street" v-model="form.street" placeholder="Street">
+                                            <input id="address"
+                                                v-validate="'max:255'"
+                                                data-vv-as="house # and street"
+                                                type="text"
+                                                class="form-control"
+                                                name="street"
+                                                v-model="form.street"
+                                                placeholder="House #, Street"
+                                            >
+                                            <p v-show="errors.has('street')" class="is-danger">{{ errors.first('street') }}</p>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="barangay" class="font-weight-bold">Barangay</label>
-                                            <select class="form-control" name="barangay" id="barangay" v-model="form.barangay_id">
+                                            <select class="form-control"
+                                                v-validate="'required'"
+                                                name="barangay"
+                                                id="barangay"
+                                                v-model="form.barangay_id"
+                                            >
                                                 <option value="" disabled>Barangay</option>
                                                 <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
                                             </select>
+                                            <i class="custom-fa-select fa fa-chevron-down"></i>
+                                            <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div class="form-group">
-                                            <label for="city" class="font-weight-bold">City</label>
-                                            <input id="city" type="text" class="form-control" name="city" :value="this.city_name" readonly>
-                                        </div>
-
+                                <div class="row">
+                                    <div class="col-sm">
                                         <div class="form-group">
                                             <label for="landmark" class="font-weight-bold">Landmark</label>
-                                            <input type="text" id="landmark" class="form-control" v-model="form.landmark">
+                                            <textarea id="landmark"
+                                                v-validate="'max:255'"
+                                                class="form-control"
+                                                rows="6"
+                                                v-model="form.landmark"
+                                                name="landmark"
+                                            ></textarea>
+                                            <p v-show="errors.has('landmark')" class="is-danger">{{ errors.first('landmark') }}</p>
                                         </div>
+                                    </div>
+                                </div>
 
-                                        <div class="form-group">
-                                            <ui-button class="btn btn-primary float-right px-5" :loading="submitLoading" @click="showModal = true">Update</ui-button>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <div class="mb-3 text-center">
+                                            <ui-button class="btn btn-danger btn-lg rounded-pill px-5" :loading="submitLoading" @click="validateForm">Update</ui-button>
                                         </div>
                                     </div>
                                 </div>
@@ -78,23 +146,17 @@
             </div>
         </div>
 
-
-
-        <!-- <div class="container mb-5">
-
-        </div> -->
-
         <modal v-if="showModal">
-            <h5 slot="header">Update</h5>
-            <p slot="body" class="text-center">Are you sure do you want to update this record?</p>
-            <button slot="footer" class="btn btn-primary" @click="update">Proceed</button>
-            <button slot="footer" class="btn btn-secondary" @click="showModal = false">Cancel</button>
+            <h2 slot="header" class="font-weight-bold">Update</h2>
+            <p slot="body">Are you sure do you want to update this record?</p>
+            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="update">Proceed</button>
+            <button slot="footer" class="btn btn-danger rounded-pill px-5" @click="toggleModal(false)">Cancel</button>
         </modal>
     </div>
 </template>
 
 <script>
-import { CITY_NAME, CITY_ID } from '@constants/address';
+import { CITY_ID } from '@constants/address';
 import { mapGetters } from 'vuex';
 import moment from 'moment';
 import Modal from '@admin/components/Modal';
@@ -125,7 +187,6 @@ export default {
             },
             submitLoading: false,
             showModal: false,
-            city_name: CITY_NAME,
         }
     },
     computed: {
@@ -139,25 +200,44 @@ export default {
             this.form = Object.assign({}, this.original);
             try {
                 let response = await this.$store.dispatch('Registrants/get', { id: this.id, })
-                this.form = Object.assign({}, this.$_Arr.getProperty(response, 'data', this.form));
+                this.form = Object.assign({}, this.$_Arr.getProperty(response.data, '', this.form));
                 this.form.birthday = moment(this.form.birthday).format('MM/DD/Y');
             } catch(error) {}
         },
-        update(){
-            return new Promise(async (resolve,reject)=>{
-                try{
-                    let response = await this.$store.dispatch('Registrants/update', this.form);
-                    this.$router.push({name: 'registrant:listing'});
-                } catch(error) {
-                    console.error(error);
+        toggleModal(value) {
+            this.showModal = value;
+            this.submitLoading = value;
+        },
+        validateForm() {
+            this.$validator.validate().then(valid => {
+                if (!valid) {
+                    this.$toast.error('All details must be filled out correctly to continue.');
+                    return;
+                }  else {
+                    this.toggleModal(true);
                 }
-                this.showModal = false;
-                resolve();
             });
+        },
+        update() {
+            return new Promise(async (resolve,reject)=>{
+                try {
+                    await this.$store.dispatch('Registrants/update', this.form);
+                    this.$router.push({name: 'registrant:listing'});
+                } catch (error) {
+                    console.error(error);
+                } finally {
+                    this.toggleModal(false);
+                    resolve();
+                }
+            });
+        },
+        getBarangays() {
+            this.$store.dispatch('Barangays/index', { city_id: CITY_ID });
         },
     },
     created() {
         this.initialize();
+        this.getBarangays();
     },
 }
 </script>
@@ -165,6 +245,7 @@ export default {
 <style lang="scss" scoped>
 #container {
     background-color: #fff;
+    padding-bottom: 40px;;
 }
 h2 {
     font-size: 33px !important;
@@ -177,5 +258,8 @@ h2 {
     .card-body {
         background-color: rgba(0, 0, 0, 0.03);
     }
+}
+.form-group {
+    margin-bottom: 1rem !important;
 }
 </style>

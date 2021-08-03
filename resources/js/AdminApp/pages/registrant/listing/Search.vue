@@ -192,4 +192,7 @@ export default {
         background-color: rgba(0, 0, 0, 0.03);
     }
 }
+.form-group {
+    margin-bottom: 1rem !important;
+}
 </style>

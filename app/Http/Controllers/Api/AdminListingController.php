@@ -4,11 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Requests\UpdateRegistrant;
-use App\Registrant;
 use App\Services\RegistrantService;
-use Excel;
 use Exception;
 
 class AdminListingController extends Controller
@@ -42,8 +39,8 @@ class AdminListingController extends Controller
             $result['data'] = $this->registrantService->getAll($request->input());
         } catch (Exception $e) {
             $result = [
-                'status' => 500,
-                'error' => $e->getMessage()
+                'status' => 422,
+                'errors' => $e->getMessage()
             ];
         }
 
@@ -53,18 +50,7 @@ class AdminListingController extends Controller
     public function exportCSV(Request $request)
     {
         $this->registrantService->updateExportStatus($request->input());
-        return Excel::download(new \App\Exports\RegistrantExport($request->input()), 'registrants.csv');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return \Excel::download(new \App\Exports\RegistrantExport($request->input()), 'registrants.csv');
     }
 
     /**
@@ -75,8 +61,18 @@ class AdminListingController extends Controller
      */
     public function show($id)
     {
-        $registrant = Registrant::firstWhere('id', $id);
-        return response()->json(['data' => $registrant]);
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->registrantService->getById($id);
+        } catch (Exception $e) {
+            $result = [
+                'status' => 422,
+                'errors' => $e->getMessage()
+            ];
+        }
+
+        return response()->json($result, $result['status']);
     }
 
     /**
@@ -88,44 +84,30 @@ class AdminListingController extends Controller
      */
     public function update(UpdateRegistrant $request, $id)
     {
-        if ($request->validated()) {
-            $registrant = $this->updateRecord($request->input(), $id);
+        $data = $request->only([
+            'name',
+            'gender',
+            'birthday',
+            'contact_no',
+            'age',
+            'street',
+            'barangay_id',
+            'landmark',
+        ]);
 
-            if ($registrant) {
-                return response()->json([
-                    'success' => true,
-                    'data' => $registrant,
-                    'message' => 'Record updated successfully.'
-                ], 201);
-            } else {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Record failed to update!'
-                ], 400);
-            }
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->registrantService->updateData($data, $id);
+            $result['message'] = 'Record updated successfully.';
+        } catch (Exception $e) {
+            $result = [
+                'status' => 422,
+                'errors' => $e->getMessage()
+            ];
         }
-    }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function updateRecord(array $data, $id)
-    {
-        $registrant = Registrant::find($id);
-        $registrant->name        = $data['name'];
-        $registrant->gender      = $data['gender'];
-        $registrant->birthday    = date('Y-m-d', strtotime($data['birthday']));
-        $registrant->contact_no  = $data['contact_no'];
-        $registrant->age         = $data['age'];
-        $registrant->street      = $data['street'];
-        $registrant->barangay_id = $data['barangay_id'];
-        $registrant->city_id     = $data['city_id'];
-        $registrant->landmark    = $data['landmark'];
-        $registrant->save();
-        return $registrant;
+        return response()->json($result, $result['status']);
     }
 
     /**
@@ -136,18 +118,17 @@ class AdminListingController extends Controller
      */
     public function destroy($id)
     {
-        $registrant = Registrant::find($id);
+        $result = ['status' => 200];
 
-        if ($registrant->delete()) {
-            return response()->json([
-                'success' => true,
-                'message' => 'Record deleted successfully.'
-            ], 201);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'Record failed to delete!'
-            ], 400);
+        try {
+            $result['data'] = $this->registrantService->deleteById($id);
+        } catch (Exception $e) {
+            $result = [
+                'status' => 422,
+                'errors' => $e->getMessage()
+            ];
         }
+
+        return response()->json($result, $result['status']);
     }
 }

@@ -30,7 +30,7 @@ class RegistrantRepository implements RegistrantRepositoryInterface
 
     public function getById($id)
     {
-        return $this->registrant->where('id', $id)->get();
+        return $this->registrant->firstWhere('id', $id);
     }
 
     public function save($data)

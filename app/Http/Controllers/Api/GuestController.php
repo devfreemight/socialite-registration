@@ -3,34 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreRegistration;
-use Illuminate\Support\Facades\Validator;
-use App\Registrant;
+use App\Services\RegistrantService;
+use Exception;
 
 class GuestController extends Controller
 {
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
-    protected function create(array $data)
+    protected $registrantService;
+
+    public function __construct(RegistrantService $registrantService)
     {
-        $defaultCity = '072217';
-        return Registrant::create([
-            "name"          => $data['name'],
-            "gender"        => $data['gender'],
-            "birthday"      => date('Y-m-d', strtotime($data['birthday'])),
-            "contact_no"    => $data['contact_no'],
-            "age"           => $data['age'],
-            "street"        => $data['street'],
-            "barangay_id"   => $data['barangay_id'],
-            "city_id"       => $defaultCity,
-            "landmark"      => $data['landmark'],
-            "export_status" => false,
-        ]);
+        $this->registrantService = $registrantService;
     }
 
     /**
@@ -41,20 +24,29 @@ class GuestController extends Controller
      */
     public function store(StoreRegistration $request)
     {
-        if ($request->validated()) {
-            $registrant = $this->create($request->all());
+        $data = $request->only([
+            'name',
+            'gender',
+            'birthday',
+            'contact_no',
+            'age',
+            'street',
+            'barangay_id',
+            'landmark',
+        ]);
 
-            if ($registrant) {
-                return response()->json([
-                    'success' => true,
-                ], 201);
-            } else {
-                return response()->json([
-                    'success' => false,
-                    'message' => 'Registration failed to save!'
-                ], 400);
-            }
+        $result = ['status' => 200];
+
+        try {
+            $result['data'] = $this->registrantService->saveData($data);
+        } catch (Exception $e) {
+            $result = [
+                'status' => 422,
+                'errors' => $e->getMessage()
+            ];
         }
+
+        return response()->json($result, $result['status']);
     }
 
 }
