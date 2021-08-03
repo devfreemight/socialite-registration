@@ -7,12 +7,12 @@ export default build ({
         return this.getHttp().post(this.makeUrl('export-csv'), payload, headers);
     },
     update(id, payload, headers) {
-        return this.getHttp().put(config.resource + id, payload, headers);
+        return this.getHttp().put(this.makeUrl(`/${id}`), payload, headers);
     },
     destroy(id, params="", config={}) {
-        return this.getHttp().delete(config.resource + id, config);
+        return this.getHttp().delete(this.makeUrl(`/${id}`), config);
     },
     show(id, params="", config={}) {
-        return this.getHttp().get(config.resource + id, config);
+        return this.getHttp().get(this.makeUrl(`/${id}`), config);
     },
 }, config)
