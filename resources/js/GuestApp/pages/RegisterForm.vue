@@ -30,9 +30,8 @@
                                     id="gender"
                                     v-model="form.gender"
                                 >
-                                    <option value="">Select Gender</option>
-                                    <option value="0">Male</option>
                                     <option value="1">Female</option>
+                                    <option value="0">Male</option>
                                 </select>
                                 <i class="custom-fa-select fa fa-chevron-down"></i>
                                 <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
@@ -133,6 +132,7 @@
 
 <script>
 import { CITY_NAME, CITY_ID } from '@constants/address';
+import { DEFAULT_GENDER } from '@constants/gender';
 import moment from 'moment';
 
 export default {
@@ -141,7 +141,7 @@ export default {
         return {
             form: {
                 name: '',
-                gender: '',
+                gender: DEFAULT_GENDER,
                 birthday: '',
                 contact_no: '',
                 age: '',
