@@ -37,17 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    &::before {
-        content: "";
-        background: url(#{$assets_url}+"/images/hair-bg.jpg") no-repeat fixed;
-        background-size: 100% 140%;
-        position: fixed;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        opacity: 0.1;
-    }
+    background-color: rgba(0, 0, 0, 0);
 }
 
 [v-cloak] {

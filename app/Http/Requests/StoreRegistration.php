@@ -24,7 +24,7 @@ class StoreRegistration extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string|max:255|unique:registrants',
+            'name' => 'required|max:255|unique:registrants',
             'gender' => 'required|in:1',
             'birthday' => 'required|date|date_format:m/d/Y',
             'contact_no' => 'required|digits:11|unique:registrants',

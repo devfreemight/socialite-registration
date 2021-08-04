@@ -6,35 +6,27 @@
 
                 <div class="card">
                     <div class="card-body px-0 px-sm-5 px-md-5">
-                        <h2 class="text-center font-weight-bold pt-sm-5 pt-md-5 pb-3">Sign Up Here</h2>
+                        <h2 class="text-center font-weight-bold pt-sm-5 pt-md-5 pb-3">Sign up for your FREE shampoo!</h2>
                         <form @submit.prevent="submitRegistration">
                             <div class="form-group">
                                 <label for="name" class="font-weight-bold">Full Name</label>
                                 <input id="name"
-                                    v-validate="'required|max:255'"
+                                    v-validate="{ required:true, regex:/^(?![\s.]+$)[a-zA-Z\s.]*$/, max:255 }"
+                                    data-vv-as="full name"
                                     type="text"
                                     class="form-control form-control-lg"
-                                    name="full name"
+                                    name="full_name"
                                     v-model="form.name"
-                                    placeholder="Juana Dela Cruz"
+                                    placeholder="Maymay Entrata"
                                     autofocus
                                 >
-                                <p v-show="errors.has('full name')" class="is-danger">{{ errors.first('full name') }}</p>
+                                <p v-show="errors.has('full_name')" class="is-danger">{{ errors.first('full_name') }}</p>
                             </div>
 
                             <div class="form-group">
-                                <label for="gender" class="font-weight-bold">Gender</label>
-                                <select class="form-control form-control-lg"
-                                    v-validate="'required|included:1'"
-                                    name="gender"
-                                    id="gender"
-                                    v-model="form.gender"
-                                >
-                                    <option value="1">Female</option>
-                                    <option value="0">Male</option>
-                                </select>
-                                <i class="custom-fa-select fa fa-chevron-down"></i>
-                                <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
+                                <label class="font-weight-bold">Gender</label>
+                                <input type="text" class="form-control form-control-lg" name="gender" v-model="female_text" readonly>
+                                <p class="is-danger">Only female participants/registrants are allowed to get a free shampoo.</p>
                             </div>
 
                             <div class="form-group">
@@ -48,6 +40,7 @@
                                     placeholder="mm/dd/YYYY"
                                 >
                                 <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
+                                <p class="is-danger">Only participants/registrants aged 18-30 years old are allowed.</p>
                             </div>
 
                             <div class="form-group">
@@ -132,7 +125,7 @@
 
 <script>
 import { CITY_NAME, CITY_ID } from '@constants/address';
-import { DEFAULT_GENDER } from '@constants/gender';
+import { DEFAULT_GENDER, DEFAULT_GENDER_TEXT } from '@constants/gender';
 import moment from 'moment';
 
 export default {
@@ -153,6 +146,7 @@ export default {
             term_and_cond: false,
             submitLoading: false,
             city_name: CITY_NAME,
+            female_text: DEFAULT_GENDER_TEXT
         }
     },
     computed: {
@@ -175,7 +169,7 @@ export default {
                     this.$toast.error('All details must be filled out correctly to continue and confirm the registration');
                     return;
                 } else if (!this.validateAge()) {
-                    this.$toast.error('Only participants aged 18-30 are allowed');
+                    this.$toast.error('Only participants/registrants aged 18-30 years old are allowed.');
                     return;
                 } else {
                     this.submitLoading = true;

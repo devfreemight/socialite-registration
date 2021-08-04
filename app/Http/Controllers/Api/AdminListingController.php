@@ -50,7 +50,7 @@ class AdminListingController extends Controller
     public function exportCSV(Request $request)
     {
         $this->registrantService->updateExportStatus($request->input());
-        return \Excel::download(new \App\Exports\RegistrantExport($request->input()), 'registrants.csv');
+        return \Excel::download(new \App\Exports\RegistrantExport($request->input()), 'registrants.xlsx');
     }
 
     /**

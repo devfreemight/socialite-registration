@@ -58,7 +58,7 @@
 
         <div v-show="data" class="row py-5">
             <div class="col-sm-7">
-                <ui-button :handler="exportPrompt" class="btn btn-primary rounded-pill px-4" :loading="exportLoading">Export (CSV)</ui-button>
+                <ui-button :handler="exportPrompt" class="btn btn-primary rounded-pill px-4" :loading="exportLoading">Export</ui-button>
             </div>
             <div class="col-sm-5">
                 <ui-pagination class="text-right" v-show="lastPage > 1" :total="lastPage" v-model="currentPage">
@@ -160,11 +160,11 @@ export default {
             try {
                 let response = await this.$api.registrants.exportCSV(this.selected, {responseType: 'blob'});
                 const url = URL.createObjectURL(new Blob([response.data], {
-                    type: 'text/csv'
+                    type: 'application/vnd.ms-excel'
                 }))
                 const link = document.createElement('a')
                 link.href = url
-                link.setAttribute('download', 'registrants.csv')
+                link.setAttribute('download', 'registrants.xlsx')
                 document.body.appendChild(link)
                 link.click()
             } catch(error) {
