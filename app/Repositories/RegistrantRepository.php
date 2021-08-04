@@ -23,7 +23,8 @@ class RegistrantRepository implements RegistrantRepositoryInterface
             ->where('barangay_id', 'like', $data['barangay_id'] . '%')
             ->where('city_id', config('constants.defaults.city.id'))
             ->where('export_status', $data['export_status'])
-            ->orderBy('name', 'asc')
+            ->oldest('name')
+            ->oldest('age')
             ->paginate(15);
         return $registrant;
     }

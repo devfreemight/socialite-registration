@@ -2,7 +2,6 @@
 
 namespace App\Exports;
 
-use App\Registrant;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -20,8 +19,14 @@ class RegistrantExport implements FromCollection, WithMapping, WithHeadings
     */
     public function collection()
     {
-        return Registrant::whereIn('id', $this->_ids)
-            ->orderBy('name', 'asc')
+        return \DB::table('registrants')
+            ->join('barangays', 'registrants.barangay_id', '=', 'barangays.brgy_id')
+            ->join('cities', 'registrants.city_id', '=', 'cities.city_id')
+            ->select('registrants.*', 'barangays.name AS barangay', 'cities.name AS city')
+            ->whereIn('registrants.id', $this->_ids)
+            ->oldest('name')
+            ->oldest('city')
+            ->oldest('barangay')
             ->get();
     }
 
@@ -29,7 +34,6 @@ class RegistrantExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             'Name',
-            'Gender',
             'Birthday',
             'Contact No.',
             'Age',
@@ -44,13 +48,12 @@ class RegistrantExport implements FromCollection, WithMapping, WithHeadings
     {
         return [
             $data->name,
-            ucfirst($data->gender_text),
             $data->birthday,
-            $data->contact_no,
+            ' ' . $data->contact_no,
             $data->age,
             $data->street,
-            $data->barangay->name,
-            $data->city->name,
+            $data->barangay,
+            $data->city,
             $data->landmark,
         ];
     }
