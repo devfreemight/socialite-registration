@@ -2,14 +2,17 @@ import VeeValidate, { Validator } from 'vee-validate';
 
 const registration = {
     custom: {
+        full_name: {
+            regex: 'The full name field may only contain alphabetic characters as well as spaces.'
+        },
         gender: {
-            included: 'Only female participants are allowed'
+            included: 'Only female participants are allowed.'
         },
         birthday: {
-            date_format: "The birthday must be in the format mm/dd/YYYY"
+            date_format: "The birthday must be in the format mm/dd/YYYY."
         },
         age: {
-            between: "Only participants aged 18-30 are allowed"
+            between: "Only participants/registrants aged 18-30 years old are allowed."
         }
     }
 }
