@@ -2,58 +2,56 @@
     <div class="container mw-100 m-0 p-3">
         <h5 class="mb-4">Search Results</h5>
 
-        <div class="row">
-            <div class="col">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">
-                                <input type="checkbox" v-model="isCheckedAll" @click="selectAll">
-                            </th>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Gender</th>
-                            <th scope="col">Birthday</th>
-                            <th scope="col">Contact No.</th>
-                            <th scope="col">Age</th>
-                            <th scope="col">Street</th>
-                            <th scope="col">Barangay</th>
-                            <th scope="col">Landmark</th>
-                            <th scope="col">Status</th>
-                            <th scope="col" class="text-center">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-show="data && data.length == 0">
-                            <td colspan="12" class="text-center">
-                                No data available.
-                            </td>
-                        </tr>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            <input type="checkbox" v-model="isCheckedAll" @click="selectAll">
+                        </th>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Contact No.</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Street</th>
+                        <th scope="col">Barangay</th>
+                        <th scope="col">City</th>
+                        <th scope="col">Landmark</th>
+                        <th scope="col">Status</th>
+                        <th scope="col" class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-show="data && data.length == 0">
+                        <td colspan="12" class="text-center">
+                            No data available.
+                        </td>
+                    </tr>
 
-                        <tr v-show="data" :key="rowNum" v-for="(datum, rowNum) in data">
-                            <td>
-                                <input type="checkbox" v-model="selected" @click="toggleSelect" :value="datum.id">
-                            </td>
-                            <th scope="row">{{ rowNum | getTableNumber(currentPage, perPage) }}</th>
-                            <td>{{ datum | getProperty('name', '') }} </td>
-                            <td>{{ datum | getProperty('gender', '') | getProperGender() }} </td>
-                            <td>{{ datum | getProperty('birthday', '') | format('date',{format:'MM/DD/YYYY'}) }}</td>
-                            <td>{{ datum | getProperty('contact_no') }}</td>
-                            <td>{{ datum | getProperty('age') }}</td>
-                            <td>{{ datum | getProperty('street') }}</td>
-                            <td>{{ datum | getProperty('barangay.name') }}</td>
-                            <td>{{ datum | getProperty('landmark', '') }}</td>
-                            <td>{{ datum | getProperty('export_status', '') | getExportStatus() }}</td>
-                            <td>
-                                <div class="form-check form-check-inline">
-                                    <router-link :to="{name: 'registrant:edit', params: { id: datum.id }}" class="btn btn-primary rounded-pill mr-1">Edit</router-link>
-                                    <button class="btn btn-danger rounded-pill" @click="deletePrompt(datum.id)">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                    <tr v-show="data" :key="rowNum" v-for="(datum, rowNum) in data">
+                        <td>
+                            <input type="checkbox" v-model="selected" @click="toggleSelect" :value="datum.id">
+                        </td>
+                        <th scope="row">{{ rowNum | getTableNumber(currentPage, perPage) }}</th>
+                        <td>{{ datum | getProperty('name', '') }} </td>
+                        <td>{{ datum | getProperty('birthday', '') | format('date',{format:'MM/DD/YYYY'}) }}</td>
+                        <td>{{ datum | getProperty('contact_no', '') }}</td>
+                        <td>{{ datum | getProperty('age', '') }}</td>
+                        <td>{{ datum | getProperty('street', '') }}</td>
+                        <td>{{ datum | getProperty('barangay', '') }}</td>
+                        <td>{{ datum | getProperty('city.name', '') }}</td>
+                        <td>{{ datum | getProperty('landmark', '') }}</td>
+                        <td>{{ datum | getProperty('export_status', '') | getExportStatus() }}</td>
+                        <td>
+                            <div class="form-check form-check-inline">
+                                <router-link :to="{name: 'registrant:edit', params: { id: datum.id }}" class="btn btn-primary rounded-pill mr-1">Edit</router-link>
+                                <button class="btn btn-danger rounded-pill" @click="deletePrompt(datum.id)">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div v-show="data" class="row py-5">
@@ -73,10 +71,10 @@
             </div>
         </div>
 
-        <modal v-if="csvModal">
-            <h2 slot="header" class="font-weight-bold">CSV Exporting</h2>
+        <modal v-if="exportModal">
+            <h2 slot="header" class="font-weight-bold">Export</h2>
             <p slot="body">Please select at least one record?</p>
-            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="csvModal = false">Close</button>
+            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="exportModal = false">Close</button>
         </modal>
 
         <modal v-if="deleteModal">
@@ -102,7 +100,7 @@ export default {
             isCheckedAll: false,
             selected : [],
             exportLoading: false,
-            csvModal: false,
+            exportModal: false,
             deleteModal: false,
             idToDelete: '',
         }
@@ -151,7 +149,7 @@ export default {
         },
         exportPrompt() {
             if (this.selected.length == 0) {
-                this.csvModal = true;
+                this.exportModal = true;
             } else {
                 this.exportCSV();
             }
@@ -167,10 +165,14 @@ export default {
                 link.setAttribute('download', 'registrants.xlsx')
                 document.body.appendChild(link)
                 link.click()
+
+                this.isCheckedAll = true;
+                this.selectAll();
             } catch(error) {
                 console.log(error);
             } finally {
                 this.exportLoading = false;
+                this.isCheckedAll = false;
             }
         },
         deletePrompt(id) {

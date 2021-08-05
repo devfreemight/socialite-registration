@@ -16,12 +16,11 @@ class CreateRegistrantsTable extends Migration
         Schema::create('registrants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->boolean('gender')->default(null);
             $table->date('birthday');
             $table->string('contact_no');
             $table->unsignedTinyInteger('age');
             $table->string('street');
-            $table->string('barangay_id');
+            $table->string('barangay');
             $table->string('city_id');
             $table->string('landmark');
             $table->boolean('export_status')->default(0);

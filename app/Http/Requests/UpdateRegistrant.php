@@ -25,12 +25,12 @@ class UpdateRegistrant extends FormRequest
     {
         return [
             'name' => "required|string|max:255|unique:registrants,name,{$this->id}",
-            'gender' => 'required|in:1',
             'birthday' => 'required|date|date_format:m/d/Y',
             'contact_no' => "required|digits:11|unique:registrants,contact_no,{$this->id}",
             'age' => 'required|numeric|between:18,30',
-            'barangay_id' => 'required',
             'street' => 'required|max:255',
+            'barangay' => 'required|max:255',
+            'city_id' => 'required|max:6',
             'landmark' => 'required|max:255',
         ];
     }

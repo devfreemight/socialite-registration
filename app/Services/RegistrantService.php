@@ -19,7 +19,7 @@ class RegistrantService
 
     public function getAll($data)
     {
-        $requests = ['name', 'gender', 'contact_no', 'age', 'export_status', 'barangay_id'];
+        $requests = ['name', 'contact_no', 'age', 'export_status', 'barangay', 'city_id'];
 
         foreach ($requests as $key) {
             if (!isset($data[$key])) {

@@ -26,11 +26,11 @@ class AdminListingController extends Controller
     {
         $request->validate([
             'name'          => 'string|max:255',
-            'gender'        => 'in:1',
             'contact_no'    => 'string|max:11',
             'age'           => 'numeric',
             'export_status' => 'in:0,1',
-            'barangay_id'   => 'string',
+            'barangay'      => 'string',
+            'city_id'       => 'string',
         ]);
 
         $result = ['status' => 200];
@@ -86,12 +86,12 @@ class AdminListingController extends Controller
     {
         $data = $request->only([
             'name',
-            'gender',
             'birthday',
             'contact_no',
             'age',
             'street',
-            'barangay_id',
+            'barangay',
+            'city_id',
             'landmark',
         ]);
 

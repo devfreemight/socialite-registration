@@ -72,21 +72,30 @@
                             </div>
 
                             <div class="form-group">
-                                <select class="form-control form-control-lg"
-                                    v-validate="'required'"
+                                <input
+                                    v-validate="'required|max:255'"
+                                    type="text"
+                                    class="form-control form-control-lg"
                                     name="barangay"
-                                    id="barangay"
-                                    v-model="form.barangay_id"
+                                    v-model="form.barangay"
+                                    placeholder="Barangay"
                                 >
-                                    <option value="">Barangay</option>
-                                    <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
-                                </select>
-                                <i class="custom-fa-select fa fa-chevron-down"></i>
                                 <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control form-control-lg" v-model="city_name" disabled>
+                                <select class="form-control form-control-lg"
+                                    v-validate="'required'"
+                                    name="city"
+                                    id="city"
+                                    v-model="form.city_id"
+                                >
+                                    <option value="">City</option>
+                                    <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
+                                </select>
+                                <i class="custom-fa-select fa fa-chevron-down"></i>
+                                <p v-show="errors.has('city')" class="is-danger">{{ errors.first('city') }}</p>
+
                             </div>
 
                             <div class="form-group">
@@ -124,8 +133,7 @@
 </template>
 
 <script>
-import { CITY_NAME, CITY_ID } from '@constants/address';
-import { DEFAULT_GENDER, DEFAULT_GENDER_TEXT } from '@constants/gender';
+import { DEFAULT_GENDER_TEXT } from '@constants/gender';
 import moment from 'moment';
 
 export default {
@@ -134,29 +142,27 @@ export default {
         return {
             form: {
                 name: '',
-                gender: DEFAULT_GENDER,
                 birthday: '',
                 contact_no: '',
                 age: '',
                 street: '',
-                barangay_id: '',
-                city_id: CITY_ID,
+                barangay: '',
+                city_id: '',
                 landmark: '',
             },
             term_and_cond: false,
             submitLoading: false,
-            city_name: CITY_NAME,
             female_text: DEFAULT_GENDER_TEXT
         }
     },
     computed: {
-        barangays() {
-            return this.$store.getters['Barangays/all'];
+        cities() {
+            return this.$store.getters['Cities/all'];
         },
     },
     methods: {
-        getBarangays() {
-            this.$store.dispatch('Barangays/index', { city_id: CITY_ID });
+        getCities() {
+            this.$store.dispatch('Cities/index');
         },
         async submitRegistration() {
             if(!this.term_and_cond) {
@@ -179,7 +185,7 @@ export default {
         },
         validateAge() {
             this.form.age = moment().diff(this.form.birthday, 'years');
-            return (this.form.age >= 18 && this.form.age <= 30) ? true : false;
+            return (this.form.age >= 18 && this.form.age <= 30);
         },
         submit() {
             return new Promise(async(resolve,reject) => {
@@ -196,7 +202,7 @@ export default {
         },
     },
     mounted() {
-        this.getBarangays();
+        this.getCities();
     }
 }
 </script>

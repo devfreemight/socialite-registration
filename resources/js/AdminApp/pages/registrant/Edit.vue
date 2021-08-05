@@ -15,80 +15,53 @@
                                         <div class="form-group">
                                             <label for="name" class="font-weight-bold">Full Name</label>
                                             <input id="name"
-                                                v-validate="'max:255'"
+                                                v-validate="{ required:true, regex:/^(?![\s.]+$)[a-zA-Z\s.]*$/, max:255 }"
+                                                data-vv-as="full name"
                                                 type="text"
                                                 class="form-control"
-                                                name="full name"
+                                                name="full_name"
                                                 v-model="form.name"
-                                                placeholder="Juana Dela Cruz"
+                                                placeholder="Maymay Entrata"
                                                 autofocus
                                             >
-                                            <p v-show="errors.has('full name')" class="is-danger">{{ errors.first('full name') }}</p>
+                                            <p v-show="errors.has('full_name')" class="is-danger">{{ errors.first('full_name') }}</p>
                                         </div>
 
                                         <div class="form-row">
                                             <div class="form-group col-sm">
-                                                <label for="gender" class="font-weight-bold">Gender</label>
-                                                <select class="form-control"
-                                                    v-validate="'included:1'"
-                                                    name="gender"
-                                                    id="gender"
-                                                    v-model="form.gender"
+                                                <label for="birthday" class="font-weight-bold">Birthday</label>
+                                                <input id="birthday"
+                                                    v-validate="'required|date_format:MM/dd/yyyy'"
+                                                    type="text"
+                                                    class="form-control"
+                                                    name="birthday"
+                                                    v-model="form.birthday"
+                                                    placeholder="mm/dd/YYYY"
                                                 >
-                                                    <option value="0">Male</option>
-                                                    <option value="1">Female</option>
-                                                </select>
-                                                <i class="custom-fa-select fa fa-chevron-down"></i>
-                                                <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
+                                                <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
                                             </div>
 
                                             <div class="form-group col-sm">
-                                                <label for="age" class="font-weight-bold">Age</label>
-                                                <input id="age"
-                                                    v-validate="'between:18,30'"
+                                                <label for="contact_no" class="font-weight-bold">Contact No.</label>
+                                                <input id="contact_no"
+                                                    v-validate="'required|digits:11'"
+                                                    data-vv-as="contact no."
                                                     type="text"
                                                     class="form-control"
-                                                    name="age"
-                                                    v-model="form.age"
-                                                    placeholder="18-30"
+                                                    name="contact_no"
+                                                    v-model="form.contact_no"
+                                                    placeholder="09123456789"
                                                 >
-                                                <p v-show="errors.has('age')" class="is-danger">{{ errors.first('age') }}</p>
+                                                <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
                                             </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="birthday" class="font-weight-bold">Birthday</label>
-                                            <input id="birthday"
-                                                v-validate="'date_format:MM/dd/yyyy'"
-                                                type="text"
-                                                class="form-control"
-                                                name="birthday"
-                                                v-model="form.birthday"
-                                                placeholder="mm/dd/YYYY"
-                                            >
-                                            <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
                                         </div>
                                     </div>
 
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="contact_no" class="font-weight-bold">Contact No.</label>
-                                            <input id="contact_no"
-                                                v-validate="'digits:11'"
-                                                data-vv-as="contact no."
-                                                type="text"
-                                                class="form-control"
-                                                name="contact_no"
-                                                v-model="form.contact_no"
-                                                placeholder="09123456789"
-                                            >
-                                            <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
-                                        </div>
-
-                                        <div class="form-group">
                                             <label for="address" class="font-weight-bold">Street Address</label>
                                             <input id="address"
-                                                v-validate="'max:255'"
+                                                v-validate="'required|max:255'"
                                                 data-vv-as="house # and street"
                                                 type="text"
                                                 class="form-control"
@@ -101,17 +74,30 @@
 
                                         <div class="form-group">
                                             <label for="barangay" class="font-weight-bold">Barangay</label>
+                                            <input id="barangay"
+                                                v-validate="'required|max:255'"
+                                                type="text"
+                                                class="form-control"
+                                                name="barangay"
+                                                v-model="form.barangay"
+                                                placeholder="Barangay"
+                                            >
+                                            <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="city" class="font-weight-bold">City</label>
                                             <select class="form-control"
                                                 v-validate="'required'"
-                                                name="barangay"
-                                                id="barangay"
-                                                v-model="form.barangay_id"
+                                                name="city"
+                                                id="city"
+                                                v-model="form.city_id"
                                             >
-                                                <option value="" disabled>Barangay</option>
-                                                <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
+                                                <option value="" disabled>City</option>
+                                                <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
                                             </select>
                                             <i class="custom-fa-select fa fa-chevron-down"></i>
-                                            <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
+                                            <p v-show="errors.has('city')" class="is-danger">{{ errors.first('city') }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -121,7 +107,7 @@
                                         <div class="form-group">
                                             <label for="landmark" class="font-weight-bold">Landmark</label>
                                             <textarea id="landmark"
-                                                v-validate="'max:255'"
+                                                v-validate="'required|max:255'"
                                                 class="form-control"
                                                 rows="6"
                                                 v-model="form.landmark"
@@ -156,8 +142,6 @@
 </template>
 
 <script>
-import { CITY_ID } from '@constants/address';
-import { mapGetters } from 'vuex';
 import moment from 'moment';
 import Modal from '@admin/components/Modal';
 
@@ -175,13 +159,12 @@ export default {
         return {
             form: {
                 name: '',
-                gender: '',
                 birthday: '',
                 contact_no: '',
                 age: '',
                 street: '',
                 barangay_id: '',
-                city_id: CITY_ID,
+                city_id: '',
                 landmark: '',
                 id: this.id,
             },
@@ -190,8 +173,10 @@ export default {
         }
     },
     computed: {
-        ...mapGetters({ barangays: 'Barangays/all' }),
-        original(){
+        cities() {
+            return this.$store.getters['Cities/all']
+        },
+        original() {
             return this.$store.getters['Registrants/find'](this.id)
         },
     },
@@ -213,6 +198,9 @@ export default {
                 if (!valid) {
                     this.$toast.error('All details must be filled out correctly to continue.');
                     return;
+                } else if (!this.validateAge()) {
+                    this.$toast.error('Only participants/registrants aged 18-30 years old are allowed.');
+                    return;
                 }  else {
                     this.toggleModal(true);
                 }
@@ -231,13 +219,17 @@ export default {
                 }
             });
         },
-        getBarangays() {
-            this.$store.dispatch('Barangays/index', { city_id: CITY_ID });
+        validateAge() {
+            this.form.age = moment().diff(this.form.birthday, 'years');
+            return (this.form.age >= 18 && this.form.age <= 30);
+        },
+        getCities() {
+            this.$store.dispatch('Cities/index');
         },
     },
     created() {
         this.initialize();
-        this.getBarangays();
+        this.getCities();
     },
 }
 </script>

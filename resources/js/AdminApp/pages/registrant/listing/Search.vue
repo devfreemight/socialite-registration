@@ -31,26 +31,9 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="gender" class="font-weight-bold">Gender</label>
-                                            <select class="form-control"
-                                                v-validate="'included:1'"
-                                                name="gender"
-                                                id="gender"
-                                                v-model="form.gender"
-                                            >
-                                                <option value="0">Male</option>
-                                                <option value="1">Female</option>
-                                            </select>
-                                            <i class="custom-fa-select fa fa-chevron-down"></i>
-                                            <p v-show="errors.has('gender')" class="is-danger">{{ errors.first('gender') }}</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
                                             <label for="age" class="font-weight-bold">Age</label>
                                             <input id="age"
-                                                v-validate="'between:18,30'"
+                                                v-validate="'numeric|between:18,30'"
                                                 type="text"
                                                 class="form-control"
                                                 name="age"
@@ -58,6 +41,17 @@
                                                 placeholder="18-30"
                                             >
                                             <p v-show="errors.has('age')" class="is-danger">{{ errors.first('age') }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="export_status" class="font-weight-bold">Export Status</label>
+                                            <select class="form-control" name="export_status" id="export_status" v-model="form.export_status">
+                                                <option value="0">{{ EXPORT_VALUES[0] }}</option>
+                                                <option value="1">{{ EXPORT_VALUES[1] }}</option>
+                                            </select>
+                                            <i class="custom-fa-select fa fa-chevron-down"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -80,18 +74,22 @@
 
                                 <div class="form-group">
                                     <label for="barangay" class="font-weight-bold">Barangay</label>
-                                    <select class="form-control" name="barangay" id="barangay" v-model="form.barangay_id">
-                                        <option value="">Barangay</option>
-                                        <option v-for="brgy in barangays" :key="brgy.brgy_id" :value="brgy.brgy_id">{{ brgy.name }}</option>
-                                    </select>
-                                    <i class="custom-fa-select fa fa-chevron-down"></i>
+                                    <input id="barangay"
+                                        v-validate="'max:255'"
+                                        type="text"
+                                        class="form-control"
+                                        name="barangay"
+                                        v-model="form.barangay"
+                                        placeholder="Barangay"
+                                    >
+                                    <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="export_status" class="font-weight-bold">Export Status</label>
-                                    <select class="form-control" name="export_status" id="export_status" v-model="form.export_status">
-                                        <option value="0">{{ EXPORT_VALUES[0] }}</option>
-                                        <option value="1">{{ EXPORT_VALUES[1] }}</option>
+                                    <label for="city" class="font-weight-bold">City</label>
+                                    <select class="form-control" name="city" id="city" v-model="form.city_id">
+                                        <option value="">City</option>
+                                        <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
                                     </select>
                                     <i class="custom-fa-select fa fa-chevron-down"></i>
                                 </div>
@@ -113,7 +111,6 @@
 <script>
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { VALUES as EXPORT_VALUES, DEFAULT_STATUS } from '@constants/export';
-import { mapGetters } from 'vuex';
 
 export default {
     name: 'SearchForm',
@@ -121,10 +118,10 @@ export default {
         return {
             form: {
                 name: '',
-                gender: '1',
                 contact_no: '',
                 age: '',
-                barangay_id: '',
+                barangay: '',
+                city_id: '',
                 export_status: DEFAULT_STATUS,
             },
             searchLoading: false,
@@ -134,7 +131,9 @@ export default {
         }
     },
     computed: {
-        ...mapGetters({ barangays: 'Barangays/all' }),
+        cities() {
+            return this.$store.getters['Cities/all'];
+        },
     },
     methods: {
         async searchHandler() {
