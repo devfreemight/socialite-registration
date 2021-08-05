@@ -3,7 +3,7 @@ import VeeValidate, { Validator } from 'vee-validate';
 const registration = {
     custom: {
         full_name: {
-            regex: 'The full name field may only contain alphabetic characters as well as spaces.'
+            regex: 'The full name field may only contain alphabetic characters as well as spaces and period.'
         },
         gender: {
             included: 'Only female participants are allowed.'

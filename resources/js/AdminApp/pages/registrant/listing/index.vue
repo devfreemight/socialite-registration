@@ -13,7 +13,6 @@
 <script>
 import TABLE from './Table';
 import SEARCH_FORM from './Search';
-import { CITY_ID } from '@constants/address';
 
 export default {
     name : 'RegistrantListingPageIndex',
@@ -22,12 +21,12 @@ export default {
         'search-form': SEARCH_FORM,
     },
     methods:{
-        getBarangays() {
-            this.$store.dispatch('Barangays/index', { city_id: CITY_ID });
+        getCities() {
+            this.$store.dispatch('Cities/index');
         },
     },
     mounted() {
-        this.getBarangays();
+        this.getCities();
     },
 }
 </script>
