@@ -18,5 +18,26 @@ class CitySeeder extends Seeder
             "region_code"   => "07",
             "province_code" => "0722",
         ]);
+
+        City::create([
+            "city_id"       => "072226",
+            "name"          => "Lapu-lapu City",
+            "region_code"   => "07",
+            "province_code" => "0722",
+        ]);
+
+        City::create([
+            "city_id"       => "072230",
+            "name"          => "Mandaue City",
+            "region_code"   => "07",
+            "province_code" => "0722",
+        ]);
+
+        City::create([
+            "city_id"       => "072250",
+            "name"          => "Talisay City",
+            "region_code"   => "07",
+            "province_code" => "0722",
+        ]);
     }
 }
