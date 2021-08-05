@@ -90,7 +90,6 @@
                                     id="city"
                                     v-model="form.city_id"
                                 >
-                                    <option value="">City</option>
                                     <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
                                 </select>
                                 <i class="custom-fa-select fa fa-chevron-down"></i>
@@ -134,6 +133,7 @@
 
 <script>
 import { DEFAULT_GENDER_TEXT } from '@constants/gender';
+import { CITY_ID } from '@constants/address';
 import moment from 'moment';
 
 export default {
@@ -147,7 +147,7 @@ export default {
                 age: '',
                 street: '',
                 barangay: '',
-                city_id: '',
+                city_id: CITY_ID,
                 landmark: '',
             },
             term_and_cond: false,
