@@ -93,7 +93,6 @@
                                                 id="city"
                                                 v-model="form.city_id"
                                             >
-                                                <option value="" disabled>City</option>
                                                 <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
                                             </select>
                                             <i class="custom-fa-select fa fa-chevron-down"></i>
@@ -144,6 +143,7 @@
 <script>
 import moment from 'moment';
 import Modal from '@admin/components/Modal';
+import { CITY_ID } from '@constants/address';
 
 export default {
     name : 'RegistrantEdit',
@@ -164,7 +164,7 @@ export default {
                 age: '',
                 street: '',
                 barangay_id: '',
-                city_id: '',
+                city_id: CITY_ID,
                 landmark: '',
                 id: this.id,
             },

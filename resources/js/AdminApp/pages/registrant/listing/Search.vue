@@ -88,7 +88,6 @@
                                 <div class="form-group">
                                     <label for="city" class="font-weight-bold">City</label>
                                     <select class="form-control" name="city" id="city" v-model="form.city_id">
-                                        <option value="">City</option>
                                         <option v-for="city in cities" :key="city.city_id" :value="city.city_id">{{ city.name }}</option>
                                     </select>
                                     <i class="custom-fa-select fa fa-chevron-down"></i>
@@ -111,6 +110,7 @@
 <script>
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { VALUES as EXPORT_VALUES, DEFAULT_STATUS } from '@constants/export';
+import { CITY_ID } from '@constants/address';
 
 export default {
     name: 'SearchForm',
@@ -121,7 +121,7 @@ export default {
                 contact_no: '',
                 age: '',
                 barangay: '',
-                city_id: '',
+                city_id: CITY_ID,
                 export_status: DEFAULT_STATUS,
             },
             searchLoading: false,
