@@ -24,14 +24,14 @@ class StoreRegistration extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|unique:registrants',
-            'gender' => 'required|in:1',
-            'birthday' => 'required|date|date_format:m/d/Y',
+            'name'       => 'required|max:255|unique:registrants',
+            'birthday'   => 'required|date|date_format:m/d/Y',
             'contact_no' => 'required|digits:11|unique:registrants',
-            'age' => 'required|numeric|between:18,30',
-            'street' => 'required|max:255',
-            'barangay_id' => 'required|string|max:10',
-            'landmark' => 'required|max:255',
+            'age'        => 'required|numeric|between:18,30',
+            'street'     => 'required|max:255',
+            'barangay'   => 'required|string|max:255',
+            'city_id'    => 'required|max:6',
+            'landmark'   => 'required|max:255',
         ];
     }
 }

@@ -20,9 +20,8 @@ class RegistrantExport implements FromCollection, WithMapping, WithHeadings
     public function collection()
     {
         return \DB::table('registrants')
-            ->join('barangays', 'registrants.barangay_id', '=', 'barangays.brgy_id')
             ->join('cities', 'registrants.city_id', '=', 'cities.city_id')
-            ->select('registrants.*', 'barangays.name AS barangay', 'cities.name AS city')
+            ->select('registrants.*', 'cities.name AS city')
             ->whereIn('registrants.id', $this->_ids)
             ->oldest('name')
             ->oldest('city')

@@ -16,12 +16,12 @@ class RegistrantRepository implements RegistrantRepositoryInterface
 
     public function getAll($data)
     {
-        $registrant = Registrant::where('name', 'like', '%' . $data['name'] . '%')
-            ->where('gender', 'like', $data['gender'] . '%')
+        $registrant = Registrant::with('city')
+            ->where('name', 'like', '%' . $data['name'] . '%')
             ->where('contact_no', 'like', '%' . $data['contact_no'] . '%')
             ->where('age', 'like', $data['age'] . '%')
-            ->where('barangay_id', 'like', $data['barangay_id'] . '%')
-            ->where('city_id', config('constants.defaults.city.id'))
+            ->where('barangay', 'like', '%' . $data['barangay'] . '%')
+            ->where('city_id', 'like', '%' . $data['city_id'] . '%')
             ->where('export_status', $data['export_status'])
             ->oldest('name')
             ->oldest('age')
@@ -38,14 +38,13 @@ class RegistrantRepository implements RegistrantRepositoryInterface
     {
         $registrant = new $this->registrant;
 
-        $registrant->name          = $data['name'];
-        $registrant->gender        = $data['gender'];
+        $registrant->name          = ucwords(strtolower($data['name']));
         $registrant->birthday      = date('Y-m-d', strtotime($data['birthday']));
         $registrant->contact_no    = $data['contact_no'];
         $registrant->age           = $data['age'];
         $registrant->street        = $data['street'];
-        $registrant->barangay_id   = $data['barangay_id'];
-        $registrant->city_id       = config('constants.defaults.city.id');
+        $registrant->barangay      = $data['barangay'];
+        $registrant->city_id       = $data['city_id'];
         $registrant->landmark      = $data['landmark'];
         $registrant->export_status = config('constants.defaults.export_status');
 
@@ -57,13 +56,13 @@ class RegistrantRepository implements RegistrantRepositoryInterface
     {
         $registrant = $this->registrant->find($id);
 
-        $registrant->name        = $data['name'];
-        $registrant->gender      = $data['gender'];
+        $registrant->name        = ucwords(strtolower($data['name']));
         $registrant->birthday    = date('Y-m-d', strtotime($data['birthday']));
         $registrant->contact_no  = $data['contact_no'];
         $registrant->age         = $data['age'];
         $registrant->street      = $data['street'];
-        $registrant->barangay_id = $data['barangay_id'];
+        $registrant->barangay    = $data['barangay'];
+        $registrant->city_id     = $data['city_id'];
         $registrant->landmark    = $data['landmark'];
 
         $registrant->save();

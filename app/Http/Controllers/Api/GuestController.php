@@ -26,12 +26,12 @@ class GuestController extends Controller
     {
         $data = $request->only([
             'name',
-            'gender',
             'birthday',
             'contact_no',
             'age',
             'street',
-            'barangay_id',
+            'barangay',
+            'city_id',
             'landmark',
         ]);
 
