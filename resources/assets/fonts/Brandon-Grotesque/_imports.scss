@@ -1,0 +1,61 @@
+
+@mixin build__fonts($name) {
+    $base: local("Brandon Grotesque");
+    $regular: local("Brandon Grotesque Regular"), $base;
+    $light: local("Brandon Grotesque Light"), $base;
+    $medium: local("Brandon Grotesque Medium"), $base;
+    $bold: local("Brandon Grotesque Bold"), $base;
+    $black: local("Brandon Grotesque Black"), $base;
+    $thin: local("Brandon Grotesque Thin"), $base;
+
+    @font-face {
+        @if $name == "light" {
+            font-family: "Brandon Grotesque Light";
+            src: $light;
+            src: url("Light.otf");
+            font-weight: 200;
+            font-display: block;
+        } @else if $name == "medium" {
+            font-family: "Brandon Grotesque Medium";
+            src: $medium;
+            src: url("Medium.otf");
+            font-weight: 500;
+            font-display: block;
+        } @else if $name == "bold" {
+            font-family: "Brandon Grotesque Bold";
+            src: $bold;
+            src: url("Bold.otf");
+            font-weight: 700;
+            font-display: block;
+        } @else if $name == "black" {
+            font-family: "Brandon Grotesque Black";
+            src: $black;
+            src: url("Black.otf");
+            font-weight: 900;
+            font-display: block;
+        } @else if $name == "thin" {
+            font-family: "Brandon Grotesque Thin";
+            src: $thin;
+            src: url("Thin.otf");
+            font-weight: 100;
+            font-display: block;
+        } @else {
+            font-family: "Brandon Grotesque Regular";
+            src: $regular;
+            src: url("Regular.otf");
+            font-weight: 400;
+            font-display: block;
+        }
+    }
+}
+
+/*
+*
+* SIMPLY COMMENT OUT NOT IN USE FONT-FAMILY
+*/
+@include build__fonts("regular");
+@include build__fonts("light");
+@include build__fonts("medium");
+@include build__fonts("bold");
+@include build__fonts("black");
+@include build__fonts("thin");
