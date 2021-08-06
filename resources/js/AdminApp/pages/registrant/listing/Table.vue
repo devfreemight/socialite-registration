@@ -1,6 +1,6 @@
 <template>
     <div class="container mw-100 m-0 p-3">
-        <h5 class="mb-4">Search Results</h5>
+        <h5 class="mb-4 fs-14">Search Results</h5>
 
         <div class="table-responsive">
             <table class="table">

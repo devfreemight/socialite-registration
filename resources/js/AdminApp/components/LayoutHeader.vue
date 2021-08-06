@@ -12,9 +12,10 @@
         </nav>
 
         <modal v-if="showModal">
-            <p slot="body" class="text-center">Are you sure do you want to logout?</p>
-            <button slot="footer" class="btn btn-primary" @click="logout">Proceed</button>
-            <button slot="footer" class="btn btn-secondary" @click="closeModal">Cancel</button>
+            <h2 slot="header" class="font-weight-bold">Confirmation</h2>
+            <p slot="body">Are you sure do you want to logout?</p>
+            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="logout">Proceed</button>
+            <button slot="footer" class="btn btn-danger rounded-pill px-5" @click="closeModal">Cancel</button>
         </modal>
     </div>
 </template>
