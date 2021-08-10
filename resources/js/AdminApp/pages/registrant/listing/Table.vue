@@ -1,6 +1,6 @@
 <template>
     <div class="container mw-100 m-0 p-3">
-        <h5 class="mb-4 fs-14">Search Results</h5>
+        <h5 class="mb-4 fs-16">Search Results</h5>
 
         <div class="table-responsive">
             <table class="table">
@@ -10,14 +10,14 @@
                             <input type="checkbox" v-model="isCheckedAll" @click="selectAll">
                         </th>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Birthday</th>
-                        <th scope="col">Contact No.</th>
-                        <th scope="col">Age</th>
-                        <th scope="col">Street</th>
-                        <th scope="col">Barangay</th>
+                        <th scope="col" @click="toggleSort('name')">Name</th>
+                        <th scope="col" @click="toggleSort('birthday')">Birthday</th>
+                        <th scope="col" @click="toggleSort('contact_no')">Contact No.</th>
+                        <th scope="col" @click="toggleSort('age')">Age</th>
+                        <th scope="col" @click="toggleSort('street')">Street</th>
+                        <th scope="col" @click="toggleSort('barangay')">Barangay</th>
                         <th scope="col">City</th>
-                        <th scope="col">Landmark</th>
+                        <th scope="col" @click="toggleSort('landmark')">Landmark</th>
                         <th scope="col">Status</th>
                         <th scope="col" class="text-center">Actions</th>
                     </tr>
@@ -31,7 +31,7 @@
 
                     <tr v-show="data" :key="rowNum" v-for="(datum, rowNum) in data">
                         <td>
-                            <input type="checkbox" v-model="selected" @click="toggleSelect" :value="datum.id">
+                            <input type="checkbox" v-model="selected" :value="datum.id">
                         </td>
                         <th scope="row">{{ rowNum | getTableNumber(currentPage, perPage) }}</th>
                         <td>{{ datum | getProperty('name', '') }} </td>
@@ -59,7 +59,7 @@
                 <ui-button :handler="exportPrompt" class="btn btn-primary rounded-pill px-4" :loading="exportLoading">Export</ui-button>
             </div>
             <div class="col-sm-5">
-                <ui-pagination class="text-right" v-show="lastPage > 1" :total="lastPage" v-model="currentPage">
+                <ui-pagination v-show="lastPage > 1" :total="lastPage" v-model="currentPage">
                     <span slot="prev-page-button">
                         <i class="fas fa-chevron-left"></i>
                     </span>
@@ -67,7 +67,7 @@
                         <i class="fas fa-chevron-right"></i>
                     </span>
                 </ui-pagination >
-                <span class="pl-5">Showing <b>{{ from || 0 }}~{{ to || 0 }}</b> of <b>{{ total || 0 }}</b> results</span>
+                <span>Showing <b>{{ from || 0 }}~{{ to || 0 }}</b> of <b>{{ total || 0 }}</b> results</span>
             </div>
         </div>
 
@@ -103,6 +103,8 @@ export default {
             exportModal: false,
             deleteModal: false,
             idToDelete: '',
+            sortColumn: 'name',
+            sortDirection: 'asc',
         }
     },
     computed: {
@@ -135,10 +137,12 @@ export default {
             return this.registrants.total;
         }
     },
+    watch: {
+        selected () {
+            this.isCheckedAll = (this.selected.length == this.data.length);
+        }
+    },
     methods: {
-        toggleSelect(datum) {
-            this.allSelected = false;
-        },
         selectAll() {
             this.selected = [];
             if (!this.isCheckedAll) {
@@ -146,6 +150,20 @@ export default {
                     this.selected.push(this.data[i].id);
                 }
             }
+        },
+        toggleSort(value) {
+            if (value === this.sortColumn) {
+                this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+            }
+            this.sortColumn = value;
+
+            let params = Object.assign(this.params, {
+                orderByColumn: this.sortColumn,
+                orderByDirection: this.sortDirection
+            });
+
+            this.$store.commit('Registrants/setParams', params);
+            this.$store.dispatch('Registrants/index', params);
         },
         exportPrompt() {
             if (this.selected.length == 0) {
@@ -166,13 +184,12 @@ export default {
                 document.body.appendChild(link)
                 link.click()
 
-                this.isCheckedAll = true;
-                this.selectAll();
+                this.selected = [];
+                this.$store.dispatch('Registrants/index', this.params);
             } catch(error) {
                 console.log(error);
             } finally {
                 this.exportLoading = false;
-                this.isCheckedAll = false;
             }
         },
         deletePrompt(id) {
@@ -189,11 +206,14 @@ export default {
             })
         },
     },
+    mounted() {
+        console.log(this.$route.fullPath);
+    }
 };
 </script>
 
-<style lang=scss scoped>
-.table {
-    font-size: 14px;
+<style lang="scss" scoped>
+th {
+    cursor:pointer;
 }
 </style>
