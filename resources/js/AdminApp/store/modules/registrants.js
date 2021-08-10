@@ -11,7 +11,9 @@ export default build ({
     state: {
         registrants: {},
         params: {
-            page: ''
+            page: 1,
+            orderByColumn: 'name',
+            orderByDirection: 'asc'
         }
     },
     getters: {

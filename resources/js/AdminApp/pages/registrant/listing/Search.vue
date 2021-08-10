@@ -111,6 +111,7 @@
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { VALUES as EXPORT_VALUES, DEFAULT_STATUS } from '@constants/export';
 import { CITY_ID } from '@constants/address';
+import { mapState } from 'vuex';
 
 export default {
     name: 'SearchForm',
@@ -131,6 +132,7 @@ export default {
         }
     },
     computed: {
+        ...mapState('Registrants', ['params']),
         cities() {
             return this.$store.getters['Cities/all'];
         },
@@ -150,7 +152,8 @@ export default {
         submit() {
             return new Promise(async(resolve,reject) => {
                 try {
-                    await this.$store.dispatch('Registrants/index', this.form);
+                    let params = Object.assign(this.params, this.form);
+                    await this.$store.dispatch('Registrants/index', params);
                 } catch (error) {
                     console.log(error);
                 } finally {

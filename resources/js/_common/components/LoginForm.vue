@@ -2,12 +2,12 @@
 <form @submit.prevent="submit" autocomplete="on">
     <slot v-bind:form="form">
         <div class="form-group mt-4">
-            <label class="fs-16" for="email">Email</label>
+            <label class="fs-16 font-weight-bold" for="email">Email</label>
             <input type="email" v-validate="'required|email'" name="email" v-model="form.email" id="email" class="form-control form-control-lg">
             <p v-show="errors.has('email')" class="is-danger">{{ errors.first('email') }}</p>
         </div>
         <div class="form-group mb-40">
-            <label class="fs-16" for="password">Password</label>
+            <label class="fs-16 font-weight-bold" for="password">Password</label>
             <input type="password" v-validate="'required'" name="password" v-model="form.password" id="password" class="form-control form-control-lg">
             <p v-show="errors.has('password')" class="is-danger">{{ errors.first('password') }}</p>
         </div>
