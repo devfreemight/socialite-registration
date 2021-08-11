@@ -19,6 +19,7 @@
                                     v-model="form.name"
                                     placeholder="Maymay Entrata"
                                     autofocus
+                                    ref="full_name"
                                 >
                                 <p v-show="errors.has('full_name')" class="is-danger">{{ errors.first('full_name') }}</p>
                             </div>
@@ -38,6 +39,7 @@
                                     name="birthday"
                                     v-model="form.birthday"
                                     placeholder="mm/dd/YYYY"
+                                    ref="birthday"
                                 >
                                 <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
                                 <p class="">Only participants/registrants aged 18-30 years old are allowed, you must be born on year 1991 onwards but not later than year 2003.</p>
@@ -52,6 +54,7 @@
                                     class="form-control form-control-lg"
                                     name="contact_no"
                                     v-model="form.contact_no"
+                                    ref="contact_no"
                                 >
                                 <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
                             </div>
@@ -66,6 +69,7 @@
                                     name="address"
                                     v-model="form.street"
                                     placeholder="House #, Street"
+                                    ref="address"
                                 >
                                 <p v-show="errors.has('address')" class="is-danger">{{ errors.first('address') }}</p>
                             </div>
@@ -78,6 +82,7 @@
                                     name="barangay"
                                     v-model="form.barangay"
                                     placeholder="Barangay"
+                                    ref="barangay"
                                 >
                                 <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
                             </div>
@@ -104,6 +109,7 @@
                                     rows="6"
                                     v-model="form.landmark"
                                     name="landmark"
+                                    ref="landmark"
                                 ></textarea>
                                 <p v-show="errors.has('landmark')" class="is-danger">{{ errors.first('landmark') }}</p>
                             </div>
@@ -171,6 +177,7 @@ export default {
 
             this.$validator.validate().then(valid => {
                 if (!valid) {
+                    this.$refs[this.errors.items[0].field].focus(),
                     this.$toast.error('All details must be filled out correctly to continue and confirm the registration.');
                     return;
                 } else if (!this.validateAge()) {
