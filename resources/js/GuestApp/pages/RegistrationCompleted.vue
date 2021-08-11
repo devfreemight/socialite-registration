@@ -39,6 +39,6 @@ p {
     @include rfs(18px);
 }
 h2 {
-    width: 10rem;
+    width: 15rem;
 }
 </style>
