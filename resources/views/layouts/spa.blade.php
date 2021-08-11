@@ -16,7 +16,11 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="stylesheet" href="{{ mix('/css/fonts.css') }}">
+    @if(config('app.env') === 'production')
+        <link rel="stylesheet" href="{{ mix('/dist/fonts.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ mix('/css/fonts.css') }}">
+    @endif
 
     <!-- Styles -->
     @yield('head')
