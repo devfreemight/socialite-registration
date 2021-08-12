@@ -80,7 +80,6 @@ if (mix.inProduction()) {
         .js('resources/js/GuestApp/app.js','public/dist/ProdGuestApp.js')
         .sass('resources/sass/guest-app.scss', 'public/dist')
         .sass('resources/sass/admin-app.scss', 'public/dist')
-        .sass('resources/assets/fonts/fonts.scss', 'public/dist')
         .extract(vendors,'dist/vendor')
         .version();
 }else{
@@ -88,6 +87,5 @@ if (mix.inProduction()) {
     .js('resources/js/GuestApp/app.js','public/js/GuestApp.js')
     .sass('resources/sass/guest-app.scss', 'public/css')
     .sass('resources/sass/admin-app.scss', 'public/css')
-    .sass('resources/assets/fonts/fonts.scss', 'public/css')
     .extract(vendors,'js/vendor');
 }

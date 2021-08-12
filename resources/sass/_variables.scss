@@ -2,7 +2,8 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: BrandonGrotesqueRegular, sans-serif;
+$font-family-sans-serif: BrandonGrotesqueRegular, sans-serif !default;
+$font-family-base: $font-family-sans-serif !default;
 $font-size-base: 1rem;
 $line-height-base: 1.6;
 
