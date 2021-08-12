@@ -1,4 +1,6 @@
 
+$prefix_path: $assets_url + "/fonts/Brandon-Grotesque/";
+
 @mixin build__fonts($name) {
     $base: local("Brandon Grotesque");
     $regular: local("Brandon Grotesque Regular"), $base;
@@ -12,37 +14,37 @@
         @if $name == "light" {
             font-family: "Brandon Grotesque Light";
             src: $light;
-            src: url(#{$assets_url}+"/fonts/Light.otf") format('otf');
+            src: url(#{$prefix_path}+"Light.otf") format('otf');
             font-weight: 200;
             font-display: block;
         } @else if $name == "medium" {
             font-family: "Brandon Grotesque Medium";
             src: $medium;
-            src: url(#{$assets_url}+"/fonts/Medium.otf") format('otf');
+            src: url(#{$prefix_path}+"Medium.otf") format('otf');
             font-weight: 500;
             font-display: block;
         } @else if $name == "bold" {
             font-family: "Brandon Grotesque Bold";
             src: $bold;
-            src: url(#{$assets_url}+"/fonts/Bold.otf") format('otf');
+            src: url(#{$prefix_path}+"Bold.otf") format('otf');
             font-weight: 700;
             font-display: block;
         } @else if $name == "black" {
             font-family: "Brandon Grotesque Black";
             src: $black;
-            src: url(#{$assets_url}+"/fonts/Black.otf") format('otf');
+            src: url(#{$prefix_path}+"Black.otf") format('otf');
             font-weight: 900;
             font-display: block;
         } @else if $name == "thin" {
             font-family: "Brandon Grotesque Thin";
             src: $thin;
-            src: url(#{$assets_url}+"/fonts/Thin.otf") format('otf');
+            src: url(#{$prefix_path}+"Thin.otf") format('otf');
             font-weight: 100;
             font-display: block;
         } @else {
             font-family: "Brandon Grotesque Regular";
             src: $regular;
-            src: url(#{$assets_url}+"/fonts/Regular.otf") format('otf');
+            src: url(#{$prefix_path}+"Regular.otf") format('otf');
             font-weight: 400;
             font-display: block;
         }
