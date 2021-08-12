@@ -14,6 +14,10 @@
 
     <link rel="shortcut icon" href="{{ asset('images/brandiology-logo.png') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
     <!-- Styles -->
     @yield('head')
 </head>
