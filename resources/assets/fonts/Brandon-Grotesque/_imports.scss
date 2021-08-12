@@ -1,4 +1,3 @@
-
 $prefix_path: $assets_url + "/fonts/Brandon-Grotesque/";
 
 @mixin build__fonts($name) {
@@ -13,38 +12,32 @@ $prefix_path: $assets_url + "/fonts/Brandon-Grotesque/";
     @font-face {
         @if $name == "light" {
             font-family: "Brandon Grotesque Light";
-            src: $light;
-            src: url(#{$prefix_path}+"Light.otf") format('otf');
+            src: $light, url(#{$prefix_path}+"Light.otf") format('otf');
             font-weight: 200;
             font-display: block;
         } @else if $name == "medium" {
             font-family: "Brandon Grotesque Medium";
-            src: $medium;
-            src: url(#{$prefix_path}+"Medium.otf") format('otf');
+            src: $medium, url(#{$prefix_path}+"Medium.otf") format('otf');
             font-weight: 500;
             font-display: block;
         } @else if $name == "bold" {
             font-family: "Brandon Grotesque Bold";
-            src: $bold;
-            src: url(#{$prefix_path}+"Bold.otf") format('otf');
+            src: $bold, url(#{$prefix_path}+"Bold.otf") format('otf');
             font-weight: 700;
             font-display: block;
         } @else if $name == "black" {
             font-family: "Brandon Grotesque Black";
-            src: $black;
-            src: url(#{$prefix_path}+"Black.otf") format('otf');
+            src: $black, url(#{$prefix_path}+"Black.otf") format('otf');
             font-weight: 900;
             font-display: block;
         } @else if $name == "thin" {
             font-family: "Brandon Grotesque Thin";
-            src: $thin;
-            src: url(#{$prefix_path}+"Thin.otf") format('otf');
+            src: $thin, url(#{$prefix_path}+"Thin.otf") format('otf');
             font-weight: 100;
             font-display: block;
         } @else {
             font-family: "Brandon Grotesque Regular";
-            src: $regular;
-            src: url(#{$prefix_path}+"Regular.otf") format('otf');
+            src: $regular, url(#{$prefix_path}+"Regular.otf") format('otf');
             font-weight: 400;
             font-display: block;
         }
