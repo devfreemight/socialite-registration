@@ -19,6 +19,7 @@
                                     v-model="form.name"
                                     placeholder="Maymay Entrata"
                                     autofocus
+                                    ref="full_name"
                                 >
                                 <p v-show="errors.has('full_name')" class="is-danger">{{ errors.first('full_name') }}</p>
                             </div>
@@ -26,7 +27,7 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">Gender</label>
                                 <input type="text" class="form-control form-control-lg" name="gender" v-model="female_text" readonly>
-                                <p class="is-danger">Only female participants/registrants are allowed to get a free shampoo.</p>
+                                <p class="">Only female participants/registrants are allowed to get a free shampoo.</p>
                             </div>
 
                             <div class="form-group">
@@ -38,21 +39,22 @@
                                     name="birthday"
                                     v-model="form.birthday"
                                     placeholder="mm/dd/YYYY"
+                                    ref="birthday"
                                 >
                                 <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
-                                <p class="is-danger">Only participants/registrants aged 18-30 years old are allowed.</p>
+                                <p class="">Only participants/registrants aged 18-30 years old are allowed, you must be born on year 1991 onwards but not later than year 2003.</p>
                             </div>
 
                             <div class="form-group">
-                                <label for="contact_no" class="font-weight-bold">Contact No.</label>
+                                <label for="contact_no" class="font-weight-bold">Contact Number/Mobile Number</label>
                                 <input id="contact_no"
                                     v-validate="'required|digits:11'"
-                                    data-vv-as="contact no."
+                                    data-vv-as="contact number/mobile number"
                                     type="text"
                                     class="form-control form-control-lg"
                                     name="contact_no"
                                     v-model="form.contact_no"
-                                    placeholder="09123456789"
+                                    ref="contact_no"
                                 >
                                 <p v-show="errors.has('contact_no')" class="is-danger">{{ errors.first('contact_no') }}</p>
                             </div>
@@ -67,6 +69,7 @@
                                     name="address"
                                     v-model="form.street"
                                     placeholder="House #, Street"
+                                    ref="address"
                                 >
                                 <p v-show="errors.has('address')" class="is-danger">{{ errors.first('address') }}</p>
                             </div>
@@ -79,6 +82,7 @@
                                     name="barangay"
                                     v-model="form.barangay"
                                     placeholder="Barangay"
+                                    ref="barangay"
                                 >
                                 <p v-show="errors.has('barangay')" class="is-danger">{{ errors.first('barangay') }}</p>
                             </div>
@@ -105,6 +109,7 @@
                                     rows="6"
                                     v-model="form.landmark"
                                     name="landmark"
+                                    ref="landmark"
                                 ></textarea>
                                 <p v-show="errors.has('landmark')" class="is-danger">{{ errors.first('landmark') }}</p>
                             </div>
@@ -172,10 +177,11 @@ export default {
 
             this.$validator.validate().then(valid => {
                 if (!valid) {
-                    this.$toast.error('All details must be filled out correctly to continue and confirm the registration');
+                    this.$refs[this.errors.items[0].field].focus(),
+                    this.$toast.error('All details must be filled out correctly to continue and confirm the registration.');
                     return;
                 } else if (!this.validateAge()) {
-                    this.$toast.error('Only participants/registrants aged 18-30 years old are allowed.');
+                    this.$toast.error('Only participants/registrants aged 18-30 years old are allowed, you must be born on year 1991 onwards but not later than year 2003.');
                     return;
                 } else {
                     this.submitLoading = true;
