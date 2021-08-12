@@ -11,32 +11,32 @@ $prefix_path: $assets_url + "/fonts/Brandon-Grotesque/";
 
     @font-face {
         @if $name == "light" {
-            font-family: "Brandon Grotesque Light";
+            font-family: "BrandonGrotesqueLight";
             src: url(#{$prefix_path}+"Light.otf") format('otf');
             font-weight: 200;
             font-display: block;
         } @else if $name == "medium" {
-            font-family: "Brandon Grotesque Medium";
+            font-family: "BrandonGrotesqueMedium";
             src: url(#{$prefix_path}+"Medium.otf") format('otf');
             font-weight: 500;
             font-display: block;
         } @else if $name == "bold" {
-            font-family: "Brandon Grotesque Bold";
+            font-family: "BrandonGrotesqueBold";
             src: url(#{$prefix_path}+"Bold.otf") format('otf');
             font-weight: 700;
             font-display: block;
         } @else if $name == "black" {
-            font-family: "Brandon Grotesque Black";
+            font-family: "BrandonGrotesqueBlack";
             src: url(#{$prefix_path}+"Black.otf") format('otf');
             font-weight: 900;
             font-display: block;
         } @else if $name == "thin" {
-            font-family: "Brandon Grotesque Thin";
+            font-family: "BrandonGrotesqueThin";
             src: url(#{$prefix_path}+"Thin.otf") format('otf');
             font-weight: 100;
             font-display: block;
         } @else {
-            font-family: "Brandon Grotesque Regular";
+            font-family: "BrandonGrotesqueRegular";
             src: url(#{$prefix_path}+"Regular.otf") format('otf');
             font-weight: 400;
             font-display: block;
