@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 class UserSeeder extends Seeder
 {
     /**
@@ -11,6 +13,10 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class, 50)->create();
+        DB::table('users')->insert([
+            'name'     => Str::random(10),
+            'email'    => 'test@gmail.com',
+            'password' => Hash::make('password'),
+        ]);
     }
 }

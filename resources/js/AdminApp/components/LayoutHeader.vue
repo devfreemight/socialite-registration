@@ -2,43 +2,45 @@
     <div class="layout-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <router-link class="navbar-brand" :to="{ name:'home' }">
-                <img src="" class="card-img-top" alt="..." id="">
+                <img :src="$_assets('/images/brandiology-banner.png')" class="" alt="Brandiology PH" id="brandiology-logo" title="Brandiology PH">
             </router-link>
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-10 d-flex justify-content-center flex-column align-center"> <span class="user-name" :to="{name:'home'}" >{{ user.last_name }} {{ user.first_name }} </span> </li>
-                    <li class="nav-item"> <ui-button class="logout-button" @click="prompt">Logout</ui-button></li>
+                    <li class="nav-item"> <ui-button class="btn btn-primary rounded-pill logout-button" @click="prompt">Logout</ui-button></li>
                 </ul>
             </div>
         </nav>
+
+        <modal v-if="showModal">
+            <h2 slot="header" class="font-weight-bold">Confirmation</h2>
+            <p slot="body">Are you sure do you want to logout?</p>
+            <button slot="footer" class="btn btn-primary rounded-pill px-5" @click="logout">Proceed</button>
+            <button slot="footer" class="btn btn-danger rounded-pill px-5" @click="closeModal">Cancel</button>
+        </modal>
     </div>
 </template>
 
 <script>
+import Modal from './Modal';
+
 export default {
     name:'layout-header',
-    computed:{
-        user(){
-            return this.$store.getters['Auth/profile'];
-        },
-        activeTab(){
-            let match;
-            this.$route.matched.forEach((route)=>{
-                if (route.meta.hasOwnProperty('tab')) {
-                    match = route.meta.tab;
-                }
-            });
-            return match;
+    components: {
+        Modal
+    },
+    data() {
+        return {
+            showModal: false,
         }
     },
     methods:{
-        prompt(){
-            this.$dialog.open({
-                content: 'Are you sure do you want to logout?',
-                buttons:[ { text: 'Proceed', click:this.logout}, ]
-            });
+        prompt() {
+            this.showModal = true;
         },
-        logout(){
+        closeModal() {
+            this.showModal = false;
+        },
+        logout() {
             return this.$store.dispatch('Auth/logout');
         },
     },
@@ -49,14 +51,15 @@ export default {
 <style lang="scss">
 .layout-header{
     flex-grow: 1;
-    max-height:94px;
+    max-height: 94px;
     width: 100%;
-    padding: 20px 120px;
+    padding: 0px 120px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.03);
     background-color: #ffffff;
+    z-index: 9998;
     nav.navbar{
-        max-width:1440px;
-        margin:0 auto;
+        max-width: 1440px;
+        margin: 0 auto;
         padding: 0rem 1rem;
     }
     .navbar-brand{
@@ -73,9 +76,8 @@ export default {
     }
     .navbar-nav{
         .nav-item{
-            font-family: NotoSansJP;
             font-size: 16px;
-            font-weight:normal;
+            font-weight: normal;
             font-stretch: normal;
             font-style: normal;
             line-height: normal;
@@ -90,13 +92,9 @@ export default {
             }
         }
     }
-    .user-name{
-        font-weight: 500;
-        color: #9c9c9c;
-    }
-    #sti-logo{
-        height: 54px;
-        width: auto;
+    #brandiology-logo{
+        height: auto;
+        width: 228px;
     }
 }
 </style>

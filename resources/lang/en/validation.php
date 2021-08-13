@@ -130,9 +130,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'birthday' => [
+            'date_format' => 'The birthday does not match the format mm/dm/YYYY.',
         ],
+        'gender' => [
+            'in' => 'Only female participants are allowed',
+        ],
+        'age' => [
+            'between' => 'Only participants aged 18-30 are allowed',
+        ]
     ],
 
     /*

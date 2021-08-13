@@ -29,10 +29,10 @@ export default function(_permissions,params={}){
             return typeof onUnauthenticated == 'function' ? onUnauthenticated(context) : onUnauthenticated;
         }
 
-        let role = store.getters['Auth/role'] || ''
-        if(!isWithIn(role, _permissions)){
-            return typeof onUnauthenticated == 'function' ? onUnauthenticated(context) : onUnauthenticated;
-        }
-        return next();
+        // let role = store.getters['Auth/role'] || ''
+        // if(!isWithIn(role, _permissions)){
+        //     return typeof onUnauthenticated == 'function' ? onUnauthenticated(context) : onUnauthenticated;
+        // }
+        // return next();
     }
 }

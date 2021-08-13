@@ -24,14 +24,15 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.3",
         "@popperjs/core": "^2.9.2",
         "aj-vue-ui": "^0.2.44",
-        "freedom-js-support": "^1.0.38",
-        "freedom-vue-framework": "^1.0.102",
+        "freedom-js-support": "^1.0.43",
+        "freedom-vue-framework": "^1.0.107",
         "js-cookie": "^2.2.1",
         "moment": "^2.27.0",
         "nprogress": "^0.2.0",
-        "vee-validate": "^3.4.10",
+        "vee-validate": "^2.2.15",
         "vue-axios": "^3.2.4",
         "vue-bus": "^1.2.1",
         "vue-resource": "^1.5.3",

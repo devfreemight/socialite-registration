@@ -2,9 +2,9 @@
 
 @section('head')
     @if(config('app.env') === 'production')
-        <link rel="stylesheet" href="{{ mix('/dist/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('/dist/guest-app.css') }}">
     @else
-        <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('/css/guest-app.css') }}">
     @endif
 @endsection
 

@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,17 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name',
-        'gender',
-        'birthdate',
-        'contact_no',
-        'age_range',
-        'address',
-        'landmark',
-        'city_id',
-        'facebook_id',
-        'email',
-        'is_admin',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -35,8 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        // 'password',
-        'remember_token',
+        'password', 'remember_token',
     ];
 
     /**
@@ -47,9 +37,4 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function scopeFindByFacebookId($query, $id)
-    {
-        return $query->where('facebook_id', $id);
-    }
 }

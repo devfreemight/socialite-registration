@@ -1,0 +1,36 @@
+.ui-pagination {
+    .pagination-item {
+        height: 40px;
+        width: 40px;
+        border: 1px solid transparent;
+        border-style: solid;
+        padding: 0.375rem 0.75rem;
+        border-radius: 50% !important;
+        &:not(:first-child),
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+        color: black;
+        background-color: #ffffff;
+        font-weight: bolder;
+        &.current-page {
+            opacity: 1;
+            background-color: #3490dc;
+            color: #ffffff;
+        }
+    }
+    .prev-page,
+    .next-page {
+        background-color: #3490dc;
+        color: #ffffff;
+        border-color: #3490dc;
+        border: 1px solid transparent;
+        border-style: solid;
+        padding: 0.375rem 0.75rem;
+        border-radius: 50% !important;
+        &.is-disabled {
+            color: black;
+            border: none;
+        }
+    }
+}

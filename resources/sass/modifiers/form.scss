@@ -1,0 +1,16 @@
+.form-control {
+    border-radius: 2rem !important;
+    border: solid 1px #ededed;
+    &.form-control-lg {
+        font-size: 1rem !important;
+    }
+}
+
+.form-group {
+    margin-bottom: 2rem !important;
+}
+
+.form-control:focus {
+    border-color: #ff5e75;
+    box-shadow: 0 0 0 0.2rem rgba(219, 136, 136, 0.25);;
+}

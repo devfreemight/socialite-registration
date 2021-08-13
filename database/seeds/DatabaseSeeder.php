@@ -11,9 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            CitySeeder::class,
-            UserSeeder::class,
-        ]);
+        $this->call([CitySeeder::class, BarangaySeeder::class, UserSeeder::class]);
+
+        if ($this->isLocalEnvironment()) {
+            $this->call([RegistrantSeeder::class]);
+        }
+    }
+
+    protected function isLocalEnvironment() {
+        return \Config::get('app.env') == 'local';
     }
 }
