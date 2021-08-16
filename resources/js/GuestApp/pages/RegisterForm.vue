@@ -42,7 +42,7 @@
                                     ref="birthday"
                                 >
                                 <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
-                                <p class="">Only participants/registrants aged 18-30 years old are allowed, you must be born on year 1991 onwards but not later than year 2003.</p>
+                                <p class="">Only participants/registrants aged 18-30 years old are allowed to redeem the free shampoo, you must be born on year 1991 onwards but not later than year 2003.</p>
                             </div>
 
                             <div class="form-group">
@@ -98,7 +98,6 @@
                                 </select>
                                 <i class="custom-fa-select fa fa-chevron-down"></i>
                                 <p v-show="errors.has('city')" class="is-danger">{{ errors.first('city') }}</p>
-
                             </div>
 
                             <div class="form-group">
@@ -219,5 +218,8 @@ export default {
         font-size: 11px;
         padding-top: 3px;
     }
+}
+p {
+    font-size: 13px;
 }
 </style>

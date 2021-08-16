@@ -37,6 +37,7 @@ export default {
 }
 p {
     @include rfs(18px);
+    text-align: center;
 }
 h2 {
     width: 15rem;
