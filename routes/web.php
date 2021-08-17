@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/brandiology-admin/{vue?}', "App\AdminAppController@index")
-    ->where('vue', '[\/\w\W\.-]*')
-    ->middleware('auth.basic');
+    ->where('vue', '[\/\w\W\.-]*');
 Route::get('/{vue?}', "App\GuestAppController@index")->where('vue', '[\/\w\W\.-]*');
