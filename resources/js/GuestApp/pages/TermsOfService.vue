@@ -3,7 +3,7 @@
 
         <div class="row justify-content-center">
             <div class="col-sm-10 col-md-10 col-lg-6">
-                <img :src="$_assets('/images/brandiology-banner.png')" class="img-fluid my-4 my-md-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
+                <img :src="$_assets('/images/brandiology-banner-red.png')" class="img-fluid my-4 my-md-5" alt="Brandiology PH | Brand ideas come to life" id="" title="Brandiology PH | Brand ideas come to life">
             </div>
         </div>
 
