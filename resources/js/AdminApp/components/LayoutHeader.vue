@@ -2,7 +2,7 @@
     <div class="layout-header">
         <nav class="navbar navbar-expand-lg navbar-light">
             <router-link class="navbar-brand" :to="{ name:'home' }">
-                <img :src="$_assets('/images/brandiology-banner.png')" class="" alt="Brandiology PH" id="brandiology-logo" title="Brandiology PH">
+                <img :src="$_assets('/images/brandiology-banner-red.png')" class="" alt="Brandiology PH" id="brandiology-logo" title="Brandiology PH">
             </router-link>
             <div class="navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
