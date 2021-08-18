@@ -40,9 +40,10 @@ export default [
                 component: REGISTER_FORM,
             },
             {
-                path: 'registration',
+                path: 'registration/:token',
                 name: PAGE_GUEST_REGISTRATION_SUCCESS,
-                component: REGISTRATION_COMPLETED
+                component: REGISTRATION_COMPLETED,
+                props: true,
             },
             {
                 path: 'terms-of-service',

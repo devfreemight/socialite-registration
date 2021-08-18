@@ -46,6 +46,7 @@ class RegistrantRepository implements RegistrantRepositoryInterface
         $registrant->city_id       = $data['city_id'];
         $registrant->landmark      = $data['landmark'];
         $registrant->export_status = config('constants.defaults.export_status');
+        $registrant->registration_token = \Str::random(100);
 
         $registrant->save();
         return $registrant->fresh();

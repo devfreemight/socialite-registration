@@ -24,8 +24,25 @@
 </template>
 
 <script>
+import api from "@api/guests";
+import { PAGE_GUEST_REGISTRATION } from '@common/pages'
+
 export default {
     name: 'RegistrationCompleted',
+    props: {
+        token: {
+            type: String,
+            required: true
+        },
+    },
+    async beforeRouteEnter(to, from, next) {
+        try {
+            await api.check_registration_token(to.params.token);
+        } catch (error) {
+            return next({ name: PAGE_GUEST_REGISTRATION });
+        }
+        next();
+    },
 }
 </script>
 

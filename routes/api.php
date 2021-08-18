@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Api'], function () {
     Route::get('/cities', 'CitiesController@index');
     Route::get('/barangay', 'BarangayController@getList');
     Route::apiResource('/guest', 'GuestController');
+    Route::get('/guest/check-registration-token/{token}', 'GuestController@checkRegistration');
 
     Route::group(['prefix' => 'admin', 'middleware' => ['auth:api']], function () {
         Route::resource('/listing', 'AdminListingController');
