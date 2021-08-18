@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRegistration;
 use App\Services\RegistrantService;
+use Illuminate\Validation\ValidationException;
 use Exception;
 
 class GuestController extends Controller
@@ -47,6 +48,25 @@ class GuestController extends Controller
         }
 
         return response()->json($result, $result['status']);
+    }
+
+    public function checkRegistration($token)
+    {
+        $result = ['msg' => 'Registration token valid.'];
+
+        $registrant = \App\Registrant::where('registration_token', $token)->firstOr(function () {
+            throw ValidationException::withMessages([
+                'token' => __('validation.custom.invalid_registration_token')
+            ]);
+        });
+
+        if (\Carbon\Carbon::parse($registrant->created_at)->addHours(24)->isPast()) {
+            throw ValidationException::withMessages([
+                'token' => __('validation.custom.registration_token'),
+            ]);
+        }
+
+        return response()->json($result);
     }
 
 }

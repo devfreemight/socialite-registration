@@ -138,7 +138,9 @@ return [
         ],
         'age' => [
             'between' => 'Only participants aged 18-30 are allowed',
-        ]
+        ],
+        'registration_token' => 'This registration is past 24 hours.',
+        'invalid_registration_token' => 'This registration token is invalid.'
     ],
 
     /*
