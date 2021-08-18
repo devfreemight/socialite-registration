@@ -137,6 +137,7 @@
 
 <script>
 import { DEFAULT_GENDER_TEXT } from '@constants/gender';
+import { PAGE_GUEST_REGISTRATION_SUCCESS } from '@common/pages'
 import { CITY_ID } from '@constants/address';
 import moment from 'moment';
 
@@ -195,8 +196,11 @@ export default {
         submit() {
             return new Promise(async(resolve,reject) => {
                 try {
-                    await this.$store.dispatch('Guests/add', this.form);
-                    this.$router.push({ name: 'registration.success' });
+                    let response = await this.$store.dispatch('Guests/add', this.form);
+                    this.$router.push({
+                        name: PAGE_GUEST_REGISTRATION_SUCCESS,
+                        params: { token: response.data.registration_token }
+                    });
                 } catch (error) {
                     reject(error);
                 } finally {
