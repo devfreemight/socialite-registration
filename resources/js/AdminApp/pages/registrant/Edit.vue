@@ -183,11 +183,15 @@ export default {
     methods: {
         async initialize(){
             this.form = Object.assign({}, this.original);
+            let block = this.$block.show();
             try {
                 let response = await this.$store.dispatch('Registrants/get', { id: this.id, })
                 this.form = Object.assign({}, this.$_Arr.getProperty(response.data, '', this.form));
                 this.form.birthday = moment(this.form.birthday).format('MM/DD/Y');
             } catch(error) {}
+            finally {
+                block.close();
+            }
         },
         toggleModal(value) {
             this.showModal = value;
@@ -207,6 +211,7 @@ export default {
             });
         },
         update() {
+            let block = this.$block.show();
             return new Promise(async (resolve,reject)=>{
                 try {
                     await this.$store.dispatch('Registrants/update', this.form);
@@ -215,6 +220,7 @@ export default {
                     console.error(error);
                 } finally {
                     this.toggleModal(false);
+                    block.close();
                     resolve();
                 }
             });
