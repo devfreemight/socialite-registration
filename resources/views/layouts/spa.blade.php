@@ -16,7 +16,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
     @yield('head')
