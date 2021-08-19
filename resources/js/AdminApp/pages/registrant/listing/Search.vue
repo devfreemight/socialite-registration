@@ -150,6 +150,7 @@ export default {
             });
         },
         submit() {
+            let block = this.$block.show();
             return new Promise(async(resolve,reject) => {
                 try {
                     let params = Object.assign(this.params, this.form);
@@ -158,6 +159,7 @@ export default {
                     console.log(error);
                 } finally {
                     this.searchLoading = false;
+                    block.close();
                     resolve();
                 }
             });

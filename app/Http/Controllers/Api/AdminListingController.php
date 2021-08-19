@@ -122,6 +122,7 @@ class AdminListingController extends Controller
 
         try {
             $result['data'] = $this->registrantService->deleteById($id);
+            $result['message'] = 'Record deleted successfully.';
         } catch (Exception $e) {
             $result = [
                 'status' => 422,

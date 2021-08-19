@@ -56,7 +56,7 @@ export default {
     padding: 0px 120px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.03);
     background-color: #ffffff;
-    z-index: 9998;
+    z-index: 40;
     nav.navbar{
         max-width: 1440px;
         margin: 0 auto;
