@@ -15,7 +15,7 @@ const registration = {
             required: 'The birthday field is required.'
         },
         age: {
-            between: "Only participants/registrants aged 18-30 years old are allowed, you must be born on year 1991 onwards but not later than year 2003."
+            between: "Only participants/registrants aged 18 and above are allowed to redeem the free shampoo."
         },
         contact_no: {
             required: 'The contact number/mobile number field is required.',

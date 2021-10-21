@@ -203,7 +203,7 @@ export default {
                     this.$toast.error('All details must be filled out correctly to continue.');
                     return;
                 } else if (!this.validateAge()) {
-                    this.$toast.error('Only participants/registrants aged 18-30 years old are allowed.');
+                    this.$toast.error('Only participants/registrants aged 18 and above years old are allowed.');
                     return;
                 }  else {
                     this.toggleModal(true);
@@ -227,7 +227,7 @@ export default {
         },
         validateAge() {
             this.form.age = moment().diff(this.form.birthday, 'years');
-            return (this.form.age >= 18 && this.form.age <= 30);
+            return (this.form.age >= 18);
         },
         getCities() {
             this.$store.dispatch('Cities/index');

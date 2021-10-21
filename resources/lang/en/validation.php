@@ -137,7 +137,7 @@ return [
             'in' => 'Only female participants are allowed',
         ],
         'age' => [
-            'between' => 'Only participants aged 18-30 are allowed',
+            'gte' => 'Only participants/registrants aged 18 and above are allowed to redeem the free shampoo.',
         ],
         'registration_token' => 'This registration is past 24 hours.',
         'invalid_registration_token' => 'This registration token is invalid.'

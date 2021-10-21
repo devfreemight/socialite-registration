@@ -33,12 +33,12 @@
                                         <div class="form-group">
                                             <label for="age" class="font-weight-bold">Age</label>
                                             <input id="age"
-                                                v-validate="'numeric|between:18,30'"
+                                                v-validate="'numeric'"
                                                 type="text"
                                                 class="form-control"
                                                 name="age"
                                                 v-model="form.age"
-                                                placeholder="18-30"
+                                                placeholder="18 or above"
                                             >
                                             <p v-show="errors.has('age')" class="is-danger">{{ errors.first('age') }}</p>
                                         </div>
@@ -181,7 +181,6 @@ export default {
     background-color: rgb(202, 0, 17, 1);
     &.btn {
         padding: 0px 5px;
-        height: 23px;
     }
     .svg-inline--fa {
         color: white;
