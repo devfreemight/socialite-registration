@@ -42,7 +42,7 @@
                                     ref="birthday"
                                 >
                                 <p v-show="errors.has('birthday')" class="is-danger">{{ errors.first('birthday') }}</p>
-                                <p class="">Only participants/registrants aged 18-30 years old are allowed to redeem the free shampoo, you must be born on year 1991 onwards but not later than year 2003.</p>
+                                <p class="">Only participants/registrants aged 18 and above are allowed to redeem the free shampoo.</p>
                             </div>
 
                             <div class="form-group">
@@ -181,7 +181,7 @@ export default {
                     this.$toast.error('All details must be filled out correctly to continue and confirm the registration.');
                     return;
                 } else if (!this.validateAge()) {
-                    this.$toast.error('Only participants/registrants aged 18-30 years old are allowed, you must be born on year 1991 onwards but not later than year 2003.');
+                    this.$toast.error('Only participants/registrants aged 18 and above are allowed to redeem the free shampoo.');
                     return;
                 } else {
                     this.submitLoading = true;
@@ -191,7 +191,7 @@ export default {
         },
         validateAge() {
             this.form.age = moment().diff(this.form.birthday, 'years');
-            return (this.form.age >= 18 && this.form.age <= 30);
+            return (this.form.age >= 18);
         },
         submit() {
             return new Promise(async(resolve,reject) => {
